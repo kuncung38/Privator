@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 const port = process.env.PORT || 4001;
 
 app.get("/", (req, res, next) => {
-    res.send("Here is Uers services");
+    res.send("Here is Users services");
 });
 
 app.use(errorHandler);
