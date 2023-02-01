@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "name": "Mathematics",
+    "detail": "High School Mathematics",
+    "level": "Beginner",
+    "price": 200000,
+    "CategoryId": 1,
+    "InstructorId": "mongoDbId"
+  },
+  {
+    "id": 2,
+    "name": "English",
+    "detail": "Students must know english prior to joining",
+    "level": "Intermediate",
+    "price": 250000,
+    "CategoryId": 1,
+    "InstructorId": "mongoDbId"
+  },
+  {
+    "id": 3,
+    "name": "Physics",
+    "detail": "Tutor",
+    "level": "Advanced",
+    "price": "Tutor",
+    "CategoryId": 1,
+    "InstructorId": "mongoDbId"
+  },
+  {
+    "id": 4,
+    "name": "Mandarin",
+    "detail": "Tutor",
+    "level": "Beginner",
+    "price": "Tutor",
+    "CategoryId": 1,
+    "InstructorId": "mongoDbId"
+  },
+  {
+    "id": 5,
+    "name": "CrossFit",
+    "detail": "Involves constantly varied functional movements performed at high intensity",
+    "level": "Intermediate",
+    "price": 300000,
+    "CategoryId": 2,
+    "InstructorId": "mongoDbId"
+  },
+  {
+    "id": 6,
+    "name": "Muay Thai",
+    "detail": "Combat sport that uses stand-up striking along with various clinching techniques",
+    "level": "Advanced",
+    "price": 300000,
+    "CategoryId": 2,
+    "InstructorId": "mongoDbId"
+  },
+  {
+    "id": 7,
+    "name": "Tutor",
+    "detail": "Tutor",
+    "level": "Tutor",
+    "price": "Tutor",
+    "CategoryId": 2,
+    "InstructorId": "mongoDbId"
+  },
+  {
+    "id": 8,
+    "name": "Guitar",
+    "detail": "Beginner friendly",
+    "level": "Beginner",
+    "price": 300000,
+    "CategoryId": 5,
+    "InstructorId": "mongoDbId"
+  },
+  {
+    "id": 9,
+    "name": "Piano",
+    "detail": "Beginner friendly",
+    "level": "Beginner",
+    "price": 300000,
+    "CategoryId": 5,
+    "InstructorId": "mongoDbId"
+  },
+  {
+    "id": 10,
+    "name": "Piano",
+    "detail": "",
+    "level": "Intermediate",
+    "price": 300000,
+    "CategoryId": 5,
+    "InstructorId": "mongoDbId"
+  },
+  {
+    "id": 11,
+    "name": "Violin",
+    "detail": "Tutor",
+    "level": "Intermediate",
+    "price": 300000,
+    "CategoryId": 5,
+    "InstructorId": "mongoDbId"
+  },
+  {
+    "id": 12,
+    "name": "Guitar",
+    "detail": "Tutor",
+    "level": "Intermediate",
+    "price": 300000,
+    "CategoryId": 5,
+    "InstructorId": "mongoDbId"
+  }
+]
