@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const argon2 = require("argon2");
 
-const userModel = new mongoose.Schema(
+const studentModel = new mongoose.Schema(
     {
         fullName: {
             type: String,
@@ -24,9 +24,6 @@ const userModel = new mongoose.Schema(
             required: [true, "passsword is required"],
         },
         bio: {
-            type: String,
-        },
-        role: {
             type: String,
         },
         birthData: {
@@ -60,11 +57,11 @@ const userModel = new mongoose.Schema(
     }
 );
 
-userModel.methods.matchPassword = async function (password) {
+studentModel.methods.matchPassword = async function (password) {
     return await argon2.verify(this.password, password);
 };
 
-userModel.pre("save", async function (next) {
+studentModel.pre("save", async function (next) {
     try {
         if (!this.isModified()) {
             next();
@@ -77,5 +74,5 @@ userModel.pre("save", async function (next) {
     }
 });
 
-const User = mongoose.model("User", userModel);
-module.exports = User;
+const Student = mongoose.model("Student", studentModel);
+module.exports = Student;

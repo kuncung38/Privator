@@ -11,15 +11,25 @@ function errorHandler(err, req, res, next) {
             message = errors[0];
             break;
 
-        case "Email, password and username are required":
+        case "Email and password are required":
             status = 400;
-            message = "Email, password and username are required";
+            message = err.name;
             break;
 
         case "email is already exists":
         case "Invalid user or password":
             status = 401;
             message = err.name;
+            break;
+        case "Student not found":
+        case "Instructor not found":
+            status = 404;
+            message = err.name;
+            break;
+        case "CastError":
+            status = 400;
+            message = "Bad id format, data not found";
+            break;
     }
     res.status(status).json({ message });
 }
