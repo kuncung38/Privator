@@ -1,0 +1,24 @@
+[
+    {
+        "_id": "63d911666f949706b6f4e383",
+        "fullName": "Budi",
+        "email": "budi@test.com",
+        "password": "$argon2id$v=19$m=65536,t=3,p=4$Z/Y10Nvb8t8WHQxJcxUeig$YQ8qyN84o2oUdTBk2WfE/69xYVaj1CvFqUp5qm29XcU",
+        "bio": "Seorang yang halu",
+        "role": "student",
+        "birthData": "1997-07-13",
+        "phoneNumber": "086969696969",
+        "address": "Jalan kesejahteraan dan kenikmatan"
+    },
+    {
+        "_id": "63d911666f949706b6fe5838",
+        "fullName": "Jono",
+        "email": "jono@teacher.com",
+        "password": "$argon2id$v=19$m=65536,t=3,p=4$Z/Y10Nvb8t8WHQxJcxUeig$YQ8qyN84o2oUdTBk2WfE/69xYVaj1CvFqUp5qm29XcU",
+        "bio": "Seorang guru yang halu",
+        "role": "instructor",
+        "birthData": "1997-08-12",
+        "phoneNumber": "089641235",
+        "address": "Jalan Keguruan dan kenikmatan"
+    }
+]
