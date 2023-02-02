@@ -20,24 +20,24 @@ class CourseController {
   static async postCourse(req, res, next) {
     const t = await sequelize.transaction();
     try {
-      const { name, description, price, mainImg, categoryId, img1, img2 } =
+      const { name, detail, price, img, CategoryId, schedules } =
         req.body;
 
-      const data = await Product.create(
+      const data = await Course.create(
         {
           name,
-          description,
+          detail,
           price,
           mainImg,
-          authorId: req.user.id,
-          categoryId,
+          InstructorId: req.user.id,
+          CategoryId,
         },
         { transaction: t }
       );
 
       await t.commit();
       res.status(201).json({
-        message: `Product added: ${createdProduct.name}`,
+        message: `Product added: ${data.name}`,
       });
     } catch (err) {
       await t.rollback();
