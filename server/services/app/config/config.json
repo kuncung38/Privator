@@ -2,14 +2,14 @@
   "development": {
     "username": "postgres",
     "password": null,
-    "database": "database_development_final_project",
+    "database": "database_development_privator",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "username": "root",
+    "username": "postgres",
     "password": null,
-    "database": "database_test_final_project",
+    "database": "database_test_privator",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
