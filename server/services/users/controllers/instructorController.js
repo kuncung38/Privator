@@ -4,12 +4,14 @@ const argon2 = require("argon2");
 class InstructorController {
     static async register(req, res, next) {
         try {
-            const { email } = req.body;
+            const { email, username } = req.body;
 
-            let userFound = await Instructor.findOne({ email });
+            let userFound = await Instructor.findOne({
+                $or: [{ email }, { username }],
+            });
             if (userFound) {
                 throw {
-                    name: "email is already exists",
+                    name: "email or username is already exists",
                 };
             }
             await Instructor.create(req.body);
@@ -45,7 +47,11 @@ class InstructorController {
 
     static async getAllInstructor(req, res, next) {
         try {
-            const data = await Instructor.find();
+            const students = await Instructor.find();
+            let data = students.map((el) => {
+                delete el.password;
+                return el;
+            });
             res.status(200).json(data);
         } catch (error) {
             console.log(error);
@@ -57,6 +63,7 @@ class InstructorController {
         try {
             const { _id } = req.params;
             const instructor = await Instructor.findById(_id);
+            delete instructor.password;
             res.status(200).json(instructor);
         } catch (error) {
             console.log(error.name);

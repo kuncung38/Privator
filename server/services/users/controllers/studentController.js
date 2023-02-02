@@ -6,10 +6,12 @@ class StudentController {
         try {
             const { email } = req.body;
 
-            let userFound = await Student.findOne({ email });
+            let userFound = await Student.findOne({
+                $or: [{ email }, { username }],
+            });
             if (userFound) {
                 throw {
-                    name: "email is already exists",
+                    name: "email or username is already exists",
                 };
             }
             await Student.create(req.body);
@@ -44,6 +46,10 @@ class StudentController {
     static async getAllStudents(req, res, next) {
         try {
             let data = await Student.find();
+            let students = data.map((el) => {
+                delete el.password;
+                return password;
+            });
             res.status(200).json(data);
         } catch (error) {
             next(error);
@@ -58,6 +64,7 @@ class StudentController {
                     name: "Student not found",
                 };
             }
+            delete student.password;
             res.status(200).json(student);
         } catch (error) {
             next(error);

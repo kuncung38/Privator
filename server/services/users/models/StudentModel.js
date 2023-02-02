@@ -7,6 +7,10 @@ const studentModel = new mongoose.Schema(
             type: String,
             required: [true, "fullName is required"],
         },
+        username: {
+            type: String,
+            required: [true, "username is required"],
+        },
         email: {
             type: String,
             required: [true, "email is required"],

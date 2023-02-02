@@ -32,6 +32,7 @@ Request:
 {
     "fullName": "string, required",
     "email": "string, required",
+    "username": "string, required",
     "password": "string, required",
     "bio": "string",
     "birthData": "date",
@@ -122,7 +123,7 @@ _Response (200 - OK)_
        {
             "fullName": "string",
             "email": "string",
-            "password": "string",
+            "username": "string, required",
             "bio": "string",
             "birthData": "date",
             "phoneNumber": "string",
@@ -151,7 +152,7 @@ _Response (200 - OK)_
 {
     "fullName": "string",
     "email": "string",
-    "password": "string",
+    "username": "string, required",
     "bio": "string",
     "birthData": "date",
     "phoneNumber": "string",
