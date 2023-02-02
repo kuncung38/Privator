@@ -49,7 +49,13 @@ const studentModel = new mongoose.Schema(
             type: String,
         },
         location: {
-            type: String,
+            type: {
+                type: String,
+                enum: ["Point"],
+            },
+            coordinates: {
+                type: [Number],
+            },
         },
     },
     {
