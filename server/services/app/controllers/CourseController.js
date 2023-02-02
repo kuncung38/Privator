@@ -17,13 +17,13 @@ class CourseController {
     }
   }
 
-  static async postProduct(req, res, next) {
+  static async postCourse(req, res, next) {
     const t = await sequelize.transaction();
     try {
       const { name, description, price, mainImg, categoryId, img1, img2 } =
         req.body;
 
-      const createdProduct = await Product.create(
+      const data = await Product.create(
         {
           name,
           description,
@@ -33,16 +33,6 @@ class CourseController {
           categoryId,
         },
         { transaction: t }
-      );
-
-      await Image.bulkCreate(
-        [
-          { productId: createdProduct.id, imgUrl: img1 },
-          { productId: createdProduct.id, imgUrl: img2 },
-        ],
-        {
-          transaction: t,
-        }
       );
 
       await t.commit();
@@ -69,26 +59,71 @@ class CourseController {
     }
   }
 
-  static async getProductById(req, res, next) {
+  static async getCourseById(req, res, next) {
     try {
       const { id } = req.params;
-      const foundProduct = await Product.findByPk(id, {
+      const data = await Course.findByPk(id, {
         include: {
-          model: Image,
-          as: "images",
-          attributes: ["imgUrl"],
+          model: Category,
+          // as: "category",
+          attributes: ["name"],
         },
       });
-      if (!foundProduct) {
+      if (!data) {
         throw { name: "NotFound" };
       }
-      res.status(200).json(foundProduct);
+      res.status(200).json(data);
     } catch (err) {
       next(err);
     }
   }
 
   static async putProduct(req, res, next) {
+    try {
+      const { id } = req.params;
+      const { name, description, price, mainImg, categoryId, img1, img2 } =
+        req.body;
+
+      const foundProduct = await Product.findByPk(id);
+      if (!foundProduct) {
+        throw { name: "NotFound" };
+      }
+      const slug = name.split(" ").join("-").toLowerCase();
+      await Product.update(
+        {
+          name,
+          slug,
+          description,
+          price,
+          mainImg,
+          categoryId,
+        },
+        {
+          where: { id },
+        }
+      );
+
+      const foundImages = await Image.findAll({ where: { productId: id } });
+
+      await Image.bulkCreate(
+        [
+          { id: foundImages[0].id, imgUrl: img1 },
+          { id: foundImages[1].id, imgUrl: img2 },
+        ],
+        {
+          updateOnDuplicate: ["imgUrl"],
+        }
+      );
+
+      res.status(201).json({
+        message: `Product updated: ${foundProduct.name}`,
+      });
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  static async patchCourse(req, res, next) {
     try {
       const { id } = req.params;
       const { name, description, price, mainImg, categoryId, img1, img2 } =
