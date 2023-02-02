@@ -20,8 +20,7 @@ class CourseController {
   static async postCourse(req, res, next) {
     const t = await sequelize.transaction();
     try {
-      const { name, detail, price, img, CategoryId, schedules } =
-        req.body;
+      const { name, detail, price, img, CategoryId, schedules } = req.body;
 
       const data = await Course.create(
         {
@@ -35,6 +34,7 @@ class CourseController {
         { transaction: t }
       );
 
+      // Tambahkan schedule disini ya //
       await t.commit();
       res.status(201).json({
         message: `Product added: ${data.name}`,
