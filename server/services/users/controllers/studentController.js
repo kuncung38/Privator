@@ -38,7 +38,7 @@ class StudentController {
                 };
             }
             delete userFound.password;
-            res.status(200).json("ok");
+            res.status(200).json(userFound);
         } catch (error) {
             next(error);
         }
