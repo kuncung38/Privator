@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Tutor"
+  },
+  {
+    "id": 2,
+    "name": "Personal Trainer"
+  },
+  {
+    "id": 3,
+    "name": "Music"
+  },
+  {
+    "id": 4,
+    "name": "Sports"
+  }
+]
