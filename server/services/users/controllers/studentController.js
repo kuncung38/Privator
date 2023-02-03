@@ -4,8 +4,10 @@ const argon2 = require("argon2");
 class StudentController {
     static async registerStudent(req, res, next) {
         try {
-            const { email } = req.body;
-
+            const { email, username } = req.body;
+            if (!email || !username || !password) {
+                throw { name: "Email, username, and password are required" };
+            }
             let userFound = await Student.findOne({
                 $or: [{ email }, { username }],
             });
@@ -17,7 +19,6 @@ class StudentController {
             await Student.create(req.body);
             res.status(201).json({ message: "New Student has been created" });
         } catch (error) {
-            console.log(error);
             next(error);
         }
     }

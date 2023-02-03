@@ -18,6 +18,11 @@
     PUT /instructors/:id
     DELETE /instructors/:id
 
+# Classroom CRUD
+
+    POST /classroom/create
+    GET  /classroom/:id
+
 ---
 
     Instructors routes needs request with format exactly as the same as Students routes, They also gave very similar responses. Just replace the url with /instructors and everything will work just fine

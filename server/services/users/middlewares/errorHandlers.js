@@ -11,18 +11,21 @@ function errorHandler(err, req, res, next) {
             message = errors[0];
             break;
 
+        case "Email, username, and password are required":
         case "Email and password are required":
+        case "SheduleList is required and must be an array that is not empty":
             status = 400;
             message = err.name;
             break;
 
-        case "email is already exists":
+        case "email or username is already exists":
         case "Invalid user or password":
             status = 401;
             message = err.name;
             break;
         case "Student not found":
         case "Instructor not found":
+        case "Class not found":
             status = 404;
             message = err.name;
             break;

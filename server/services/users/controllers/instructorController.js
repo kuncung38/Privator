@@ -5,6 +5,9 @@ class InstructorController {
     static async register(req, res, next) {
         try {
             const { email, username } = req.body;
+            if (!email || !username || !password) {
+                throw { name: "Email, username, and password are required" };
+            }
 
             let userFound = await Instructor.findOne({
                 $or: [{ email }, { username }],
@@ -54,7 +57,6 @@ class InstructorController {
             });
             res.status(200).json(data);
         } catch (error) {
-            console.log(error);
             next(error);
         }
     }
