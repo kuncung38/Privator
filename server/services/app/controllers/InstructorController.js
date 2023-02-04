@@ -19,7 +19,6 @@ class InstructorController {
           password,
         },
       });
-
      
       const payload = { id: data._id };
       const access_token = createToken(payload);

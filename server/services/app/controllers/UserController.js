@@ -40,16 +40,21 @@ class UserController {
 
   static async register(req, res, next) {
     try {
-      const { username, email, password, phoneNumber, address } = req.body;
-      const createdUser = await User.create({
-        username,
-        email,
-        password,
-        role: "admin",
-        phoneNumber,
-        address,
+      const { username, email, password, phoneNumber, address } =
+        req.body;
+      const { data } = await axios({
+        url: `http://localhost:4001/students/register`,
+        method: "POST",
+        data: {
+          username,
+          email,
+          password,
+          phoneNumber,
+          address,
+        },
       });
-      res.status(201).json({ message: `User created: ${createdUser.email}` });
+
+      res.status(201).json(data);
     } catch (err) {
       next(err);
     }

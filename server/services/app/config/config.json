@@ -9,8 +9,8 @@
   },
   "test": {
     "username": "postgres",
-    "password": null,
-    "database": "database_test_privator",
+    "password": "Dontgiveup123!",
+    "database": "database_testing_privator",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "logging": false
