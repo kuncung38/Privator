@@ -17,10 +17,10 @@ async function authentication(req, res, next) {
         name: data[0].fullName,
         email: data[0].email,
       };
+      next();
     } else {
       throw { name: "Unauthentication" };
     }
-
   } catch (err) {
     next(err);
   }
