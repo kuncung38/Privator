@@ -1,9 +1,10 @@
 const { User } = require("../models");
-const { signPayload } = require("../helpers/jwt.js");
-const { comparePassword } = require("../helpers/bcrypt.js");
+const { createToken } = require("../helpers/jwt");
+const { comparePassword } = require("../helpers/bcrypt");
+const axios = require("axios");
 
 class UserController {
-  static async login(req, res, next) {
+  static async loginStudent(req, res, next) {
     try {
       const { email, password } = req.body;
       if (!email) {
@@ -12,13 +13,26 @@ class UserController {
       if (!password) {
         throw { name: "MissingPasswordInput" };
       }
-      const foundUser = await User.findOne({ where: { email } });
-      if (!foundUser || !comparePassword(password, foundUser.password)) {
-        throw { name: "InvalidCredentials" };
+
+      const { data } = await axios({
+        method: "POST",
+        url: "http://localhost:4001/students/login",
+        data: {
+          email,
+          password,
+        },
+      });
+
+      if (!data) {
+        throw { name: "User not found" };
       }
-      const payload = { id: foundUser.id };
-      const access_token = signPayload(payload);
-      res.status(200).json({ access_token, email: foundUser.email });
+
+      const payload = { id: data._id };
+      const access_token = createToken(payload);
+
+      res
+        .status(200)
+        .json({ access_token, name: data.fullName, email: data.email });
     } catch (err) {
       next(err);
     }

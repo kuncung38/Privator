@@ -32,7 +32,9 @@ class StudentController {
                 };
             }
             let userFound = await Student.findOne({ email });
-            if (!userFound || !userFound.matchPassword(password)) {
+            const isValidPassword = await userFound.matchPassword(password);
+            console.log(userFound.matchPassword(password));
+            if (!userFound || !isValidPassword) {
                 throw {
                     name: "Invalid user or password",
                 };
@@ -40,6 +42,7 @@ class StudentController {
             delete userFound.password;
             res.status(200).json(userFound);
         } catch (error) {
+            console.log(error);
             next(error);
         }
     }
@@ -49,16 +52,18 @@ class StudentController {
             let data = await Student.find();
             let students = data.map((el) => {
                 delete el.password;
-                return password;
+                return el;
             });
             res.status(200).json(data);
         } catch (error) {
+            console.log(error);
             next(error);
         }
     }
 
     static async getOneStudent(req, res, next) {
         try {
+            const { _id } = req.params;
             let student = await Student.find({ _id });
             if (!student) {
                 throw {
