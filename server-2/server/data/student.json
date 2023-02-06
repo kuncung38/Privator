@@ -1,0 +1,154 @@
+[
+  {
+    "email": "banana@mail.com",
+    "password": "12345",
+    "fullName": "banana",
+    "bio": "Seorang yang halu",
+    "role": "student",
+    "birthDate": "1997-07-13",
+    "phoneNumber": "086969696969",
+    "address": "Jalan Pisang 1 No. 1 RT 01 RW 01",
+    "profilePicture": "https://via.placeholder.com/150",
+    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        106.78148927116388,
+        -6.260336686592879
+      ]
+    }
+  },
+  {
+    "email": "orange@mail.com",
+    "password": "12345",
+    "fullName": "orange",
+    "bio": "Seorang yang halu",
+    "role": "student",
+    "birthDate": "1997-07-13",
+    "phoneNumber": "086969696969",
+    "address": "Jalan jeruk 1 No. 1 RT 01 RW 01",
+    "profilePicture": "https://via.placeholder.com/150",
+    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        106.78148927116388,
+        -6.260336686592879
+      ]
+    }
+  },
+  {
+    "email": "grape@mail.com",
+    "password": "12345",
+    "fullName": "grape",
+    "bio": "Seorang yang halu",
+    "role": "student",
+    "birthDate": "1997-07-13",
+    "phoneNumber": "086969696969",
+    "address": "Jalan Anggur 1 No. 1 RT 01 RW 01",
+    "profilePicture": "https://via.placeholder.com/150",
+    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        106.78148927116388,
+        -6.260336686592879
+      ]
+    }
+  },
+  {
+    "email": "kentang@mail.com",
+    "password": "12345",
+    "fullName": "kentang",
+    "bio": "Seorang yang halu",
+    "role": "student",
+    "birthDate": "1997-07-13",
+    "phoneNumber": "086969696969",
+    "address": "Jalan kentang 1 No. 1 RT 01 RW 01",
+    "profilePicture": "https://via.placeholder.com/150",
+    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        106.78148927116388,
+        -6.260336686592879
+      ]
+    }
+  },
+  {
+    "email": "carrot@mail.com",
+    "password": "12345",
+    "fullName": "Carrot",
+    "bio": "Seorang yang halu",
+    "role": "student",
+    "birthDate": "1997-07-13",
+    "phoneNumber": "086969696969",
+    "address": "Jalan Wortel 1 No. 1 RT 01 RW 01",
+    "profilePicture": "https://via.placeholder.com/150",
+    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        106.78148927116388,
+        -6.260336686592879
+      ]
+    }
+  },
+  {
+    "email": "lemon@mail.com",
+    "password": "12345",
+    "fullName": "lemon",
+    "bio": "Seorang yang halu",
+    "role": "student",
+    "birthDate": "1997-07-13",
+    "phoneNumber": "086969696969",
+    "address": "Jalan lemon 1 No. 1 RT 01 RW 01",
+    "profilePicture": "https://via.placeholder.com/150",
+    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        106.78148927116388,
+        -6.260336686592879
+      ]
+    }
+  },
+  {
+    "email": "avocado@mail.com",
+    "password": "12345",
+    "fullName": "avocado",
+    "bio": "Seorang yang halu",
+    "role": "student",
+    "birthDate": "1997-07-13",
+    "phoneNumber": "086969696969",
+    "address": "Jalan Alpukat 1 No. 1 RT 01 RW 01",
+    "profilePicture": "https://via.placeholder.com/150",
+    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        106.78148927116388,
+        -6.260336686592879
+      ]
+    }
+  },
+  {
+    "email": "cherry@mail.com",
+    "password": "12345",
+    "fullName": "Cherry",
+    "bio": "Seorang yang halu",
+    "role": "student",
+    "birthDate": "1997-07-13",
+    "phoneNumber": "086969696969",
+    "address": "Jalan Cherry 1 No. 1 RT 01 RW 01",
+    "profilePicture": "https://via.placeholder.com/150",
+    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        106.78148927116388,
+        -6.260336686592879
+      ]
+    }
+  }
+]

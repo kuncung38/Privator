@@ -1,0 +1,32 @@
+[
+  {
+    "InstructorId": 1,
+    "StudentId": 1,
+    "time": "Monday"
+  },
+  {
+    "InstructorId": 2,
+    "StudentId": 3,
+    "time": "Monday"
+  },
+  {
+    "InstructorId": 2,
+    "StudentId": 4,
+    "time": "Tuesday"
+  },
+  {
+    "InstructorId": 2,
+    "StudentId": 5,
+    "time": "Wednesday"
+  },
+  {
+    "InstructorId": 2,
+    "StudentId": 6,
+    "time": "Thursday"
+  },
+  {
+    "InstructorId": 2,
+    "StudentId": 7,
+    "time": "Friday"
+  }
+]
