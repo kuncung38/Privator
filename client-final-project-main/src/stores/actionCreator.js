@@ -45,8 +45,6 @@ export const registerStudent = value => {
       });
 
       const data = await response.json();
-
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
