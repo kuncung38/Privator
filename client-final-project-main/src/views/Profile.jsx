@@ -7,8 +7,19 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation } from "swiper"
 import Review from "../components/Review"
 import CardReview from "../components/CardReview"
+import { useDispatch } from "react-redux"
+
 
 const Profile = () => {
+    const [loading, setLoading] = useState(true);
+    const { courses } = useSelector(state => state.courses);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchCourses());
+        setLoading(false);
+    }, []);
+
     return (
         <div className="helvetica">
             <div className="relative">
@@ -61,7 +72,7 @@ const Profile = () => {
                             <h1 className="text-2xl font-bold">More Courses by <span className="text-[#566bad]">Heisenberg</span></h1>
                             <div className="py-7">
                                 <Swiper
-                                slidesPerView={4}
+                                slidesPerView={5}
                                 navigation={true}
                                 autoplay={{delay: 3000}}
                                 modules={[Navigation]}

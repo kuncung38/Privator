@@ -5,6 +5,21 @@ import { Link, useLocation, useNavigate } from "react-router-dom"
 
 const Course = () => {
     const location = useLocation()
+
+    const buttonChoice = (data) => {
+        if(data.level){
+            return (
+                <div className="flex flex-col justify-between gap-y-4">
+                        <span className="py-1 px-2 bg-[#f3ca8c] text-[#6e2c1e] font-bold text-xs w-fit mb-1">Advanced</span>
+                        {/* <div className="border rounded-md">
+                            <div className="py-1 text-center hover:bg-[#f7f9fa]">
+                                <p className="font-bold">Book now</p>
+                            </div>        
+                        </div> */}
+                    </div>
+            )
+        }
+    }
     return (
         <>
             <Link className="w-60 border shadow-md rounded-sm overflow-hidden hover:scale-105 duration-200 ease-in-out" to="/course/detail/2">

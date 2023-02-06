@@ -21,7 +21,6 @@ class ScheduleController {
             attributes: ['fullName', 'location'],
           },
         ],
-        attributes: ['id', 'time', 'InstructorId', 'StudentId'],
       });
 
       res.status(200).json(schedules);

@@ -1,6 +1,4 @@
-import Footer from "./components/Footer"
-import Navbar from "./components/Navbar"
-import {createBrowserRouter, RouterProvider} from "react-router-dom"
+
 import Template from "./views/Template"
 import NotFound from "./views/Notfound"
 import InstructorWelcome from "./views/InstructorWelcome"
@@ -14,20 +12,23 @@ import MyProfile from "./views/MyProfile"
 import DetailCourse from "./views/DetailsCourse"
 import DashboardUser from "./views/DashboardUser"
 import FilterCategory from "./views/FilterCategory"
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import { Provider } from 'react-redux';
 
+import store from './stores/index';
 
 const router = createBrowserRouter([
   {
-    element: <Template/>,
+    element: <Template />,
     children: [
       {
-        path : "/welcome",
-        element : <Welcome />,
+        path: '/welcome',
+        element: <Welcome />,
       },
       {
-        path : "/",
-        element : <Home />,
+        path: '/',
+        element: <Home />,
       },
       {
         path : "/instructor",
@@ -58,7 +59,7 @@ const router = createBrowserRouter([
         element: <DetailCourse />,
       },
       {
-        path: "/dashboard/user/:id",
+        path: '/dashboard/user/:id',
         element: <DashboardUser />,
       },
       {
@@ -68,23 +69,22 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/login",
+    path: '/login',
     element: <Login />,
   },
   {
-    path: "/register",
+    path: '/register',
     element: <Register />,
   },
-  // 
+  //
 ]);
 
 function App() {
-
   return (
-    <div className="App">
-      <RouterProvider router={router}/>
-    </div>
-  )
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  );
 }
 
-export default App
+export default App;

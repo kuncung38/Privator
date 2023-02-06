@@ -1,13 +1,13 @@
-import { useEffect } from "react"
-import { useState } from "react"
-import Review from "../../components/Review"
-import Calendar from "../../components/TeacherSide/Calendar"
-import Course from "../../components/TeacherSide/Course"
-import "../../index.css"
+import { useEffect } from 'react';
+import { useState } from 'react';
+import Review from '../../components/Review';
+import Calendar from '../../components/TeacherSide/Calendar';
+import Course from '../../components/Course';
+import '../../index.css';
 
 const Dashboard = () => {
-    const [isActive, setisActive] = useState("listCourse")
-    const [activeForm, setActiveForm] = useState(false)
+  const [isActive, setisActive] = useState('listCourse');
+  const [activeForm, setActiveForm] = useState(false);
 
 
     useEffect(() => {
@@ -74,4 +74,4 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard
+export default Dashboard;

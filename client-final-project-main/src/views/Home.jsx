@@ -8,28 +8,37 @@ import Course from "../components/TeacherSide/Course";
 import CardBestInstructor from "../components/CardBestInstructor";
 
 const Home = () => {
-    return (
+  return (
+    <div>
+      <div id="banner">
+        <Swiper
+          slidesPerView={1}
+          navigation={true}
+          autoplay={{ delay: 3000 }}
+          modules={[Navigation]}
+          style={{
+            '--swiper-navigation-color': '#000',
+            '--swiper-navigation-size': '25px',
+            '--swiper-navigation-background-color': 'black',
+          }}
+        >
+          <SwiperSlide className="swiper-slide1">
+            <img
+              src="https://img-c.udemycdn.com/notices/featured_banner/image_udlite/d0e8cb70-d7bf-4f8e-a1e2-fe78f4779eb2.jpg"
+              alt=""
+            />
+          </SwiperSlide>
+          <SwiperSlide className="swiper-slide1">
+            <img
+              src="https://img-c.udemycdn.com/notices/featured_banner/image_udlite/487fb3b7-4b6e-4c2f-a3fe-67eb51016502.jpg"
+              alt=""
+            />
+          </SwiperSlide>
+        </Swiper>
+      </div>
+      <div className="py-3 px-7">  
         <div>
-            <div id="banner">
-                <Swiper
-                slidesPerView={1}
-                navigation={true}
-                autoplay={{delay: 3000}}
-                modules={[Navigation]}
-                style={{
-                    "--swiper-navigation-color": "#000",
-                    "--swiper-navigation-size": "25px",
-                    "--swiper-navigation-background-color": "black"
-                  }}>
-                    <SwiperSlide className="swiper-slide1">
-                        <img src="https://img-c.udemycdn.com/notices/featured_banner/image_udlite/d0e8cb70-d7bf-4f8e-a1e2-fe78f4779eb2.jpg" alt="" />
-                    </SwiperSlide>
-                    <SwiperSlide className="swiper-slide1">
-                        <img src="https://img-c.udemycdn.com/notices/featured_banner/image_udlite/487fb3b7-4b6e-4c2f-a3fe-67eb51016502.jpg" alt="" />
-                    </SwiperSlide>
-                </Swiper>
-            </div>
-            <div className="py-12 px-7 flex flex-col gap-y-16">
+            <div className="py-12 flex flex-col gap-y-16">
                 <div>
                 <h1 className="text-2xl font-bold mb-7">Preferred categories</h1>
                     <div id="category" className="grid grid-cols-4 gap-2">
@@ -67,7 +76,7 @@ const Home = () => {
                     </form>
                   </div>
                 </div>
-                <div className="grid grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-y-7">
+                <div className="grid grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-y-7 gap-x-2">
                     <Course/>
                     <Course/><Course/><Course/><Course/><Course/><Course/><Course/><Course/><Course/><Course/><Course/>
                 </div>
@@ -104,7 +113,9 @@ const Home = () => {
                 </div>
             </div>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
-export default Home
+export default Home;
