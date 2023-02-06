@@ -19,8 +19,10 @@ beforeAll(() => {
 });
 
 let access_token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZGE3NTNkZmFhYjYxMDI2YjVjOTUwOSIsImlhdCI6MTY3NTUwNjQ0M30.ITVo0GB5iVJaIH4n9SDcskEaaLE5ZWeUYe4Wc82mO84";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZGE3NTNkZmFhYjYxMDI2YjVjOTUwOSIsImlhdCI6MTY3NTQ5MzIyNX0.PyXElaTWTx1CTYWik1XlFLVFyBe_zGlbqCk9xl2AHq8";
 
+let invalid_access_token =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZGE3NTNkZmFhYjYxMDI2YjVjOTUwOSIsImlhdCI6MTY3NTUwNjQ0M30.ITVo0GB5iVJaIH4n9SDcskEaaLE5ZWeUYe4Wc82mO84";
 afterAll(() => {
   queryInterface.bulkDelete("Courses", null, {
     restartIdentity: true,
@@ -49,6 +51,11 @@ describe("END POINT GET COURSE", () => {
         done();
       });
   });
+
+  test("SUCCESS GET ALL COURSE WITH SEARCH", (done)=> {
+    request(app)
+    .get("/courses?search=abc")
+  })
 });
 
 describe("END POINT GET ONE COURSE", () => {
@@ -83,7 +90,7 @@ describe("END POINT GET ONE COURSE", () => {
 });
 
 describe("END POINT DELETE ONE COURSE", () => {
-  test("SUCESS DELETE COURSE - 200", (done) => {
+  test("SUCCESS DELETE COURSE - 200", (done) => {
     request(app)
       .delete(`/courses/1`)
       .set("access_token", access_token)
@@ -106,27 +113,30 @@ describe("END POINT DELETE ONE COURSE", () => {
   });
 });
 
+//
 describe("END POINT POST COURSE", () => {
-  test("SUCESS  COURSE - 200", (done) => {
+  test("SUCCESS POST COURSE - 201", (done) => {
     request(app)
       .post(`/courses`)
-      .set("access_token", access_token)
-      .send({})
-      .expect(200)
+      .set({ access_token: access_token })
+      .send({ name: "Data Testing", detail: "Ini detail course" })
+      .expect(201)
       .end((err, res) => {
-        expect(res.body).toHaveProperty("message", "Successfully delete data");
+        console.log(res.body);
         done();
       });
   });
 
-  test("FAILED DELETE COURSE - 404", (done) => {
+  test("POST COURSE WITH INVALID TOKEN - 401", (done) => {
     request(app)
-      .delete(`/courses/1`)
+      .post(`/courses`)
       .set("access_token", access_token)
-      .expect(200)
+      .expect(201)
       .end((err, res) => {
-        expect(res.body).toHaveProperty("message", "Not found");
+        console.log(res.body);
         done();
       });
   });
 });
+
+

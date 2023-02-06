@@ -1,17 +1,18 @@
 {
   "development": {
     "username": "postgres",
-    "password": "postgres",
+    "password": "Dontgiveup123!",
     "database": "privator-dev",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
+    "username": "postgres",
+    "password": "Dontgiveup123!",
+    "database": "privator-test",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres",
+    "logging": false
   },
   "production": {
     "username": "root",

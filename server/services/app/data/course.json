@@ -1,118 +1,82 @@
 [
   {
-    "id": 1,
-    "name": "Mathematics",
-    "detail": "High School Mathematics",
+    "name": "High School Math",
+    "detail": "Les Matematika SMA adalah kursus pembelajaran intensif untuk siswa sekolah menengah atas yang ingin memperkuat pengetahuan dan keterampilan matematika mereka. Dalam les ini, peserta akan mempelajari konsep-konsep matematika yang penting untuk sukses di sekolah menengah atas dan di masa depan. Peserta akan mempelajari algebra, geometri, trigonometri, dan analisis, dengan fokus pada pemahaman mendalam dan pengembangan kemampuan pemecahan masalah. Mereka akan belajar bagaimana mengaplikasikan konsep-konsep ini untuk memecahkan masalah sehari-hari dan mempersiapkan diri untuk tugas dan ujian sekolah. Les ini akan menggabungkan teori dan aplikasi, dengan peserta mempraktikkan konsep-konsep baru mereka melalui latihan soal dan tugas. Materi akan diajarkan melalui pembahasan dan demonstrasi, dengan peserta berkesempatan untuk berinteraksi dengan instruktur dan rekan sekelas mereka. Peserta juga akan mempresentasikan hasil pemahaman mereka melalui proyek dan presentasi kelompok. Les Matematika SMA dikelola oleh instruktur berpengalaman yang memahami kebutuhan siswa SMA dan memiliki pengalaman membantu mereka memahami konsep-konsep matematika dan meningkatkan kemampuan pemecahan masalah mereka. Les ini sesuai untuk siswa yang ingin memperkuat pengetahuan dan keterampilan matematika mereka, meningkatkan nilai mereka, atau mempersiapkan diri untuk studi tinggi. Bersiaplah untuk meningkatkan pengetahuan dan kemampuan matematika Anda melalui Les Matematika SMA.",
+    "level": "Beginner",
+    "price": 300000,
+    "imgUrl": "https://via.placeholder.com/150",
+    "type": "Online",
+    "CategoryId": 1,
+    "InstructorId": 1
+  },
+  {
+    "name": "High School Physics",
+    "detail": "Les Fisika SMA adalah kursus pembelajaran intensif bagi siswa sekolah menengah atas yang ingin memperdalam pengetahuan dan memahami konsep-konsep fisika secara mendalam. Dalam les ini, peserta akan mempelajari tentang konsep-konsep seperti mekanika, termodinamika, gelombang, dan listrik magnet. Peserta akan mempelajari cara memecahkan masalah fisika dan mengaplikasikan konsep-konsep ini dalam situasi sehari-hari. Mereka akan belajar bagaimana memvisualisasikan konsep-konsep fisika dan menggunakan metode-metode ilmiah untuk memecahkan masalah. Les ini juga akan memberikan peserta pemahaman yang kuat tentang bagaimana fisika terkait dengan dunia sekitar dan bagaimana fisika mempengaruhi hidup sehari-hari. Materi akan diajarkan melalui pembahasan dan demonstrasi, dengan peserta mempraktikkan konsep-konsep baru mereka melalui latihan soal dan tugas. Peserta juga akan mempresentasikan hasil pemahaman mereka melalui proyek dan presentasi kelompok. Les ini akan menggabungkan teori dan aplikasi, membantu peserta memahami konsep-konsep fisika dan meningkatkan kemampuan pemecahan masalah mereka. Les Fisika SMA dikelola oleh instruktur berpengalaman yang memahami kebutuhan siswa SMA dan memiliki pengalaman membantu mereka memahami konsep-konsep fisika dan meningkatkan kemampuan pemecahan masalah mereka. Les ini sesuai untuk siswa yang ingin memperkuat pengetahuan dan keterampilan fisika mereka, meningkatkan nilai mereka, atau mempersiapkan diri untuk studi tinggi. Bersiaplah untuk meningkatkan pengetahuan dan kemampuan fisika Anda melalui Les Fisika SMA.",
+    "level": "Beginner",
+    "price": 100000,
+    "imgUrl": "https://via.placeholder.com/150",
+    "type": "Offline",
+    "CategoryId": 1,
+    "InstructorId": 2
+  },
+  {
+    "name": "Beginner Mandarin",
+    "detail": "Les Mandarin untuk Pemula adalah program pembelajaran bahasa Mandarin bagi mereka yang baru saja memulai belajar bahasa ini. Dalam les ini, peserta akan mempelajari dasar-dasar bahasa Mandarin, termasuk pengucapan, gramatika, dan vocabularies dasar. Peserta akan belajar membentuk kalimat-kalimat sederhana dan berinteraksi dengan orang lain dalam situasi sehari-hari. Mereka juga akan memahami bagaimana membaca dan menulis huruf Mandarin sederhana dan menggunakan kosa kata yang mereka pelajari dalam percakapan sehari-hari. Les ini akan membantu peserta membangun fondasi yang kuat dalam bahasa Mandarin dan mempersiapkan mereka untuk mempelajari tingkat lanjutan. Materi akan diajarkan melalui pembahasan, latihan bicara, dan latihan pengucapan, dengan instruktur yang membantu peserta memahami dan mengaplikasikan konsep-konsep baru. Les ini juga akan menggabungkan teori dan aplikasi, membantu peserta memahami dan mengaplikasikan bahasa Mandarin dalam situasi sehari-hari. Les Mandarin untuk Pemula dikelola oleh instruktur yang berpengalaman dan memahami kebutuhan pemula dalam belajar bahasa Mandarin. Les ini sesuai untuk mereka yang ingin memulai belajar bahasa Mandarin, memperluas pengetahuan bahasa, atau mempersiapkan diri untuk perjalanan atau pekerjaan yang membutuhkan bahasa Mandarin. Bersiaplah untuk membangun fondasi bahasa Mandarin yang kuat melalui Les Mandarin untuk Pemula.",
     "level": "Beginner",
     "price": 200000,
+    "imgUrl": "https://via.placeholder.com/150",
+    "type": "Offline",
     "CategoryId": 1,
-    "InstructorId": "mongoDbId"
+    "InstructorId": 3
   },
   {
-    "id": 2,
-    "name": "English",
-    "detail": "Students must know english prior to joining",
-    "level": "Intermediate",
-    "price": 250000,
-    "CategoryId": 1,
-    "InstructorId": "mongoDbId"
-  },
-  {
-    "id": 3,
-    "name": "Physics",
-    "detail": "This course is survey of major concepts, methods, and applications of physics",
+    "name": "Advanced Guitar",
+    "detail": "Les Gitar Tingkat Lanjut adalah program pembelajaran musik bagi mereka yang sudah memiliki dasar-dasar bermain gitar dan ingin memperdalam pengetahuan dan kemampuan mereka. Dalam les ini, peserta akan mempelajari teknik dan trik gitar yang lebih maju, mempelajari lagu-lagu yang lebih kompleks, dan memahami konsep musik yang lebih dalam. Peserta akan belajar memainkan gaya-gaya musik yang berbeda, seperti blues, jazz, dan rock, serta mempelajari bagaimana membuat aransemen dan variasi lagu. Mereka juga akan mempelajari bagaimana membaca partitur dan memahami konsep musik, seperti skala, chord progressions, dan improvvisasi. Les ini akan membantu peserta menjadi gitaris yang lebih baik dan memiliki kemampuan untuk memainkan musik yang lebih kompleks. Materi akan diajarkan melalui demonstrasi, latihan bermain, dan diskusi, dengan instruktur yang membantu peserta memahami dan mengaplikasikan konsep-konsep baru. Les ini juga akan menggabungkan teori dan aplikasi, membantu peserta memahami dan mengaplikasikan ilmu musik dalam praktek bermain gitar. Les Gitar Tingkat Lanjut dikelola oleh instruktur yang berpengalaman dan memahami kebutuhan gitaris tingkat lanjut. Les ini sesuai untuk mereka yang sudah memiliki dasar-dasar bermain gitar dan ingin memperdalam pengetahuan dan kemampuan mereka. Bersiaplah untuk memperluas horizon musik dan menjadi gitaris yang lebih baik melalui Les Gitar Tingkat Lanjut.",
     "level": "Advanced",
-    "price": 300000,
-    "CategoryId": 1,
-    "InstructorId": "mongoDbId"
-  },
+    "price": 400000,
+    "imgUrl": "https://via.placeholder.com/150",
+    "type": "Offline",
+    "CategoryId": 3,
+    "InstructorId": 4
+  }, 
   {
-    "id": 4,
-    "name": "Mandarin",
-    "detail": "This knowledge prepares students to effectively communicate in Mandarin on a limited range of topics related to everyday situations",
+    "name": "Beginner Guitar",
+    "detail": "Kursus gitar bagi pemula adalah program pembelajaran yang dirancang untuk membantu seseorang yang baru memulai belajar bermain gitar. Kursus ini akan mengajarkan dasar-dasar teori musik dan teknik-teknik dasar bermain gitar, termasuk bagaimana memegang gitar, memetik senar, dan memainkan akord. Kursus ini biasanya dilakukan dengan menggunakan buku ajar, video tutorial, dan praktek langsung bersama guru atau instruktur. Tujuan dari kursus ini adalah untuk membantu siswa membangun fondasi yang kuat dalam bermain gitar sehingga mereka dapat melanjutkan belajar dan berkembang sebagai pemain gitar. Kursus bermain gitar bagi pemula cocok untuk: \r\n1. Orang yang baru memulai belajar bermain gitar dan ingin mempelajari dasar-dasar bermain gitar\r\n2. Orang yang ingin memulai hobi baru atau mempelajari keahlian baru dalam bermain gitar\r\n3. Anak-anak atau remaja yang ingin mempelajari bermain gitar sebagai aktivitas hobi atau sebagai bagian dari program belajar musik",
     "level": "Beginner",
-    "price": 250000,
+    "price": 200000,
+    "imgUrl": "https://via.placeholder.com/150",
+    "type": "Offline",
+    "CategoryId": 3,
+    "InstructorId": 4
+  }, 
+  {
+    "name": "Node JS: Pemula",
+    "detail": "Node.js adalah platform perangkat lunak sumber terbuka yang digunakan untuk membangun aplikasi server-side dengan JavaScript. Kursus Node.js adalah program pembelajaran yang dirancang untuk membantu seseorang mempelajari bagaimana menggunakan Node.js untuk membangun aplikasi web dan server-side.\r\n\r\nMateri yang akan diajarkan dalam kursus ini meliputi:\r\n\r\n 1. Dasar-dasar JavaScript dan pemrograman server-side \r\n2.Instalasi dan konfigurasi Node.js \r\n3. Penggunaan npm (Node Package Manager) untuk mengelola paket dan dependensi \r\n4. Pemrograman event-driven dan asinkron dengan Node.js \r\n5. Pembuatan REST API menggunakan Node.js dan framework seperti Express\r\n6. Integrasi dengan database seperti MySQL, MongoDB, dan lain-lain",
+    "level": "Beginner",
+    "price": 500000,
+    "imgUrl": "https://jogjamultimedia.com/wp-content/uploads/2022/10/Kursus-NodeJS.jpeg",
+    "type": "Offline",
     "CategoryId": 1,
-    "InstructorId": "mongoDbId"
-  },
+    "InstructorId": 5
+  }, 
   {
-    "id": 5,
-    "name": "CrossFit",
-    "detail": "Involves constantly varied functional movements performed at high intensity",
-    "level": "Intermediate",
-    "price": 300000,
-    "img": "",
-    "CategoryId": 2,
-    "InstructorId": "mongoDbId"
-  },
-  {
-    "id": 6,
-    "name": "Muay Thai",
-    "detail": "Combat sport that uses stand-up striking along with various clinching techniques",
+    "name": "Step by Step APIs Development in Node JS with Sequelize ORM",
+    "detail": "Sequelize adalah ORM (Object-Relational Mapping) untuk Node.js yang memungkinkan developer untuk melakukan akses database dengan menggunakan JavaScript. Kursus belajar Sequelize bagi pemula adalah program pembelajaran yang dirancang untuk membantu seseorang mempelajari bagaimana menggunakan Sequelize untuk mengelola dan memanipulasi data dalam database\r\n\r\n Materi yang akan diajarkan dalam kursus ini meliputi:\r\n\r\n1. Dasar-dasar Sequelize dan ORM \r\n2. Instalasi dan konfigurasi Sequelize \r\n3. Pembuatan migrasi dan definisi model untuk tabel database \r\n4. CRUD (Create, Read, Update, Delete) operasi pada database menggunakan Sequelize\r\n5. Integrasi Sequelize dengan Node.js dan aplikasi web" ,
     "level": "Advanced",
-    "price": 300000,
-    "img": "",
-    "CategoryId": 2,
-    "InstructorId": "mongoDbId"
+    "price": 500000,
+    "imgUrl": "https://res.cloudinary.com/practicaldev/image/fetch/s--4TiiDwdC--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/i/wd83498n8oakhg4ch6rv.png",
+    "type": "Offline",
+    "CategoryId": 1,
+    "InstructorId": 5
   },
   {
-    "id": 7,
-    "name": "Golf Course",
-    "detail": "Rated as the best golf courses in Jakarta",
-    "level": "Beginner",
-    "price": 1000000,
-    "img": "",
-    "CategoryId": 2,
-    "InstructorId": "mongoDbId"
-  },
-  {
-    "id": 8,
-    "name": "Guitar",
-    "detail": "Beginner friendly",
-    "level": "Beginner",
-    "price": 300000,
-    "img": "",
-    "CategoryId": 3,
-    "InstructorId": "mongoDbId"
-  },
-  {
-    "id": 9,
-    "name": "Piano",
-    "detail": "Beginner friendly",
-    "level": "Beginner",
-    "price": 300000,
-    "img": "",
-    "CategoryId": 3,
-    "InstructorId": "mongoDbId"
-  },
-  {
-    "id": 10,
-    "name": "Piano",
-    "detail": "Able to play all both Major and Harmonic Minor scales from memory at a decent speed",
-    "level": "Intermediate",
-    "price": 300000,
-    "img": "",
-    "CategoryId": 3,
-    "InstructorId": "mongoDbId"
-  },
-  {
-    "id": 11,
-    "name": "Violin",
-    "detail": "For intermediate level students",
-    "level": "Intermediate",
-    "price": 300000,
-    "img": "",
-    "CategoryId": 3,
-    "InstructorId": "mongoDbId"
-  },
-  {
-    "id": 12,
-    "name": "Guitar",
-    "detail": "For intermediate level students",
-    "level": "Intermediate",
-    "price": 300000,
-    "img": "",
-    "CategoryId": 3,
-    "InstructorId": "mongoDbId"
+    "name": "Step by Step APIs Development in Node JS with Sequelize ORM",
+    "detail": "Sequelize adalah ORM (Object-Relational Mapping) untuk Node.js yang memungkinkan developer untuk melakukan akses database dengan menggunakan JavaScript. Kursus belajar Sequelize bagi pemula adalah program pembelajaran yang dirancang untuk membantu seseorang mempelajari bagaimana menggunakan Sequelize untuk mengelola dan memanipulasi data dalam database\r\n\r\n Materi yang akan diajarkan dalam kursus ini meliputi:\r\n\r\n1. Dasar-dasar Sequelize dan ORM \r\n2. Instalasi dan konfigurasi Sequelize \r\n3. Pembuatan migrasi dan definisi model untuk tabel database \r\n4. CRUD (Create, Read, Update, Delete) operasi pada database menggunakan Sequelize\r\n5. Integrasi Sequelize dengan Node.js dan aplikasi web \r\n\r\n Kursus ini cocok bagi web developer, pemrogram aplikasi, atau siapa saja yang ingin mempelajari bagaimana memanipulasi data dalam database menggunakan Sequelize.",
+    "level": "Advanced",
+    "price": 500000,
+    "imgUrl": "https://res.cloudinary.com/practicaldev/image/fetch/s--4TiiDwdC--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/i/wd83498n8oakhg4ch6rv.png",
+    "type": "Offline",
+    "CategoryId": 1,
+    "InstructorId": 5
   }
 ]
