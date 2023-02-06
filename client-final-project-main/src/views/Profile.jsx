@@ -2,6 +2,11 @@ import bannerProfile from "../assets/Winter.jpg"
 import male from "../assets/male.png"
 import "../index.css"
 import map from "../assets/map.png"
+import Course from "../components/TeacherSide/Course"
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Navigation } from "swiper"
+import Review from "../components/Review"
+import CardReview from "../components/CardReview"
 
 const Profile = () => {
     return (
@@ -13,7 +18,8 @@ const Profile = () => {
                         <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" alt="" className="w-44 object-cover"/>
                     </div>
                     <div className="pb-16 text-right">
-                        <h1 className="text-3xl font-bold">Prof.dr.Heisenberg</h1>
+                        <h1 className="text-2xl font-bold">Heisenberg</h1>
+                        <p className="my-2">heisenberg@gmail.com</p>
                         <p>Jakarta ID</p>
                     </div>
                 </div>
@@ -44,21 +50,53 @@ const Profile = () => {
                             <p className="text-lg">10.000 Reviews</p>
                         </div>
                     </div>
-                    <div className="">
-                        <h1 className="text-center text-5xl font-bold">Profile</h1>
+                    <div className="text-center px-16">
+                        <h1 className="text-3xl mb-2 font-bold">Description</h1>
+                            <p>Sebagai guru les matematika berpengalaman, saya memiliki kemampuan untuk membantu siswa memahami konsep dengan baik. Metodologi pengajaran yang inovatif dan pemahaman yang baik terhadap materi membantu siswa belajar dengan efektif dan menyenangkan.</p>
+                        {/* <h1 className="text-center text-5xl font-bold">Profile</h1> */}
                         <div className="flex justify-center py-10 px-20">
-                            <img src={map} alt="" className="h-96"/>
+                            <img src={map} alt="" className="h-72"/>
                         </div>
-                        <div>
-                            <h1>Birth Date</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-                            <h1>Phone Number</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, laboriosam.</p>
-                            <h1>Email</h1>
-                            <p>Heisenberg@gmail.com</p>
-                            <h1>bio</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quam nobis sunt consequatur id qui repudiandae, beatae sapiente. Nesciunt debitis atque, temporibus ut nam nostrum earum cupiditate voluptatum tempora totam, praesentium, ex consequuntur excepturi. Ipsam tempora, quae beatae nihil asperiores quasi ratione. Quam fugiat eligendi neque facere sunt error quasi?</p>
-                            
+                        <div className="text-start">
+                            <h1 className="text-2xl font-bold">More Courses by <span className="text-[#566bad]">Heisenberg</span></h1>
+                            <div className="py-7">
+                                <Swiper
+                                slidesPerView={4}
+                                navigation={true}
+                                autoplay={{delay: 3000}}
+                                modules={[Navigation]}
+                                spaceBetween={13}
+                                className="w-full flex gap-x-3"
+                                style={{
+                                    "--swiper-navigation-color": "#000",
+                                    "--swiper-navigation-size": "25px",
+                                    "--swiper-navigation-background-color": "black"
+                                }}
+                                >
+                                    <SwiperSlide style={{textAlign : "left"}}>
+                                        <Course/>
+                                    </SwiperSlide>
+                                    <SwiperSlide style={{textAlign : "left"}}>
+                                        <Course/>
+                                    </SwiperSlide>
+                                    <SwiperSlide style={{textAlign : "left"}}>
+                                        <Course/>
+                                    </SwiperSlide>
+                                    <SwiperSlide style={{textAlign : "left"}}>
+                                        <Course/>
+                                    </SwiperSlide>
+                                    <SwiperSlide style={{textAlign : "left"}}>
+                                        <Course/>
+                                    </SwiperSlide>
+                                </Swiper>
+                            </div>
+                            <h1 className="text-2xl font-bold my-6">Review</h1>
+                            <div className="px-7 flex flex-col gap-y-3 py-4">
+                                <CardReview/>
+                                <CardReview/>
+                                <CardReview/>
+                                <CardReview/>
+                            </div>
                         </div>
                     </div>
                 </div>

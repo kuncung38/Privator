@@ -13,6 +13,7 @@ import Home from "./views/Home"
 import MyProfile from "./views/MyProfile"
 import DetailCourse from "./views/DetailsCourse"
 import DashboardUser from "./views/DashboardUser"
+import FilterCategory from "./views/FilterCategory"
 
 
 
@@ -38,14 +39,14 @@ const router = createBrowserRouter([
       },
       {
         path : "/user/dashboard/:id",
-        element : <Dashboard/>
+        element : <DashboardUser/>
       },
       {
           path: "*",
           element: <NotFound />,
       },
       {
-        path: "/profile/user",
+        path: "/instructor/profile/:id",
         element: <Profile />,
       },
       {
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/user/:id",
         element: <DashboardUser />,
+      },
+      {
+        path: "/search/categories/:name",
+        element: <FilterCategory />,
       }
     ],
   },

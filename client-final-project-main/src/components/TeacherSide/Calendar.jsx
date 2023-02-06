@@ -17,8 +17,8 @@ import dayjs from "dayjs"
 
 
 const events=[
-    { title: 'event 1', date: dayjs("2023-02-02 15:00:00").format("YYYY-MM-DD HH:mm:ss")},
-    { title: 'event 2 dasfgsahjdk sadg fsag dh jkasdjhjk', date: '2023-02-02 15:00:00', display : "block" }
+    { title: 'event 4', date: dayjs("2023-02-07 15:00:00").format("YYYY-MM-DD HH:mm:ss")},
+    { title: 'event 4', date: dayjs("2023-02-01T09:02:46.850Z").format("YYYY-MM-DD HH:mm:ss")},
   ]
 
 
@@ -26,7 +26,7 @@ const renderEventContent = (eventInfo) => {
     console.log(eventInfo, "ini HHAHHAHAH");
     return (
         <div className="gap-x-2 bg-[#33d450] p-2 w-full text-black">
-            <p>{eventInfo.timeText}</p>
+            <p>{eventInfo.textDate}</p>
             <p className="whitespace-normal">{eventInfo.event.title}</p>
         </div>
     )

@@ -9,6 +9,11 @@ const Dashboard = () => {
     const [isActive, setisActive] = useState("listCourse")
     const [activeForm, setActiveForm] = useState(false)
 
+
+    useEffect(() => {
+        console.log(activeForm);
+    }, [activeForm])
+
     const renderSection = () => {
         if(isActive == "listCourse"){
             return   (<div className="px-44 py-16">
@@ -41,7 +46,8 @@ const Dashboard = () => {
         }
     }
     return (
-        <div className="min-h-screen">
+        <>
+        <div className="">
             <div className="instructorMain bg-[#292b2f] px-44 py-16 pb-4 -z-10">    
                 <h1 className="text-white text-4xl">Dashboard</h1>
                 <div className="flex justify-between mt-7">
@@ -52,14 +58,19 @@ const Dashboard = () => {
                         <button className={isActive !== "Schedule" ? "text-gray-400 border-b-8 pb-3 border-b-[#292b2f]" : "border-b-8 pb-3 border-b-white"} onClick={() => setisActive("Schedule")}>Schedule</button>
                     </div>
                     <div className="flex items-center text-white helvetica-bold gap-x-4 translate-y-2">
-                        <button onClick={() => setisActive(!activeForm)}>Add Course</button>
+                        <button onClick={() => setActiveForm(true)}>Add Course</button>
                     </div>
                 </div>
             </div>
             {
                 renderSection()
             }
+            
         </div>
+        <div className="absolute w-screen bg-black z-30" style={!activeForm ? {display : "none"} : {display : "block"}}>
+        <div>bsadjgasdjas</div>
+        </div>
+        </>
     )
 }
 

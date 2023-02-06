@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display:wght@500;600&display=swap");
-@import url("https://fonts.cdnfonts.com/css/helvetica-neue-9");
 
 .swiper-slide-testimoni {
   font-size: 18px;
   background: transparent !important;
+  text-align: "left";
 
   /* Center slide text vertically */
   display: -webkit-box;
