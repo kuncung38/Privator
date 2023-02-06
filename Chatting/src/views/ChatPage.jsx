@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import ChatRightSection from "../components/ChatRightSection";
 import ChatRoomContainer from "../components/ChatRoomContainer";
 import { getAllChatrooms } from "../service/firebase";
 
 export const ChatPage = () => {
     const user = useSelector((state) => state.user);
-    const target = useSelector((state) => state.target);
 
-    // const chatrooms = useSelector((state) => state.chatrooms);
     const [chatrooms, setChatrooms] = useState([]);
 
-    // const dispatcher = useDispatch();
+    const selectedChatroom = useSelector((state) => state.selectedChatroom);
 
     const navigator = useNavigate();
 
     useEffect(() => {
         getAllChatrooms(user, setChatrooms);
+        console.log(chatrooms, "useeffect");
     }, []);
 
     return (
@@ -34,7 +34,14 @@ export const ChatPage = () => {
                             <ChatRoomContainer room={el} key={el.id} />
                         ))}
                 </div>
-                <main className="h-full w-full flex flex-col">Main here</main>
+                {!Object.keys(selectedChatroom).length && (
+                    <section className="h-full w-full flex justify-center items-center">
+                        <p>Please select a chatroom</p>
+                    </section>
+                )}
+                {Object.keys(selectedChatroom).length > 0 && (
+                    <ChatRightSection />
+                )}
             </div>
         </section>
     );

@@ -1,8 +1,8 @@
 import { SET_CHATROOM } from "./actionType";
 
-const initialChatroom = [];
+const initialChat = {};
 
-const chatroomReducer = (state = initialChatroom, action) => {
+const chatroomReducer = (state = initialChat, action) => {
     const { type, payload } = action;
 
     switch (type) {

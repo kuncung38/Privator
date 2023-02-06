@@ -1,11 +1,12 @@
 import { initializeApp } from "firebase/app";
 import {
+    addDoc,
     collection,
-    getDocs,
     getFirestore,
     onSnapshot,
     orderBy,
     query,
+    serverTimestamp,
 } from "firebase/firestore";
 
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -27,22 +28,43 @@ const chatRoomRef = collection(db, "chatrooms");
 const chatroomQuery = query(chatRoomRef, orderBy("updatedAt", "desc"));
 
 export const getAllChatrooms = async (user, callback) => {
-    return onSnapshot(chatRoomRef, (querySnapShot) => {
-        console.log(querySnapShot.docs, "chatroomQuery");
+    return onSnapshot(chatroomQuery, (querySnapShot) => {
         const chatrooms = querySnapShot.docs
             .filter((el) => el.id.includes(user.username))
             .map((el) => {
                 return { id: el.id, ...el.data() };
             });
-        console.log(chatrooms);
         callback(chatrooms);
     });
-    // const chatRoomDocs = await getDocs(chatRoomRef);
-    // let chatRooms = chatRoomDocs.docs
-    //     .filter((el) => el.id.includes(user.username))
-    //     .map((el) => {
-    //         const data = el.data();
-    //         return { id: el.id, ...data };
-    //     });
-    // return chatRooms;
+};
+
+export const sendMessage = async (roomId, user, text) => {
+    try {
+        console.log(user.id, user.username, text, roomId);
+        await addDoc(collection(db, "chatrooms", roomId, "messages"), {
+            userId: user.id,
+            displayName: user.username,
+            text: text.trim(),
+            timestamp: serverTimestamp(),
+        });
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+export const getMessages = (roomId, callback) => {
+    return onSnapshot(
+        query(
+            collection(db, "chatrooms", roomId, "messages"),
+            orderBy("timestamp", "asc")
+        ),
+        (querySnapshot) => {
+            console.log(querySnapshot.docs);
+            const messages = querySnapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+            }));
+            callback(messages);
+        }
+    );
 };

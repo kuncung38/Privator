@@ -1,9 +1,9 @@
-import { doc, serverTimestamp, setDoc } from "firebase/firestore";
+import { doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { db } from "../service/firebase";
-import { setChatroom, setTarget } from "../store/actionGenerator";
+import { setTarget } from "../store/actionGenerator";
 
 const ChoicePage = () => {
     const user = useSelector((state) => state.user);
@@ -13,21 +13,22 @@ const ChoicePage = () => {
 
     const choose = (targetUser) => {
         dispatcher(setTarget(targetUser));
-        console.log(targetUser, "is chosen");
     };
 
     const next = async () => {
-        console.log(target, "from choice");
         const name =
             user.username < target.username
                 ? `${user.username}${target.username}`
                 : `${target.username}${user.username}`;
-        await setDoc(doc(db, "chatrooms", name), {
-            user: [user, target],
-            timestamp: serverTimestamp(),
-        });
 
-        dispatcher(setChatroom(user));
+        const docs = await getDoc(doc(db, "chatrooms", name));
+        if (!docs.exists()) {
+            await setDoc(doc(db, "chatrooms", name), {
+                user: [user, target],
+                createdAt: serverTimestamp(),
+                updatedAt: serverTimestamp(),
+            });
+        }
         navigator("/chat");
     };
 

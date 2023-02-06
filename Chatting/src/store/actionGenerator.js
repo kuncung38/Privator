@@ -1,4 +1,3 @@
-import { getAllChatrooms } from "../service/firebase";
 import { SET_CHATROOM, SET_TARGET, SET_USER } from "./actionType";
 
 const setUserAction = (payload) => {
@@ -15,7 +14,7 @@ const setTargetAction = (payload) => {
     };
 };
 
-const setChatroomAction = (payload) => {
+const setSelectedChatroomAction = (payload) => {
     return {
         type: SET_CHATROOM,
         payload,
@@ -35,8 +34,8 @@ export const setTarget = (payload) => {
     };
 };
 
-export const setChatroom = (payload) => {
-    return async (dispatch) => {
-        dispatch(setChatroomAction(payload));
+export const setSelectedChatroom = (payload) => {
+    return (dispatch) => {
+        dispatch(setSelectedChatroomAction(payload));
     };
 };
