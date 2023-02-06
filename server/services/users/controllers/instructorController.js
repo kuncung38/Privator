@@ -4,7 +4,7 @@ const argon2 = require("argon2");
 class InstructorController {
   static async register(req, res, next) {
     try {
-      const { email, username , password } = req.body;
+      const { email, username, password } = req.body;
       if (!email || !username || !password) {
         throw { name: "Email, username, and password are required" };
       }
@@ -30,6 +30,7 @@ class InstructorController {
   static async login(req, res, next) {
     try {
       const { email, password } = req.body;
+
       if (!email || !password) {
         throw {
           name: "Email and password are required",

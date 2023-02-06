@@ -72,7 +72,7 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true,
         },
       },
-      geometry: DataTypes.GEOMETRY,
+      geometry: DataTypes.GEOGRAPHY,
     },
     {
       sequelize,

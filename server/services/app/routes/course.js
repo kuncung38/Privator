@@ -21,6 +21,7 @@ const storage = new CloudinaryStorage({
 const upload = multer({ storage: storage });
 
 router.get("/", CourseController.getCourses);
+
 router.post(
   "/",
   authentication,
