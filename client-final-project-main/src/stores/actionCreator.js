@@ -1,4 +1,4 @@
-import { GET_COURSES, GET_ONE_COURSE } from './actionType';
+import { GET_COURSES, GET_ONE_COURSE, GET_BOOKINGS } from './actionType';
 
 const origin = 'http://localhost:3000';
 
@@ -27,7 +27,6 @@ export const getOneCourse = id => {
         type: GET_ONE_COURSE,
         payload: data,
       });
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -75,31 +74,44 @@ export const loginStudent = value => {
   };
 };
 
-// export const loginAction = payload => {
-//   return async dispatcher => {
-//     try {
-//       const res = await fetch(origin + `/admins/login`, {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(payload),
-//       });
-//       const data = await res.json();
+export const createBooking = id => {
+  return async dispatch => {
+    try {
+      const response = await fetch(`${origin}/booking/${id}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          access_token: localStorage.getItem('access_token'),
+        },
+        body: JSON.stringify(value),
+      });
 
-//       if (res.ok) {
-//         Swal.fire('Success Login 🎉');
-//         localStorage.setItem('access_token', data.access_token);
-//         dispatcher(fetchFoodsAction());
-//       } else if (!res.ok) {
-//         Swal.fire({
-//           icon: 'error',
-//           title: 'Oops...',
-//           text: 'Wrong email or password!',
-//         });
-//       }
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-// };
+      const data = await response.json();
+
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const fetchBookings = () => {
+  return async dispatch => {
+    try {
+      const response = await fetch(`${origin}/booking`, {
+        headers: {
+          access_token: localStorage.getItem('access_token'),
+        },
+      });
+      const data = await response.json();
+
+      console.log(data);
+      dispatch({
+        type: GET_BOOKINGS,
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
