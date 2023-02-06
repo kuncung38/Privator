@@ -1,6 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display:wght@500;600&display=swap");
-@import url("https://fonts.cdnfonts.com/css/helvetica-neue-9");
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display:wght@500;600&display=swap');
 
 .swiper-slide-testimoni {
   font-size: 18px;
@@ -22,17 +21,17 @@
 }
 
 .instructorMain {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
-  font-family: "Playfair Display", serif;
+  font-family: 'Playfair Display', serif;
 }
 
 .helvetica {
-  font-family: "Helvetica Neue", "Helvetica", "sans-serif";
+  font-family: 'Helvetica Neue', 'Helvetica', 'sans-serif';
 }
 
 .helvetica-bold {
-  font-family: "Helvetica Neue", "Helvetica", "sans-serif";
+  font-family: 'Helvetica Neue', 'Helvetica', 'sans-serif';
   font-weight: 700;
 }
 
