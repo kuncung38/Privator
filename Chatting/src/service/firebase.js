@@ -4,6 +4,8 @@ import {
     getDocs,
     getFirestore,
     onSnapshot,
+    orderBy,
+    query,
 } from "firebase/firestore";
 
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -22,9 +24,11 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
 const chatRoomRef = collection(db, "chatrooms");
+const chatroomQuery = query(chatRoomRef, orderBy("updatedAt", "desc"));
 
 export const getAllChatrooms = async (user, callback) => {
     return onSnapshot(chatRoomRef, (querySnapShot) => {
+        console.log(querySnapShot.docs, "chatroomQuery");
         const chatrooms = querySnapShot.docs
             .filter((el) => el.id.includes(user.username))
             .map((el) => {

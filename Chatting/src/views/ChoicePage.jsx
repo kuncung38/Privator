@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { db } from "../service/firebase";
-import { setTarget } from "../store/actionGenerator";
+import { setChatroom, setTarget } from "../store/actionGenerator";
 
 const ChoicePage = () => {
     const user = useSelector((state) => state.user);
@@ -19,13 +19,15 @@ const ChoicePage = () => {
     const next = async () => {
         console.log(target, "from choice");
         const name =
-            user < target
+            user.username < target.username
                 ? `${user.username}${target.username}`
                 : `${target.username}${user.username}`;
         await setDoc(doc(db, "chatrooms", name), {
             user: [user, target],
             timestamp: serverTimestamp(),
         });
+
+        dispatcher(setChatroom(user));
         navigator("/chat");
     };
 
