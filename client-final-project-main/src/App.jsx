@@ -31,13 +31,14 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: '/dashboard/user/',
+        element: <DashboardUser />,
+      },
+      {
         path: '/course/detail/:id',
         element: <DetailCourse />,
       },
-      {
-        path: '/dashboard/user/:id',
-        element: <DashboardUser />,
-      },
+
       // {
       //   path: '/instructor',
       //   element: <InstructorWelcome />,

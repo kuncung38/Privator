@@ -18,6 +18,20 @@ const Course = () => {
 
   const { courses } = useSelector(state => state.courses);
 
+  const bookCourse = async id => {
+    try {
+      const { data } = await axios({
+        method: 'POST',
+        url: `http://localhost:3000/bookings/${id}`,
+        headers: {
+          access_token: localStorage.getItem('access_token'),
+        },
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -84,7 +98,9 @@ const Course = () => {
                   </svg>
                 </div>
                 <div className="w-5/6 py-2 text-center border-l hover:bg-[#f7f9fa]">
-                  <p className="font-bold">Book</p>
+                  <button onClick={bookCourse(course.id)} className="font-bold">
+                    Book
+                  </button>
                 </div>
               </div>
             </div>
