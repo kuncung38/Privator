@@ -1,10 +1,10 @@
-import '../index.css';
-import Rating from 'react-rating';
-import axios from 'axios';
-import { useSelector, useDispatch } from 'react-redux';
-import { useState, useEffect } from 'react';
-import { fetchCourses } from '../stores/actionCreator';
-import { Link } from 'react-router-dom';
+import "../index.css";
+import Rating from "react-rating";
+import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { fetchCourses } from "../stores/actionCreator";
+import { Link } from "react-router-dom";
 
 const Course = () => {
   const [loading, setLoading] = useState(true);
@@ -16,15 +16,15 @@ const Course = () => {
     setLoading(false);
   }, []);
 
-  const { courses } = useSelector(state => state.courses);
+  const { courses } = useSelector((state) => state.courses);
 
-  const bookCourse = async id => {
+  const bookCourse = async (id) => {
     try {
       const { data } = await axios({
-        method: 'POST',
+        method: "POST",
         url: `http://localhost:3000/bookings/${id}`,
         headers: {
-          access_token: localStorage.getItem('access_token'),
+          access_token: localStorage.getItem("access_token"),
         },
       });
     } catch (err) {
@@ -40,9 +40,11 @@ const Course = () => {
     );
   }
 
+  console.log(courses, "<======");
+
   return (
     <div className="grid grid-cols-5 gap-y-7">
-      {courses.map(course => (
+      {courses.map((course) => (
         <div className="w-56 relative">
           <Link to={`/course/detail/${course.id}`}>
             <div className="rounded-t-md bg-cover relative -z-20 ">

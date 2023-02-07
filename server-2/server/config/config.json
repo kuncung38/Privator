@@ -1,7 +1,7 @@
 {
     "development": {
         "username": "postgres",
-        "password": "postgress",
+        "password": "Dontgiveup123!",
         "database": "privator-dev",
         "host": "127.0.0.1",
         "dialect": "postgres"

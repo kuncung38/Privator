@@ -33,6 +33,8 @@ class CourseController {
           "level",
         ],
       });
+
+      // res.send("asdasd");
       res.status(200).json(courses);
     } catch (error) {
       next(error);
