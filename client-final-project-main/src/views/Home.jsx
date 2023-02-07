@@ -8,6 +8,8 @@ import Course from "../components/TeacherSide/Course";
 import CardBestInstructor from "../components/CardBestInstructor";
 
 const Home = () => {
+  
+
   return (
     <div>
       <div id="banner">
