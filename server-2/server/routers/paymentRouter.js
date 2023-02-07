@@ -7,6 +7,10 @@ const {
   authenticationStudent,
 } = require('../middlewares/authentication');
 
-router.post('/', authenticationStudent, paymentController.createPayment);
+router.post(
+  '/:courseId',
+  authenticationStudent,
+  paymentController.createPayment
+);
 
 module.exports = router;

@@ -18,7 +18,6 @@ class BookingController {
         include: [
           {
             model: Course,
-            attributes: ['name'],
           },
           {
             model: Instructor,

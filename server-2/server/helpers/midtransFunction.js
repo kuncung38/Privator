@@ -10,7 +10,7 @@ const midtransFunction = async (user, amount) => {
   let parameter = {
     transaction_details: {
       order_id: 'YOUR-ORDERID-' + Math.floor(1000000 + Math.random() * 9000000),
-      gross_amount: 30000,
+      gross_amount: amount,
     },
     credit_card: {
       secure: true,
