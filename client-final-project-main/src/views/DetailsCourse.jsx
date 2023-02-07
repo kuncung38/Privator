@@ -1,21 +1,21 @@
-import { Link } from 'react-router-dom';
-import '../index.css';
+import { Link } from "react-router-dom";
+import "../index.css";
 
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { getOneCourse } from '../stores/actionCreator';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { getOneCourse } from "../stores/actionCreator";
+import { useNavigate } from "react-router-dom";
 
 const DetailCourse = () => {
-  const { course } = useSelector(state => state.course);
+  const { course } = useSelector((state) => state.course);
   const dispatch = useDispatch();
   const { id } = useParams();
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(true);
 
-  const fetchOneCourse = async id => {
+  const fetchOneCourse = async (id) => {
     try {
       dispatch(getOneCourse(id));
       setLoading(false);
@@ -36,7 +36,7 @@ const DetailCourse = () => {
     <div className="">
       <div className="bg-[#292b2f] helvetica-bold px-20 py-10 text-white pr-[30.5rem] flex flex-col gap-y-4">
         <p id="category" className="text-[#566bad]">
-          {course.Category.name}
+          {course.Category?.name}
         </p>
         <h1 id="title" className="text-3xl">
           {course.name}
@@ -46,10 +46,10 @@ const DetailCourse = () => {
           beatae amet rem architecto odio nisi nostrum eius natus libero.
         </p>
         <p className="font-normal">
-          Created by{' '}
+          Created by{" "}
           <Link to="/profile/user" className="text-[#b7abe0] underline">
-            {' '}
-            {course.Instructor.fullName}
+            {" "}
+            {course.Instructor?.fullName}
           </Link>
         </p>
         <div className="flex gap-x-10">

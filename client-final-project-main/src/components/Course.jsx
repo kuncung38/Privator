@@ -40,8 +40,6 @@ const Course = () => {
     );
   }
 
-  console.log(courses, "<======");
-
   return (
     <div className="grid grid-cols-5 gap-y-7">
       {courses.map((course) => (

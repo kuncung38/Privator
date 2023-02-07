@@ -1,4 +1,4 @@
-import { GET_COURSES, GET_ONE_COURSE } from '../actionType';
+import { GET_COURSES, GET_ONE_COURSE } from "../actionType";
 
 const initalState = {
   courses: [],
