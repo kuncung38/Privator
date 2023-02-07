@@ -15,7 +15,12 @@ class CourseController {
                 include: [
                     {
                         model: Instructor,
-                        attributes: ["fullName", "profilePicture", "location"],
+                        attributes: [
+                            "fullName",
+                            "profilePicture",
+                            "location",
+                            "id",
+                        ],
                     },
                     {
                         model: Category,
@@ -55,6 +60,7 @@ class CourseController {
                             "profilePicture",
                             "location",
                             "geometry",
+                            "id",
                         ],
                         include: [
                             {
