@@ -28,6 +28,51 @@ const DetailCourse = () => {
     fetchOneCourse(id);
   }, [id]);
 
+  const [snapToken, setSnapToken] = useState('');
+
+  useEffect(() => {
+    const fetchSnapToken = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/payment/${id}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            access_token: localStorage.getItem('access_token'),
+          },
+          body: JSON.stringify({
+            amount: 'amount', // Replace with actual amount
+            order_id: 'your-order-id', // Replace with actual order ID
+          }),
+        });
+        const { token } = await response.json();
+        setSnapToken(token);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchSnapToken();
+  }, []);
+
+  const handlePayment = () => {
+    if (!snapToken) {
+      return;
+    }
+    window.snap.pay(snapToken, {
+      onSuccess: result => {
+        setShowModal(false);
+        updateStatus();
+        navigate('/');
+        console.log('Transaction success:', result);
+      },
+      onPending: result => {
+        console.log('Transaction pending:', result);
+      },
+      onError: result => {
+        console.error('Transaction error:', result);
+      },
+    });
+  };
+
   if (loading) {
     return <h1>Loading...</h1>;
   }
@@ -36,10 +81,10 @@ const DetailCourse = () => {
     <div className="">
       <div className="bg-[#292b2f] helvetica-bold px-20 py-10 text-white pr-[30.5rem] flex flex-col gap-y-4">
         <p id="category" className="text-[#566bad]">
-          {course.Category.name}
+          {course.Category?.name}
         </p>
         <h1 id="title" className="text-3xl">
-          {course.name}
+          {course?.name}
         </h1>
         <p id="detail" className="text-extralight helvetica">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit qui,
@@ -49,7 +94,7 @@ const DetailCourse = () => {
           Created by{' '}
           <Link to="/profile/user" className="text-[#b7abe0] underline">
             {' '}
-            {course.Instructor.fullName}
+            {course.Instructor?.fullName}
           </Link>
         </p>
         <div className="flex gap-x-10">
@@ -92,7 +137,7 @@ const DetailCourse = () => {
             >
               <path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z" />
             </svg>
-            <p className="text-green-400">{course.type}</p>
+            <p className="text-green-400">{course?.type}</p>
           </div>
         </div>
       </div>
@@ -100,12 +145,12 @@ const DetailCourse = () => {
         <div className="py-20 w-4/6 flex flex-col gap-y-7">
           <div>
             <h1 className="text-2xl font-bold mb-2">Difficulty</h1>
-            <p className="text-[#6e2c1e]">{course.level}</p>
+            <p className="text-[#6e2c1e]">{course?.level}</p>
           </div>
           <div>
             <h1 className="text-2xl font-bold mb-2">Description</h1>
             <p className="font-bold">What is this course about ? </p>
-            <p className="text-sm">{course.detail}</p>
+            <p className="text-sm">{course?.detail}</p>
           </div>
           <div>
             <h1 className="text-2xl font-bold mb-2">Review</h1>
@@ -113,10 +158,10 @@ const DetailCourse = () => {
         </div>
         <div className="w-2/6 -translate-y-72 bg-white shadow-lg h-[30rem]">
           <div className="w-full">
-            <img src={course.imgUrl} alt="" className="object-cover w-full" />
+            <img src={course?.imgUrl} alt="" className="object-cover w-full" />
           </div>
           <div className="px-6 py-7">
-            <h1 className="font-bold text-3xl">Rp. {course.price}</h1>
+            <h1 className="font-bold text-3xl">Rp. {course?.price}</h1>
             <div className="flex flex-col gap-y-3 mt-7">
               <div className="flex gap-x-3">
                 <div className="w-5/6 py-2 text-center border-r bg-[#566bad] font-bold text-white hover:bg-[#f7f9fa] hover:text-black">
@@ -135,7 +180,10 @@ const DetailCourse = () => {
                   </svg>
                 </div>
               </div>
-              <div className="text-center border text-white border-black py-3 hover:bg-[#f7f9fa] hover:text-black bg-[#292b2f]">
+              <div
+                onClick={handlePayment}
+                className="text-center border text-white border-black py-3 hover:bg-[#f7f9fa] hover:text-black bg-[#292b2f]"
+              >
                 <button>Book now</button>
               </div>
             </div>
