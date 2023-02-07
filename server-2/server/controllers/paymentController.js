@@ -1,14 +1,14 @@
 const { Student, Course, Schedule, sequelize, Booking } = require('../models');
 const midtransFunction = require('../helpers/midtransFunction');
 
-// const nodemailer = require('nodemailer');
-// let transporter = nodemailer.createTransport({
-//   service: 'outlook',
-//   auth: {
-//     user: process.env.EMAIL,
-//     pass: process.env.EMAIL_PASS,
-//   },
-// });
+const nodemailer = require('nodemailer');
+let transporter = nodemailer.createTransport({
+  service: 'outlook',
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.EMAIL_PASS,
+  },
+});
 
 class PaymentController {
   static async createPayment(req, res, next) {
@@ -40,17 +40,17 @@ class PaymentController {
       const amount = course.price;
       let midtransToken = await midtransFunction(user, amount);
 
-      // const options = {
-      //   from: process.env.EMAIL,
-      //   to: createdUser.email,
-      //   subject: 'Booking confirmation',
-      //   text: 'Link',
-      // };
-      // transporter.sendMail(options, (err, info) => {
-      //   if (err) {
-      //     throw { name: 'NodemailerError' };
-      //   }
-      // });
+      const options = {
+        from: process.env.EMAIL,
+        to: 'lala@yopmail.com',
+        subject: 'Booking confirmation',
+        text: 'Link',
+      };
+      transporter.sendMail(options, (err, info) => {
+        if (err) {
+          throw { name: 'NodemailerError' };
+        }
+      });
 
       // await Schedule.create(inputSchedule, { transaction: t, returning: true });
       await t.commit();
