@@ -50,7 +50,12 @@ class CourseController {
                     },
                     {
                         model: Instructor,
-                        attributes: ["fullName", "profilePicture", "location"],
+                        attributes: [
+                            "fullName",
+                            "profilePicture",
+                            "location",
+                            "geometry",
+                        ],
                         include: [
                             {
                                 model: Schedule,

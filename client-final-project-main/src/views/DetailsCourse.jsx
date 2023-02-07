@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import CardReview from "../components/CardReview";
 import "../index.css";
 
 import axios from "axios";
@@ -47,6 +48,18 @@ const DetailCourse = () => {
         );
     }, [course]);
 
+    useEffect(() => {
+        console.log(course);
+        course.Instructor?.Schedules.forEach((el) => {
+            console.log(el.time);
+        });
+        console.log(
+            course.Instructor?.Schedules.some((el) => el.time === "Monday")
+                ? "it got monday"
+                : "nope"
+        );
+    }, [course]);
+
     const [snapToken, setSnapToken] = useState("");
 
     useEffect(() => {
@@ -73,25 +86,40 @@ const DetailCourse = () => {
         fetchSnapToken();
     }, []);
 
-    const bookCourse = async () => {
+    // const bookCourse = async () => {
+    //   try {
+    //     const response = await axios.post(`http://localhost:3000/payment/${id}`, {
+    //       headers: {
+    //         access_token: localStorage.getItem('access_token'),
+    //       },
+    //       body: {
+    //         amount: 'amount', // Replace with actual amount
+    //         order_id: 'your-order-id', // Replace with actual order ID
+    //         time: chosenTime,
+    //       },
+    //     });
+    //     console.log(`Successfully book course with schedule ${chosenTime}`);
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // };
+
+    // var day = chosenTime;
+
+    const bookCourse = async (day) => {
         try {
-            const response = await axios.post(
-                `http://localhost:3000/payment/${id}`,
-                {
-                    headers: {
-                        access_token: localStorage.getItem("access_token"),
-                    },
-                    body: {
-                        amount: "amount", // Replace with actual amount
-                        order_id: "your-order-id", // Replace with actual order ID
-                        time: chosenTime,
-                    },
-                }
-            );
-            console.log(`Successfully book course with schedule ${chosenTime}`);
-        } catch (error) {
-            console.error(error);
-        }
+            let response = await axios(`http://localhost:3000/payment/${id}`, {
+                method: "POST",
+                headers: {
+                    access_token: localStorage.getItem("access_token"),
+                },
+                data: {
+                    amount: "amount", // Replace with actual amount
+                    order_id: "your-order-id", // Replace with actual order ID
+                    day: day,
+                },
+            });
+        } catch (error) {}
     };
 
     const customStyles = {
@@ -121,18 +149,18 @@ const DetailCourse = () => {
     }
 
     const bookSchedule = (time) => {
-        setChosenTime(time);
-        handlePayment();
+        setChosenTime();
+        handlePayment(time);
     };
 
-    const handlePayment = () => {
+    const handlePayment = (day) => {
         console.log(snapToken);
         if (!snapToken) {
             return;
         }
         window.snap.pay(snapToken.token, {
             onSuccess: async (result) => {
-                await bookCourse();
+                await bookCourse(day);
                 setShowModal(false);
                 updateStatus();
                 navigate("/");
@@ -155,7 +183,7 @@ const DetailCourse = () => {
         <div className="">
             <div className="bg-[#292b2f] helvetica-bold px-20 py-10 text-white pr-[30.5rem] flex flex-col gap-y-4">
                 <p id="category" className="text-[#566bad]">
-                    {course.Category?.name}
+                    {course?.Category.name}
                 </p>
                 <h1 id="title" className="text-3xl">
                     {course?.name}
@@ -172,7 +200,7 @@ const DetailCourse = () => {
                         className="text-[#b7abe0] underline"
                     >
                         {" "}
-                        {course.Instructor?.fullName}
+                        {course?.Instructor.fullName}
                     </Link>
                 </p>
                 <div className="flex gap-x-10">
