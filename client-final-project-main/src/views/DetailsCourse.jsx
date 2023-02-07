@@ -12,6 +12,7 @@ const DetailCourse = () => {
   const { course } = useSelector(state => state.course);
   const dispatch = useDispatch();
   const { id } = useParams();
+  console.log(id);
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(true);
@@ -25,6 +26,34 @@ const DetailCourse = () => {
       console.log(error);
     }
   };
+
+  const leveling = () => {
+    if(course.level == "Beginner"){
+      return (
+        <p className="text-[#2b524d]">{course?.level}</p>
+      )
+    }else if(course.level == "Intermediate"){
+      return (
+        <p className="text-[#3d3c0a]">{course?.level}</p>
+      )
+    }else if(course.level == "Advanced"){
+      return (
+        <p className="text-[#6e2c1e]">{course?.level}</p>
+      )
+    }
+  }
+
+  const typeing = () => {
+    if(course?.type == "Offline"){
+      return(
+        <p className="text-blue-400">{course?.type}</p>
+      )
+    }else if(course?.type == "Online"){
+      return(
+        <p className="text-green-400">{course?.type}</p>
+      )
+    }
+  }
 
   useEffect(() => {
     fetchOneCourse(id);
@@ -83,7 +112,7 @@ const DetailCourse = () => {
     <div className="">
       <div className="bg-[#292b2f] helvetica-bold px-20 py-10 text-white pr-[30.5rem] flex flex-col gap-y-4">
         <p id="category" className="text-[#566bad]">
-          {course?.Category.name}
+          {course.Category?.name}
         </p>
         <h1 id="title" className="text-3xl">
           {course?.name}
@@ -94,9 +123,9 @@ const DetailCourse = () => {
         </p>
         <p className="font-normal">
           Created by{' '}
-          <Link to="/profile/user" className="text-[#b7abe0] underline">
+          <Link to={`/instructor/profile/${course.Instructor?.id}`} className="text-[#b7abe0] underline">
             {' '}
-            {course?.Instructor.fullName}
+            {course.Instructor?.fullName}
           </Link>
         </p>
         <div className="flex gap-x-10">
@@ -139,7 +168,9 @@ const DetailCourse = () => {
             >
               <path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z" />
             </svg>
-            <p className="text-green-400">{course?.type}</p>
+            {
+              typeing()
+            }
           </div>
         </div>
       </div>
@@ -147,7 +178,10 @@ const DetailCourse = () => {
         <div className="py-20 w-4/6 flex flex-col gap-y-7">
           <div>
             <h1 className="text-2xl font-bold mb-2">Difficulty</h1>
-            <p className="text-[#6e2c1e]">{course?.level}</p>
+            {/* <p className="text-[#6e2c1e]">{course?.level}</p> */}
+            {
+              leveling()
+            }
           </div>
           <div>
             <h1 className="text-2xl font-bold mb-2">Description</h1>
@@ -158,9 +192,9 @@ const DetailCourse = () => {
             <h1 className="text-2xl font-bold mb-2">Review</h1>
           </div>
         </div>
-        <div className="w-2/6 -translate-y-72 bg-white shadow-lg h-[30rem]">
+        <div className="w-2/6 -translate-y-72 bg-white shadow-lg h-[37rem]">
           <div className="w-full">
-            <img src={course?.imgUrl} alt="" className="object-cover w-full" />
+            <img src={course?.imgUrl} alt="" className="object-cover w-full h-1/2" />
           </div>
           <div className="px-6 py-7">
             <h1 className="font-bold text-3xl">Rp. {course?.price}</h1>

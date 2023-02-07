@@ -13,6 +13,7 @@ import DetailCourse from "./views/DetailsCourse"
 import DashboardUser from "./views/DashboardUser"
 import FilterCategory from "./views/FilterCategory"
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import AddCourse from "./views/AddCourse"
 
 import { Provider } from 'react-redux';
 
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
       {
         path: "/search/categories/:name",
         element: <FilterCategory />,
+      },
+      {
+        path: "/instructor/add-course",
+        element: <AddCourse />,
       }
     ],
   },
@@ -74,6 +79,14 @@ const router = createBrowserRouter([
   },
   {
     path: '/register',
+    element: <Register />,
+  },
+  {
+    path: '/instructor/login',
+    element: <Login />,
+  },
+  {
+    path: '/instructor/register',
     element: <Register />,
   },
   //

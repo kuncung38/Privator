@@ -1,5 +1,5 @@
-'use strict';
-const { Model } = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Student extends Model {
     /**
@@ -20,17 +20,17 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         unique: {
           args: true,
-          msg: 'Email must be unique',
+          msg: "Email must be unique",
         },
         validate: {
           isEmail: {
-            msg: 'Invalid email format',
+            msg: "Invalid email format",
           },
           notNull: {
-            msg: 'Email is required',
+            msg: "Email is required",
           },
           notEmpty: {
-            msg: 'Email is required',
+            msg: "Email is required",
           },
         },
       },
@@ -39,10 +39,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notNull: {
-            msg: 'Password is required',
+            msg: "Password is required",
           },
           notEmpty: {
-            msg: 'Password is required',
+            msg: "Password is required",
           },
         },
       },
@@ -51,10 +51,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notNull: {
-            msg: 'Name is required',
+            msg: "Name is required",
           },
           notEmpty: {
-            msg: 'Name is required',
+            msg: "Name is required",
           },
         },
       },
@@ -72,11 +72,10 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true,
         },
       },
-      geometry: DataTypes.GEOGRAPHY,
     },
     {
       sequelize,
-      modelName: 'Student',
+      modelName: "Student",
     }
   );
   return Student;

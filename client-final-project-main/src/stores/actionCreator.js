@@ -8,14 +8,25 @@ import {
   GET_BOOKINGS,
 } from "./actionType";
 
-const origin = "https://7725-139-228-111-125.ap.ngrok.io";
+// const origin = "https://3ef1-139-228-111-125.ap.ngrok.io";
+const origin = "http://localhost:3000";
+// const origin = "https://7725-139-228-111-125.ap.ngrok.io";
 
 //? course
 export const fetchCourses = () => {
   return async (dispatch) => {
     try {
-      const response = await fetch(`${origin}/course`);
+      const response = await fetch(
+        `${origin}/course`
+        // {
+        //   mode: "cors",
+        //   headers: {
+        //     "Access-Control-Allow-Origin": "*",
+        //   },
+        // }
+      );
       const data = await response.json();
+      console.log(data);
       dispatch({
         type: GET_COURSES,
         payload: data,
@@ -80,13 +91,13 @@ export const getOneInstructor = (id) => {
       const response = await fetch(`${origin}/instructor/${id}`);
 
       const data = await response.json();
+      console.log(data);
       if (data) {
         dispatch({
           type: GET_ONE_INSTRUCTOR,
           payload: data,
         });
       }
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -96,10 +107,11 @@ export const getOneInstructor = (id) => {
 export const getInstructors = () => {
   return async (dispatch) => {
     try {
-      const response = await fetch(`${origin}/instructor/`);
+      const response = await fetch(`${origin}/instructor`);
 
       const data = await response.json();
       if (data) {
+        console.log(data);
         dispatch({
           type: GET_INSTRUCTOR,
           payload: data,
@@ -226,3 +238,44 @@ export const fetchBookings = () => {
 //     }
 //   };
 // };
+
+export const loginInstructor = (value) => {
+  return async (dispatch) => {
+    try {
+      const response = await fetch(`${origin}/instructor/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(value),
+      });
+
+      const data = await response.json();
+      localStorage.setItem("access_token", data.access_token);
+
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const registerInstructor = (value) => {
+  return async (dispatch) => {
+    try {
+      const response = await fetch(`${origin}/instructor/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(value),
+      });
+
+      const data = await response.json();
+
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};

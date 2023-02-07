@@ -4,11 +4,24 @@ import "swiper/css/navigation"
 import "../index.css"
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
-import Course from "../components/TeacherSide/Course";
 import CardBestInstructor from "../components/CardBestInstructor";
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { useEffect } from "react";
+import Course from "../components/Course";
+import { fetchCourses, getInstructors } from "../stores/actionCreator";
+import CardInstructor from "../components/CardInstructor";
 
 const Home = () => {
-  
+  const [loading, setLoading] = useState(true);
+  const { courses, instructors } = useSelector(state => state.courses);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCourses());
+    dispatch(getInstructors())
+    setLoading(false);
+  }, []);
 
   return (
     <div>
@@ -79,38 +92,14 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="grid grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-y-7 gap-x-2">
-                    <Course/>
+                    {
+                      courses?.map((course) => <Course key={course.id} course={course}/>)
+                    }
+                    
                 </div>
                 <div>
                     <h1 className="text-2xl font-bold mb-7">Popular Instructors</h1>
-                    <Swiper
-                    slidesPerView={4}
-                    navigation={true}
-                    autoplay={{delay: 3000}}
-                    modules={[Navigation]}
-                    spaceBetween={13}
-                    className="w-full flex gap-x-3"
-                    style={{
-                        "--swiper-navigation-color": "#000",
-                        "--swiper-navigation-size": "25px",
-                        "--swiper-navigation-background-color": "black"
-                    }}>
-                        <SwiperSlide style={{textAlign: "left"}}>
-                            <CardBestInstructor/>
-                        </SwiperSlide>
-                        <SwiperSlide style={{textAlign: "left"}}>
-                            <CardBestInstructor/>
-                        </SwiperSlide>
-                        <SwiperSlide style={{textAlign: "left"}}>
-                            <CardBestInstructor/>
-                        </SwiperSlide>
-                        <SwiperSlide style={{textAlign: "left"}}>
-                            <CardBestInstructor/>
-                        </SwiperSlide>
-                        <SwiperSlide style={{textAlign: "left"}}>
-                            <CardBestInstructor/>
-                        </SwiperSlide>
-                    </Swiper>
+                        <CardBestInstructor instructors={instructors}/>
                 </div>
             </div>
         </div>

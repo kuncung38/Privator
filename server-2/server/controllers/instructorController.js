@@ -24,13 +24,6 @@ class InstructorController {
       if (!req.body.birthDate) throw { name: "Birth Date is required" };
       if (!req.body.location) throw { name: "Location is required" };
 
-      const geoData = await geocoder
-        .forwardGeocode({
-          query: req.body.location,
-          limit: 1,
-        })
-        .send();
-
       let input = {
         email: req.body.email,
         password: hashPassword(req.body.password),
@@ -41,7 +34,6 @@ class InstructorController {
         phoneNumber: req.body.phoneNumber,
         profilePicture: req.body.profilePicture, //! Multer -> Ganti ini dengan req.file.path
         location: req.body.location,
-        geometry: geoData.body.features[0].geometry,
       };
 
       const instructor = await Instructor.create(input);
@@ -116,7 +108,6 @@ class InstructorController {
           "location",
           "phoneNumber",
           "email",
-          "geometry",
         ],
       });
       res.status(200).json(instructors);
@@ -133,6 +124,7 @@ class InstructorController {
           {
             model: Course,
             attributes: [
+              "id",
               "name",
               "detail",
               "price",
@@ -168,7 +160,6 @@ class InstructorController {
           "location",
           "phoneNumber",
           "email",
-          "geometry",
         ],
       });
 

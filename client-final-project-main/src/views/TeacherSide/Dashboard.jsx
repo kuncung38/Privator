@@ -4,14 +4,19 @@ import Review from '../../components/Review';
 import Calendar from '../../components/TeacherSide/Calendar';
 import Course from '../../components/Course';
 import '../../index.css';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getOneInstructor } from '../../stores/actionCreator';
 
 const Dashboard = () => {
   const [isActive, setisActive] = useState('listCourse');
   const [activeForm, setActiveForm] = useState(false);
+  const dispatcher = useDispatch()
+  const {instructor} = useSelector(state => state.course)
 
 
     useEffect(() => {
-        console.log(activeForm);
+        dispatcher(getOneInstructor())
     }, [activeForm])
 
     const renderSection = () => {
@@ -58,7 +63,7 @@ const Dashboard = () => {
                         <button className={isActive !== "Schedule" ? "text-gray-400 border-b-8 pb-3 border-b-[#292b2f]" : "border-b-8 pb-3 border-b-white"} onClick={() => setisActive("Schedule")}>Schedule</button>
                     </div>
                     <div className="flex items-center text-white helvetica-bold gap-x-4 translate-y-2">
-                        <button onClick={() => setActiveForm(true)}>Add Course</button>
+                        <Link to="/instructor/add-course">Add Course</Link>
                     </div>
                 </div>
             </div>

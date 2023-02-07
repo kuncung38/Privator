@@ -9,14 +9,7 @@
       "phoneNumber": "082178599117",
       "address": "Jalan kesejahteraan",
       "profilePicture": "https://res.cloudinary.com/dzxb3lxqv/image/upload/v1675581041/I1_v8sjzo.jpg",
-      "location": "",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          106.78392929619253,
-          -6.2667685345134885
-        ]
-      }
+      "location": ""
     },
     {
       "email": "aditya@mail.com",
@@ -28,14 +21,7 @@
       "phoneNumber": "082178599117",
       "address": "Jalan kesejahteraan",
       "profilePicture": "https://res.cloudinary.com/dzxb3lxqv/image/upload/v1675581088/I2_ffiv4z.jpg",
-      "location": "Jalan Sultan Iskandar Muda Kav. 5-8, Jakarta, 12240, Indonesia",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          106.78563363096629,
-          -6.244171004443189
-        ]
-      }
+      "location": "Jalan Sultan Iskandar Muda Kav. 5-8, Jakarta, 12240, Indonesia"
     },
     {
       "email": "lola@mail.com",
@@ -47,14 +33,7 @@
       "phoneNumber": "082178599117",
       "address": "Jalan kesejahteraan",
       "profilePicture": "https://res.cloudinary.com/dzxb3lxqv/image/upload/v1675581088/I3_fbizk0.jpg",
-      "location": "Menteng Dalam No. 1, RT.1/RW.1, Menteng Dalam, Kecamatan Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10310, Indonesia",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          106.84472575676102,
-          -6.228494260259296
-        ]
-      }
+      "location": "Menteng Dalam No. 1, RT.1/RW.1, Menteng Dalam, Kecamatan Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10310, Indonesia"
     },
     {
       "email": "carlos@mail.com",
@@ -66,14 +45,7 @@
       "phoneNumber": "082178599117",
       "address": "Jalan kesejahteraan",
       "profilePicture": "https://res.cloudinary.com/dzxb3lxqv/image/upload/v1675581088/I4_frqmtf.jpg",
-      "location": "Jalan Metro Pondok Indah, Jakarta, 12310, Indonesia",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          106.78135621716297,
-          -6.268367798991761
-        ]
-      }
+      "location": "Jalan Metro Pondok Indah, Jakarta, 12310, Indonesia"
     },
     {
         "email": "mathias@mail.com",
@@ -85,13 +57,6 @@
         "phoneNumber": "082178599117",
         "address": "Jalan kesejahteraan",
         "profilePicture": "https://res.cloudinary.com/dzxb3lxqv/image/upload/v1675581088/I4_frqmtf.jpg",
-        "location": "Jalan Metro Pondok Indah, Jakarta, 12310, Indonesia",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            106.78135621716297,
-            -6.268367798991761
-          ]
-        }
+        "location": "Jalan Metro Pondok Indah, Jakarta, 12310, Indonesia"
       }
   ]

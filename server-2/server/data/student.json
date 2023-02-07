@@ -9,14 +9,7 @@
     "phoneNumber": "086969696969",
     "address": "Jalan Pisang 1 No. 1 RT 01 RW 01",
     "profilePicture": "https://via.placeholder.com/150",
-    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        106.78148927116388,
-        -6.260336686592879
-      ]
-    }
+    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia"
   },
   {
     "email": "orange@mail.com",
@@ -28,14 +21,7 @@
     "phoneNumber": "086969696969",
     "address": "Jalan jeruk 1 No. 1 RT 01 RW 01",
     "profilePicture": "https://via.placeholder.com/150",
-    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        106.78148927116388,
-        -6.260336686592879
-      ]
-    }
+    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia"
   },
   {
     "email": "grape@mail.com",
@@ -47,14 +33,7 @@
     "phoneNumber": "086969696969",
     "address": "Jalan Anggur 1 No. 1 RT 01 RW 01",
     "profilePicture": "https://via.placeholder.com/150",
-    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        106.78148927116388,
-        -6.260336686592879
-      ]
-    }
+    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia"
   },
   {
     "email": "kentang@mail.com",
@@ -66,14 +45,7 @@
     "phoneNumber": "086969696969",
     "address": "Jalan kentang 1 No. 1 RT 01 RW 01",
     "profilePicture": "https://via.placeholder.com/150",
-    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        106.78148927116388,
-        -6.260336686592879
-      ]
-    }
+    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia"
   },
   {
     "email": "carrot@mail.com",
@@ -85,14 +57,7 @@
     "phoneNumber": "086969696969",
     "address": "Jalan Wortel 1 No. 1 RT 01 RW 01",
     "profilePicture": "https://via.placeholder.com/150",
-    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        106.78148927116388,
-        -6.260336686592879
-      ]
-    }
+    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia"
   },
   {
     "email": "lemon@mail.com",
@@ -104,14 +69,7 @@
     "phoneNumber": "086969696969",
     "address": "Jalan lemon 1 No. 1 RT 01 RW 01",
     "profilePicture": "https://via.placeholder.com/150",
-    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        106.78148927116388,
-        -6.260336686592879
-      ]
-    }
+    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia"
   },
   {
     "email": "avocado@mail.com",
@@ -123,14 +81,7 @@
     "phoneNumber": "086969696969",
     "address": "Jalan Alpukat 1 No. 1 RT 01 RW 01",
     "profilePicture": "https://via.placeholder.com/150",
-    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        106.78148927116388,
-        -6.260336686592879
-      ]
-    }
+    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia"
   },
   {
     "email": "cherry@mail.com",
@@ -142,13 +93,6 @@
     "phoneNumber": "086969696969",
     "address": "Jalan Cherry 1 No. 1 RT 01 RW 01",
     "profilePicture": "https://via.placeholder.com/150",
-    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        106.78148927116388,
-        -6.260336686592879
-      ]
-    }
+    "location": "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia"
   }
 ]
