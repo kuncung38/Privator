@@ -28,7 +28,10 @@ const Course = () => {
     return (
         <div className="grid grid-cols-4 gap-y-7">
             {courses.map((course) => (
-                <div className="w-84 relative shadow-lg rounded-lg m-5 duration-200 hover:scale-105">
+                <div
+                    key={course.id}
+                    className="w-84 relative shadow-lg rounded-lg m-5 duration-200 hover:scale-105"
+                >
                     <Link to={`/course/detail/${course.id}`}>
                         <div className="rounded-t-md bg-cover relative -z-20 ">
                             <img
