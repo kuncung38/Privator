@@ -7,6 +7,12 @@ const {
   authenticationStudent,
 } = require('../middlewares/authentication');
 
+router.get(
+  '/getToken/:courseId',
+  authenticationStudent,
+  paymentController.getToken
+);
+
 router.post(
   '/:courseId',
   authenticationStudent,

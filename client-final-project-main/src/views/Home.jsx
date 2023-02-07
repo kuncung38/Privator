@@ -7,8 +7,9 @@ import { Navigation } from 'swiper';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Course from '../components/Course';
-import mapboxgl from 'mapbox-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
+import { fetchCourses } from '../stores/actionCreator';
+
+import ReactMapGL from 'react-map-gl';
 
 const Home = () => {
   const { courses } = useSelector(state => state.courses);
@@ -21,18 +22,13 @@ const Home = () => {
     setLoading(false);
   }, []);
 
-  mapboxgl.accessToken =
-    'pk.eyJ1IjoiZmFsZGkwMTI2IiwiYSI6ImNsY3B0N3UxdzJvbjgzcHA4dW9xdm1pa3gifQ.f_fE0qZ7IPzVnlRm1UEibg';
-  const map = new mapboxgl.Map({
-    container: 'map', // container ID
-    style: 'mapbox://styles/mapbox/streets-v12', // style URL
-    center: [106.79833581810604, -6.24501016331349],
-    zoom: 9,
+  const [viewport, setViewport] = useState({
+    width: '100px', //or full width then set width: "100vw",
+    height: '400px', //full height then set height: "100vh",
+    latitude: 37.7577,
+    longitude: -122.4376,
+    zoom: 11,
   });
-
-  for (let course of courses.Instructor.geometry.coordinates) {
-    new mapboxgl.Marker().setLngLat(resort.geometry.coordinates).addTo(map);
-  }
 
   return (
     <div>
@@ -66,15 +62,6 @@ const Home = () => {
         <section className="flex justify-center">
           <div>Filter</div>
         </section>
-
-        <div>
-          <h1>Ini buat map</h1>
-          <div
-            id="map"
-            style="width: 1250px; height: 300px;"
-            class="rounded-2xl"
-          ></div>
-        </div>
 
         <div>
           <Course />

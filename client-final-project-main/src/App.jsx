@@ -13,6 +13,7 @@ import Home from './views/Home';
 import MyProfile from './views/MyProfile';
 import DetailCourse from './views/DetailsCourse';
 import DashboardUser from './views/DashboardUser';
+import Map from './components/Map';
 
 import { Provider } from 'react-redux';
 
@@ -38,15 +39,19 @@ const router = createBrowserRouter([
         path: '/course/detail/:id',
         element: <DetailCourse />,
       },
+      {
+        path: '/map',
+        element: <Map />,
+      },
 
       // {
       //   path: '/instructor',
       //   element: <InstructorWelcome />,
       // },
-      // {
-      //   path: '/instructor/dashboard',
-      //   element: <Dashboard />,
-      // },
+      {
+        path: '/instructor/dashboard',
+        element: <Dashboard />,
+      },
       // {
       //   path: '/profile/user',
       //   element: <Profile />,
