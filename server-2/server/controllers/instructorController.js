@@ -134,12 +134,6 @@ class InstructorController {
               'CategoryId',
               'level',
             ],
-            include: [
-              {
-                model: Category,
-                attributes: ['name'],
-              },
-            ],
           },
           {
             model: Schedule,
