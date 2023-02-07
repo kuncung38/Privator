@@ -6,9 +6,9 @@ import { useState, useEffect } from 'react';
 import { fetchCourses } from '../stores/actionCreator';
 import { Link } from 'react-router-dom';
 
-const Course = () => {
-  const { courses } = useSelector(state => state.courses);
+const Course = (props) => {
   const [loading, setLoading] = useState(true);
+  const { courses } = useSelector(state => state.courses);
 
   const dispatch = useDispatch();
 
@@ -29,6 +29,7 @@ const Course = () => {
     <div className="grid grid-cols-4 gap-y-7">
       {courses.map(course => (
         <div className="w-84 relative shadow-lg rounded-lg m-5 duration-200 hover:scale-105">
+
           <Link to={`/course/detail/${course.id}`}>
             <div className="rounded-t-md bg-cover relative -z-20 ">
               <img
@@ -49,9 +50,8 @@ const Course = () => {
             </div>
           </div>
         </div>
-      ))}
 
-      {/* <div className="w-56 relative grayscale">
+      /* <div className="w-56 relative grayscale">
         <div className="rounded-t-md bg-cover relative -z-20 ">
           <img
             src="https://img-c.udemycdn.com/course/240x135/1362070_b9a1_2.jpg"
@@ -302,8 +302,8 @@ const Course = () => {
             </div>
           </div>
         </div>
-      </div> */}
-    </div>
+      </div> */
+    // </div>
   );
 };
 

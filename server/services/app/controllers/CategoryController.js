@@ -1,4 +1,4 @@
-const { Category } = require("../models");
+const { Category, Course } = require("../models");
 
 class CategoryController {
   static async getCategories(req, res, next) {
