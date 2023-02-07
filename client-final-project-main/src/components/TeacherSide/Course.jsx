@@ -3,8 +3,9 @@ import "../../index.css"
 import Rating from "react-rating"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 
-const Course = () => {
+const Course = (props) => {
     const location = useLocation()
+    const {course} = props
 
     const buttonChoice = (data) => {
         if(data.level){

@@ -84,6 +84,13 @@ const DashboardUser = () => {
         <h1 className="text-white text-4xl">Booking List</h1>
       </div>
       <div className="w-56 relative">
+        <div className="rounded-t-md bg-cover relative -z-20 ">
+          <img
+            src="https://img-c.udemycdn.com/course/240x135/1362070_b9a1_2.jpg"
+            alt=""
+            className="w-full object-cover"
+          />
+        </div>
         {courses?.map(course => (
           <div className="w-56 relative">
             <Link to={`/course/detail/${course.id}`}>
