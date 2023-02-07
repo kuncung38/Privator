@@ -13,6 +13,20 @@ import DetailCourse from "./views/DetailsCourse"
 import DashboardUser from "./views/DashboardUser"
 import FilterCategory from "./views/FilterCategory"
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Template from './views/Template';
+import NotFound from './views/Notfound';
+import InstructorWelcome from './views/InstructorWelcome';
+import Dashboard from './views/TeacherSide/Dashboard';
+import Welcome from './views/Welcome';
+import Login from './views/Login';
+import Register from './views/Register';
+import Profile from './views/Profile';
+import Home from './views/Home';
+import MyProfile from './views/MyProfile';
+import DetailCourse from './views/DetailsCourse';
+import DashboardUser from './views/DashboardUser';
+import Map from './components/Map';
+
 
 import { Provider } from 'react-redux';
 
@@ -58,6 +72,27 @@ const router = createBrowserRouter([
         path: "/course/detail/:id",
         element: <DetailCourse />,
       },
+      {
+        path: '/map',
+        element: <Map />,
+      },
+
+      // {
+      //   path: '/instructor',
+      //   element: <InstructorWelcome />,
+      // },
+      {
+        path: '/instructor/dashboard',
+        element: <Dashboard />,
+      },
+      // {
+      //   path: '/profile/user',
+      //   element: <Profile />,
+      // },
+      // {
+      //   path: '/edit-profile/',
+      //   element: <MyProfile />,
+      // },
       {
         path: '/dashboard/user/:id',
         element: <DashboardUser />,

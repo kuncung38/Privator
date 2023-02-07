@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import Privator from '../assets/logo.png';
 import male from '../assets/male.png';
 import female from '../assets/female.png';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -23,7 +24,9 @@ const Navbar = () => {
             <img src={female} alt="" className="w-9" />
           </NavLink>
         </div>
-        <h1>login</h1>
+        <Link to={'/login'}>
+          <h1>login</h1>
+        </Link>
       </div>
     </div>
   );

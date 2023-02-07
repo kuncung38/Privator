@@ -23,8 +23,11 @@ module.exports = {
           key: 'id',
         },
       },
-      time: {
+      day: {
         allowNull: false,
+        type: Sequelize.STRING,
+      },
+      time: {
         type: Sequelize.STRING,
       },
       createdAt: {

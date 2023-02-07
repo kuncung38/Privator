@@ -1,14 +1,35 @@
-import banner from "../assets/banner1.jpg"
-import "swiper/css";
-import "swiper/css/navigation"
-import "../index.css"
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
-import Course from "../components/TeacherSide/Course";
-import CardBestInstructor from "../components/CardBestInstructor";
+import banner from '../assets/banner1.jpg';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import '../index.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Course from '../components/Course';
+import { fetchCourses } from '../stores/actionCreator';
+
+import ReactMapGL from 'react-map-gl';
 
 const Home = () => {
-  
+  const { courses } = useSelector(state => state.courses);
+  const [loading, setLoading] = useState(true);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCourses());
+    setLoading(false);
+  }, []);
+
+  const [viewport, setViewport] = useState({
+    width: '100px', //or full width then set width: "100vw",
+    height: '400px', //full height then set height: "100vh",
+    latitude: 37.7577,
+    longitude: -122.4376,
+    zoom: 11,
+  });
+
 
   return (
     <div>
@@ -38,7 +59,11 @@ const Home = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-      <div className="py-3 px-7">  
+      <div className="py-32 px-7">
+        <section className="flex justify-center">
+          <div>Filter</div>
+        </section>
+
         <div>
             <div className="py-12 flex flex-col gap-y-16">
                 <div>
