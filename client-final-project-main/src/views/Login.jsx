@@ -1,12 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { loginStudent } from '../stores/actionCreator';
+import { loginInstructor, loginStudent } from '../stores/actionCreator';
 
 const Login = () => {
   const navigate = useNavigate();
+  let {pathname} = useLocation()
+  console.log(pathname);
   const input = {
     email: '',
     password: '',
@@ -26,8 +28,15 @@ const Login = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await dispatcher(loginStudent(values));
-      navigate('/');
+
+      if(pathname == "/login"){
+        const data = await dispatcher(loginStudent(values));
+        navigate('/');
+      }else{
+        const data = await dispatcher(loginInstructor(values))
+        navigate("/")
+      }
+
     } catch (error) {
       console.log(error);
     }
@@ -47,7 +56,7 @@ const Login = () => {
                 width="30"
                 height="30"
                 fill="currentColor"
-                class="bi bi-person-fill"
+                className="bi bi-person-fill"
                 viewBox="0 0 16 16"
               >
                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
@@ -70,7 +79,7 @@ const Login = () => {
                 width="30"
                 height="30"
                 fill="currentColor"
-                class="bi bi-key-fill"
+                className="bi bi-key-fill"
                 viewBox="0 0 16 16"
               >
                 <path d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
