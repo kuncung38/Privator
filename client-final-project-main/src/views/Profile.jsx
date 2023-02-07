@@ -7,7 +7,10 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation } from "swiper"
 import Review from "../components/Review"
 import CardReview from "../components/CardReview"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { useState } from "react"
+import { useEffect } from "react"
+import { fetchCourses } from "../stores/actionCreator"
 
 
 const Profile = () => {

@@ -78,7 +78,6 @@ const Home = () => {
                 </div>
                 <div className="grid grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-y-7 gap-x-2">
                     <Course/>
-                    <Course/><Course/><Course/><Course/><Course/><Course/><Course/><Course/><Course/><Course/><Course/>
                 </div>
                 <div>
                     <h1 className="text-2xl font-bold mb-7">Popular Instructors</h1>
