@@ -1,5 +1,5 @@
 if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
+    require("dotenv").config();
 }
 const cors = require("cors");
 const express = require("express");
@@ -17,8 +17,8 @@ app.use("/", router);
 
 app.use(errorHandler);
 
-// app.listen(port, () => {
-//   console.log(`My app listening on http://localhost:${port}`);
-// });
+app.listen(port, () => {
+    console.log(`My app listening on http://localhost:${port}`);
+});
 
-module.exports = app;
+module.exports = router;
