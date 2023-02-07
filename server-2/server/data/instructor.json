@@ -93,5 +93,24 @@
         -6.268367798991761
       ]
     }
+  },
+  {
+    "email": "fitnesstrainer@mail.com",
+    "password": "12345",
+    "fullName": "Fitness Master",
+    "bio": "Sebagai guru les gitar berpengalaman, saya memiliki kemampuan untuk mengajar beragam genre dan teknik gitar dengan baik. Saya memastikan bahwa siswa memahami dasar-dasar gitar dan dapat memainkan lagu sesuai keinginan mereka dengan baik.",
+    "role": "instructor",
+    "birthDate": "1990-07-13",
+    "phoneNumber": "082178599117",
+    "address": "Jalan kesejahteraan",
+    "profilePicture": "https://res.cloudinary.com/dzxb3lxqv/image/upload/v1675581088/I4_frqmtf.jpg",
+    "location": "Jalan Metro Pondok Indah, Jakarta, 12310, Indonesia",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        106.78135621716297,
+        -6.268367798991761
+      ]
+    }
   }
 ]
