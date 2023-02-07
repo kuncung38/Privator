@@ -6,13 +6,13 @@
     "time": "15:00"
   },
   {
-    "InstructorId": 2,
+    "InstructorId": 1,
     "StudentId": 3,
     "day": "Monday",
     "time": "15:00"
   },
   {
-    "InstructorId": 2,
+    "InstructorId": 1,
     "StudentId": 4,
     "day": "Tuesday",
     "time": "15:00"

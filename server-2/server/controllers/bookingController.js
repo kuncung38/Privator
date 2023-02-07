@@ -5,7 +5,8 @@ const {
   Schedule,
   Booking,
   Category,
-} = require('../models');
+  sequelize,
+} = require("../models");
 
 class BookingController {
   //? Get all bookings
@@ -18,13 +19,14 @@ class BookingController {
         include: [
           {
             model: Course,
+            attributes: ["name"],
           },
           {
             model: Instructor,
-            attributes: ['fullName'],
+            attributes: ["fullName"],
           },
         ],
-        attributes: ['id', 'status', 'CourseId', 'InstructorId', 'StudentId'],
+        attributes: ["id", "status", "CourseId", "InstructorId", "StudentId"],
       });
 
       res.status(200).json(bookings);
@@ -40,15 +42,19 @@ class BookingController {
         include: [
           {
             model: Course,
-            attributes: ['name'],
+            attributes: ["name"],
           },
           {
             model: Instructor,
-            attributes: ['fullName'],
+            attributes: ["fullName"],
           },
         ],
-        attributes: ['id', 'status'],
+        attributes: ["id", "status"],
       });
+
+      if (!booking) {
+        throw { name: "Booking not found" };
+      }
 
       res.status(200).json(booking);
     } catch (error) {
@@ -62,10 +68,10 @@ class BookingController {
       const CourseId = req.params.courseId;
       let course = await Course.findByPk(CourseId);
 
-      if (!course) throw { name: 'Course not found' };
+      if (!course) throw { name: "Course not found" };
 
       const booking = await Booking.create({
-        status: 'Booked',
+        status: "Booked",
         CourseId,
         StudentId: req.student.id,
         InstructorId: course.InstructorId,
@@ -89,21 +95,21 @@ class BookingController {
         },
       });
 
-      if (scheduleCheck.length >= 5) throw { name: 'Course is fully booked' };
+      if (scheduleCheck.length >= 5) throw { name: "Course is fully booked" };
 
       for (let schedule of scheduleCheck) {
         if (req.body.time === schedule.time) {
-          throw { name: 'Time is not available' };
+          throw { name: "Time is not available" };
         }
       }
 
-      if (!booking) throw { name: 'Booking not found' };
+      if (!booking) throw { name: "Booking not found" };
 
-      if (booking.status === 'Paid') throw { name: 'Already Paid' };
+      if (booking.status === "Paid") throw { name: "Already Paid" };
 
       await Booking.update(
         {
-          status: 'Paid',
+          status: "Paid",
         },
         {
           where: {
