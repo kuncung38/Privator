@@ -91,9 +91,9 @@ const DetailCourse = () => {
   //   }
   // };
 
-  var day = chosenTime;
+  // var day = chosenTime;
 
-  const bookCourse = async () => {
+  const bookCourse = async day => {
     try {
       let response = await axios(`http://localhost:3000/payment/${id}`, {
         method: 'POST',
@@ -136,19 +136,18 @@ const DetailCourse = () => {
   }
 
   const bookSchedule = time => {
-    setChosenTime(time);
-    console.log(chosenTime, '1 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
-    handlePayment();
+    setChosenTime();
+    handlePayment(time);
   };
 
-  const handlePayment = () => {
+  const handlePayment = day => {
     console.log(snapToken);
     if (!snapToken) {
       return;
     }
     window.snap.pay(snapToken.token, {
       onSuccess: async result => {
-        await bookCourse();
+        await bookCourse(day);
         setShowModal(false);
         updateStatus();
         navigate('/');
