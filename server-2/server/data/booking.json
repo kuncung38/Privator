@@ -3,37 +3,37 @@
     "StudentId": 1,
     "CourseId": 1,
     "InstructorId": 1,
-    "status": "Paid"
+    "status": "Booked"
   },
   {
-    "StudentId": 2,
-    "CourseId": 1,
+    "StudentId": 1,
+    "CourseId": 2,
     "InstructorId": 1,
     "status": "Booked"
   },
   {
-    "StudentId": 3,
-    "CourseId": 2,
-    "InstructorId": 2,
-    "status": "Paid"
+    "StudentId": 1,
+    "CourseId": 3,
+    "InstructorId": 1,
+    "status": "Booked"
   },
   {
     "StudentId": 4,
     "CourseId": 2,
     "InstructorId": 2,
-    "status": "Paid"
+    "status": "Booked"
   },
   {
     "StudentId": 5,
     "CourseId": 2,
     "InstructorId": 2,
-    "status": "Paid"
+    "status": "Booked"
   },
   {
     "StudentId": 6,
     "CourseId": 2,
     "InstructorId": 2,
-    "status": "Paid"
+    "status": "Booked"
   },
   {
     "StudentId": 7,

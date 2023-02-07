@@ -5,7 +5,7 @@ const {
   Schedule,
   Booking,
   Category,
-} = require('../models');
+} = require("../models");
 
 class CourseController {
   //? Get all courses
@@ -15,22 +15,22 @@ class CourseController {
         include: [
           {
             model: Instructor,
-            attributes: ['fullName', 'profilePicture', 'location'],
+            attributes: ["fullName", "profilePicture", "location"],
           },
           {
             model: Category,
-            attributes: ['name'],
+            attributes: ["name"],
           },
         ],
         attributes: [
-          'id',
-          'name',
-          'detail',
-          'price',
-          'imgUrl',
-          'type',
-          'CategoryId',
-          'level',
+          "id",
+          "name",
+          "detail",
+          "price",
+          "imgUrl",
+          "type",
+          "CategoryId",
+          "level",
         ],
       });
       res.status(200).json(courses);
@@ -46,26 +46,26 @@ class CourseController {
         include: [
           {
             model: Category,
-            attributes: ['name'],
+            attributes: ["name"],
           },
           {
             model: Instructor,
-            attributes: ['fullName', 'profilePicture', 'location'],
+            attributes: ["fullName", "profilePicture", "location"],
           },
         ],
         attributes: [
-          'id',
-          'name',
-          'detail',
-          'price',
-          'imgUrl',
-          'type',
-          'CategoryId',
-          'level',
+          "id",
+          "name",
+          "detail",
+          "price",
+          "imgUrl",
+          "type",
+          "CategoryId",
+          "level",
         ],
       });
 
-      if (!course) throw { name: 'Course not found' };
+      if (!course) throw { name: "Course not found" };
       res.status(200).json(course);
     } catch (error) {
       next(error);
@@ -76,7 +76,7 @@ class CourseController {
   static async getAllCategories(req, res, next) {
     try {
       const categories = await Category.findAll({
-        attributes: ['id', 'name'],
+        attributes: ["id", "name"],
       });
       res.status(200).json(categories);
     } catch (error) {
@@ -94,26 +94,26 @@ class CourseController {
         include: [
           {
             model: Instructor,
-            attributes: ['fullName', 'profilePicture', 'location'],
+            attributes: ["fullName", "profilePicture", "location"],
           },
           {
             model: Category,
-            attributes: ['name'],
+            attributes: ["name"],
           },
         ],
         attributes: [
-          'id',
-          'name',
-          'detail',
-          'price',
-          'imgUrl',
-          'type',
-          'CategoryId',
-          'level',
+          "id",
+          "name",
+          "detail",
+          "price",
+          "imgUrl",
+          "type",
+          "CategoryId",
+          "level",
         ],
       });
 
-      if (courses.length === 0) throw { name: 'No Course in this Category' };
+      if (courses.length === 0) throw { name: "No Course in this Category" };
       res.status(200).json(courses);
     } catch (error) {
       next(error);
@@ -123,23 +123,9 @@ class CourseController {
   //? Post a course
   static async createCourse(req, res, next) {
     try {
-      const { name, detail, price, imgUrl, type, CategoryId, level } = req.body;
-
-      // const imgUrl = req.file.path; //! Ini nanti pas multer jadi req.file.path, hapus yang atas
-
-      // const input = {
-      //   name: req.body.name,
-      //   detail: req.body.detail,
-      //   price: req.body.price,
-      //   imgUrl: req.body.imgUrl, //! Ini nanti pas multer jadi req.file.path
-      //   type: req.body.type,
-      //   CategoryId: req.body.CategoryId,
-      //   level: req.body.level,
-      //   InstructorId: req.instructor.id,
-      // };
-
+      const { name, detail, price, type, imgUrl, CategoryId, level } = req.body;
       if (!name || !detail || !price || !type || !CategoryId || !level) {
-        throw { name: 'Please fill all the field' };
+        throw { name: "Please fill all the field" };
       }
 
       const course = await Course.create({

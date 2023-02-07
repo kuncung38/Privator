@@ -5,7 +5,8 @@ const {
   Schedule,
   Booking,
   Category,
-} = require('../models');
+  sequelize,
+} = require("../models");
 
 class ScheduleController {
   //? Get all schedules
@@ -18,13 +19,14 @@ class ScheduleController {
         include: [
           {
             model: Student,
-            attributes: ['fullName', 'location'],
+            attributes: ["fullName", "location"],
           },
         ],
-        attributes: ['id', 'time', 'InstructorId', 'StudentId'],
+        attributes: ["id", "time", "InstructorId", "StudentId"],
       });
 
       res.status(200).json(schedules);
+      // res.send("asdasd");
     } catch (error) {
       next(error);
     }
@@ -36,7 +38,7 @@ class ScheduleController {
     try {
       const schedule = await Schedule.findByPk(req.params.id);
 
-      if (!schedule) throw { name: 'Schedule not found' };
+      if (!schedule) throw { name: "Schedule not found" };
 
       await Schedule.destroy(
         {
@@ -47,7 +49,7 @@ class ScheduleController {
 
       await Booking.update(
         {
-          status: 'Completed',
+          status: "Completed",
         },
         {
           where: {
