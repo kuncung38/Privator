@@ -49,7 +49,12 @@ const Course = (props) => {
               </div>
             </div>
           </div>
-        </div>}
+        </div>
+      )
+      )}
+    </div>    
+  )
+}    
       /* <div className="w-56 relative grayscale">
         <div className="rounded-t-md bg-cover relative -z-20 ">
           <img
@@ -303,7 +308,7 @@ const Course = (props) => {
         </div>
       </div> */
     // </div>
-  );
-};
+
+
 
 export default Course;
