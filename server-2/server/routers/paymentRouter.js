@@ -1,14 +1,14 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const paymentController = require('../controllers/paymentController');
+const paymentController = require("../controllers/paymentController");
 
 const {
   authenticationInstructor,
   authenticationStudent,
-} = require('../middlewares/authentication');
+} = require("../middlewares/authentication");
 
 router.post(
-  '/:courseId',
+  "/:courseId",
   authenticationStudent,
   paymentController.createPayment
 );

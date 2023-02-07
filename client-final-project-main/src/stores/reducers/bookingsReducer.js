@@ -1,4 +1,4 @@
-import { GET_BOOKINGS } from '../actionType';
+import { GET_BOOKINGS } from "../actionType";
 
 const initalState = {
   bookings: [],

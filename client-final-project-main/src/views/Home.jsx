@@ -1,12 +1,15 @@
-import banner from '../assets/banner1.jpg';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import '../index.css';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper';
-import Course from '../components/Course';
+import banner from "../assets/banner1.jpg"
+import "swiper/css";
+import "swiper/css/navigation"
+import "../index.css"
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper";
+import Course from "../components/TeacherSide/Course";
+import CardBestInstructor from "../components/CardBestInstructor";
 
 const Home = () => {
+  
+
   return (
     <div>
       <div id="banner">
@@ -35,12 +38,81 @@ const Home = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-      <div className="py-32 px-7">
-        <section className="flex justify-center">
-          <div>Filter</div>
-        </section>
+      <div className="py-3 px-7">  
         <div>
-          <Course />
+            <div className="py-12 flex flex-col gap-y-16">
+                <div>
+                <h1 className="text-2xl font-bold mb-7">Preferred categories</h1>
+                    <div id="category" className="grid grid-cols-4 gap-2">
+                        <div className="rounded-md shadow-sm text-center py-4 font-bold bg-gray-100">
+                            Tutor
+                        </div>
+                        <div className="rounded-md shadow-sm text-center py-4 font-bold bg-gray-100">
+                            Personal Trainer
+                        </div>
+                        <div className="rounded-md shadow-sm text-center py-4 font-bold bg-gray-100">
+                            Music
+                        </div>
+                        <div className="rounded-md shadow-sm text-center py-4 font-bold bg-gray-100">
+                            Software Developer
+                        </div>
+                        <div className="rounded-md shadow-sm text-center py-4 font-bold bg-gray-100">
+                            Street Dance
+                        </div>
+                        <div className="rounded-md shadow-sm text-center py-4 font-bold bg-gray-100">
+                            Finance & Accounting
+                        </div>
+                        <div className="rounded-md shadow-sm text-center py-4 font-bold bg-gray-100">
+                            Sports
+                        </div>
+                        <div className="rounded-md shadow-sm text-center py-4 font-bold bg-gray-100">
+                            Unity
+                        </div>
+                    </div>
+                </div>
+                <div id="search">
+                  <div className="w-full flex justify-end px-7">
+                    <form action="" className="flex w-[30rem]">
+                        <input type="text" className="px-7 py-2 text-sm border rounded-l-md w-full outline-none bg-white" placeholder="Search for everything"/>
+                        <button className="bg-[#566bad] text-white px-3 rounded-r-md">Search</button>
+                    </form>
+                  </div>
+                </div>
+                <div className="grid grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-y-7 gap-x-2">
+                    <Course/>
+                </div>
+                <div>
+                    <h1 className="text-2xl font-bold mb-7">Popular Instructors</h1>
+                    <Swiper
+                    slidesPerView={4}
+                    navigation={true}
+                    autoplay={{delay: 3000}}
+                    modules={[Navigation]}
+                    spaceBetween={13}
+                    className="w-full flex gap-x-3"
+                    style={{
+                        "--swiper-navigation-color": "#000",
+                        "--swiper-navigation-size": "25px",
+                        "--swiper-navigation-background-color": "black"
+                    }}>
+                        <SwiperSlide style={{textAlign: "left"}}>
+                            <CardBestInstructor/>
+                        </SwiperSlide>
+                        <SwiperSlide style={{textAlign: "left"}}>
+                            <CardBestInstructor/>
+                        </SwiperSlide>
+                        <SwiperSlide style={{textAlign: "left"}}>
+                            <CardBestInstructor/>
+                        </SwiperSlide>
+                        <SwiperSlide style={{textAlign: "left"}}>
+                            <CardBestInstructor/>
+                        </SwiperSlide>
+                        <SwiperSlide style={{textAlign: "left"}}>
+                            <CardBestInstructor/>
+                        </SwiperSlide>
+                    </Swiper>
+                </div>
+            </div>
         </div>
       </div>
     </div>

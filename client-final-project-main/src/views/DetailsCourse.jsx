@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
-import '../index.css';
+import { Link } from "react-router-dom"
+import CardReview from "../components/CardReview"
+import "../index.css"
 
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,6 +19,7 @@ const DetailCourse = () => {
   const fetchOneCourse = async id => {
     try {
       dispatch(getOneCourse(id));
+      console.log(getOneCourse);
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -81,7 +83,7 @@ const DetailCourse = () => {
     <div className="">
       <div className="bg-[#292b2f] helvetica-bold px-20 py-10 text-white pr-[30.5rem] flex flex-col gap-y-4">
         <p id="category" className="text-[#566bad]">
-          {course.Category?.name}
+          {course?.Category.name}
         </p>
         <h1 id="title" className="text-3xl">
           {course?.name}
@@ -94,7 +96,7 @@ const DetailCourse = () => {
           Created by{' '}
           <Link to="/profile/user" className="text-[#b7abe0] underline">
             {' '}
-            {course.Instructor?.fullName}
+            {course?.Instructor.fullName}
           </Link>
         </p>
         <div className="flex gap-x-10">
