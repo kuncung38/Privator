@@ -1,6 +1,8 @@
 const { Student, Course, Schedule, sequelize, Booking } = require("../models");
 const midtransFunction = require("../helpers/midtransFunction");
 
+const origin = "http://localhost:5174";
+
 const nodemailer = require("nodemailer");
 let transporter = nodemailer.createTransport({
     service: "outlook",
@@ -36,7 +38,9 @@ class PaymentController {
             );
 
             let user = await Student.findByPk(req.student.id);
-
+            // if (user.isSubscribed === true) {
+            //   throw { name: 'already_subscribed' };
+            // }
             const course = await Course.findByPk(req.params.courseId);
 
             const booking = await Booking.create(
@@ -59,22 +63,41 @@ class PaymentController {
 
             const options = {
                 from: process.env.EMAIL,
-                to: "lala@yopmail.com",
+                to: user.email,
                 subject: "Booking confirmation",
-                text: "Link",
+                text: `Hi, ${user.fullName} your booking has been confirmed. Please check your schedule in your dashboard. Thank you for choosing us!`,
             };
-            transporter.sendMail(options, (err, info) => {
-                if (err) {
-                    throw { name: "NodemailerError" };
-                }
-            });
+
+            const optionsOnline = {
+                from: process.env.EMAIL,
+                to: user.email,
+                subject: "Booking confirmation",
+                text: `Hi ${
+                    user.fullName
+                }, your booking has been confirmed. Here's your room link: ${
+                    origin + "/"
+                }. Please check your schedule in your dashboard. Thank you for choosing us!`,
+            };
+
+            if (course.type === "Online") {
+                transporter.sendMail(optionsOnline, (err, info) => {
+                    if (err) {
+                        throw { name: "NodemailerError" };
+                    }
+                });
+            } else {
+                transporter.sendMail(options, (err, info) => {
+                    if (err) {
+                        throw { name: "NodemailerError" };
+                    }
+                });
+            }
 
             await Schedule.create(inputSchedule, {
                 transaction: t,
                 returning: true,
             });
             await t.commit();
-
             res.status(200).json({ message: "Course has been paid" });
         } catch (error) {
             await t.rollback();
