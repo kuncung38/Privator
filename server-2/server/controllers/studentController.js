@@ -11,11 +11,11 @@ class StudentController {
   //? Register
   static async register(req, res, next) {
     try {
-      if (!req.body.email) throw { name: "Email is required" };
-      if (!req.body.password) throw { name: "Password is required" };
-      if (!req.body.fullName) throw { name: "Full Name is required" };
-      if (!req.body.birthDate) throw { name: "Birth Date is required" };
-      if (!req.body.location) throw { name: "Location is required" };
+
+      if (!req.body.email) throw { name: 'Email is required' };
+      if (!req.body.password) throw { name: 'Password is required' };
+      if (!req.body.fullName) throw { name: 'Full Name is required' };
+      if (!req.body.location) throw { name: 'Location is required' };
 
       const geoData = await geocoder
         .forwardGeocode({
