@@ -1,4 +1,4 @@
-const { Course, Category, Review, Student, sequelize } = require("../models");
+const { Course, Review, Student, sequelize } = require("../models");
 
 class ReviewController {
   static async getReviews(req, res, next) {
@@ -23,14 +23,14 @@ class ReviewController {
   static async postReview(req, res, next) {
     const t = await sequelize.transaction();
     try {
-      const { score, description, CourseId, StudentId } = req.body;
+      const { score, description, CourseId } = req.body;
 
       const data = await Review.create(
         {
           score,
           description,
-          CourseId: 1,
-          StudentId: 1,
+          CourseId,
+          StudentId: req.student.id,
         },
         { transaction: t }
       );
