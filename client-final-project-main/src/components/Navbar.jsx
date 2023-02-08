@@ -8,7 +8,7 @@ const Navbar = () => {
     const role = () => {
         let role = localStorage.mkdyznbmvkyxzcaryrqkgaxnnjtqltlcnwzuhvlqrlojif;
         if (role == "student") {
-            return <NavLink to="/dashboard/user">Dashboard</NavLink>;
+            return <NavLink to="/user/dashboard">Dashboard</NavLink>;
         } else if (role == "instructor") {
             return <NavLink to="/instructor/dashboard">Dashboard</NavLink>;
         }

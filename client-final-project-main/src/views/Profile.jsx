@@ -109,7 +109,7 @@ const Profile = () => {
                             <p className="text-lg">10.000 Reviews</p>
                         </div>
                     </div>
-                    <div className="text-center px-16">
+                    <div className="text-center px-7">
                         <h1 className="text-3xl mb-2 font-bold">Description</h1>
                         <p>{instructor?.bio}</p>
                         {/* <h1 className="text-center text-5xl font-bold">Profile</h1> */}
@@ -123,7 +123,7 @@ const Profile = () => {
                                     {instructor?.fullName}
                                 </span>
                             </h1>
-                            <div className="py-7 grid grid-cols-5">
+                            <div className="py-7 grid grid-cols-5 gap-y-12">
                                 {/* <Swiper
                                 slidesPerView={5}
                                 navigation={true}

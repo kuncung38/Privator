@@ -27,12 +27,10 @@ const Dashboard = () => {
     const renderSection = () => {
         if (isActive == "listCourse") {
             return (
-                <div className="px-44 py-16 grid grid-cols-4">
-                    <div>
+                <div className="px-44 py-16 grid grid-cols-4 gap-x-16">
                         {user_login.Courses?.map((course) => (
                             <Course key={course.id} course={course} />
                         ))}
-                    </div>
                 </div>
             );
         } else if (isActive == "Students") {

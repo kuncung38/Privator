@@ -10,6 +10,14 @@ const Course = (props) => {
   const {course} = props
   const {instructorName} = props
 
+  const rupiah = (number)=>{
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR"
+    }).format(number);
+  }
+
+
   if (!course) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -42,7 +50,7 @@ const Course = (props) => {
         <div className="px-2 py-4 pb-2 text-sm flex flex-col gap-y-2">
             <p>{course?.name}</p>
             <p className="text-gray-400">{course.Instructor?.fullName || instructorName}</p>
-            <p className="font-bold">Rp. {course?.price}</p>
+            <p className="font-bold">{rupiah(course?.price)}</p>
             <div className="flex flex-col justify-between gap-y-4">
                 {
                   leveling()

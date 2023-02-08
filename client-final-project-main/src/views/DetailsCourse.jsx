@@ -24,6 +24,13 @@ const DetailCourse = () => {
 
     const navigate = useNavigate();
 
+    const rupiah = (number)=>{
+      return new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR"
+      }).format(number);
+    }
+
     const [loading, setLoading] = useState(true);
 
     const fetchOneCourse = async (id) => {
@@ -272,7 +279,7 @@ const DetailCourse = () => {
                     </div>
                     <div className="px-6 py-7">
                         <h1 className="font-bold text-3xl">
-                            Rp. {course?.price}
+                            {rupiah(course?.price)}
                         </h1>
                         <div className="flex flex-col gap-y-3 mt-7">
                             <div className="flex gap-x-3">

@@ -28,12 +28,12 @@ export default function Map() {
     }, []);
 
     return (
-        <div className="flex flex-col justify-center items-center p-5 ">
-            <div>This is the map</div>
+        <div className="flex flex-col justify-center items-center p-5">
+            {/* <div>This is the map</div> */}
             <ReactMap
                 mapboxAccessToken="pk.eyJ1IjoiZmFsZGkwMTI2IiwiYSI6ImNsY3B0N3UxdzJvbjgzcHA4dW9xdm1pa3gifQ.f_fE0qZ7IPzVnlRm1UEibg"
                 style={{
-                    width: "1250px",
+                    width: "900px",
                     height: "500px",
                     borderRadius: "10px",
                 }}

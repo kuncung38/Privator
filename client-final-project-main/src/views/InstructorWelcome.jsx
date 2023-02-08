@@ -45,26 +45,22 @@ const InstructorWelcome = () => {
                     </div>
                 </div>
             </div>
-            <div className="bg-[#566bad]  px-16 py-16 grid grid-cols-5 gap-x-7 text-center helvetica">
+            <div className="bg-[#566bad]  px-16 py-16 grid grid-cols-4 gap-x-7 text-center helvetica">
                 <div>
-                    <h1 className="font-bold text-4xl">57M</h1>
+                    <h1 className="font-bold text-4xl">100,000++</h1>
+                    <p>Download</p>
+                </div>
+                <div>
+                    <h1 className="font-bold text-4xl">57,000,000</h1>
                     <p>Students</p>
                 </div>
                 <div>
-                    <h1 className="font-bold text-4xl">57M</h1>
-                    <p>Students</p>
+                    <h1 className="font-bold text-4xl">30,000++</h1>
+                    <p>Courses</p>
                 </div>
                 <div>
-                    <h1 className="font-bold text-4xl">57M</h1>
-                    <p>Students</p>
-                </div>
-                <div>
-                    <h1 className="font-bold text-4xl">57M</h1>
-                    <p>Students</p>
-                </div>
-                <div>
-                    <h1 className="font-bold text-3xl">57M</h1>
-                    <p>Students</p>
+                    <h1 className="font-bold text-4xl">120,000++</h1>
+                    <p>Users</p>
                 </div>
             </div>
             <div className="py-24 flex flex-col items-center px-24">

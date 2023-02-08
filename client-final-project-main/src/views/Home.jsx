@@ -55,10 +55,10 @@ const Home = () => {
                     </SwiperSlide>
                 </Swiper>
             </div>
-            <div className="py-32 px-7">
-                <section className="flex justify-center">
+            <div className="px-7">
+                {/* <section className="flex justify-center">
                     <div>Filter</div>
-                </section>
+                </section> */}
 
                 <div>
                     <div className="py-12 flex flex-col gap-y-16">
@@ -96,6 +96,7 @@ const Home = () => {
                                 </div>
                             </div>
                         </div>
+                        <Map />
                         <div id="search">
                             <div className="w-full flex justify-end px-7">
                                 <form action="" className="flex w-[30rem]">
@@ -110,7 +111,7 @@ const Home = () => {
                                 </form>
                             </div>
                         </div>
-                        <Map />
+                        <h1 className="text-2xl font-bold">ALL COURSES</h1>
                         <div className="grid grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-y-7 gap-x-2">
                             {courses?.map((course) => (
                                 <Course key={course.id} course={course} />

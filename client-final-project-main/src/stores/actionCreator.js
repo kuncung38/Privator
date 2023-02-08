@@ -10,8 +10,8 @@ import {
 } from "./actionType";
 
 // const origin = "https://3ef1-139-228-111-125.ap.ngrok.io";
-const origin = "http://localhost:3000";
-// const origin = "http://8337-139-228-111-125.ap.ngrok.io";
+// const origin = "http://localhost:3000";
+const origin = "https://5a67-139-228-111-125.ap.ngrok.io";
 
 //? course
 export const fetchCourses = () => {
@@ -193,7 +193,7 @@ export const loginStudent = (value) => {
         data.role
       );
 
-      console.log(data);
+      console.log(data, "lpogoiiimmm");
     } catch (error) {
       console.log(error);
     }
@@ -365,6 +365,7 @@ export const getDashboardInstructor = () => {
       const response = await fetch(`${origin}/instructor/profile`, {
         headers: {
           access_token: access_token,
+          "ngrok-skip-browser-warning": true,
         },
       });
 
@@ -390,6 +391,7 @@ export const getDashboardUser = () => {
       const response = await fetch(`${origin}/student/profile`, {
         headers: {
           access_token: access_token,
+          "ngrok-skip-browser-warning": true,
         },
       });
 
