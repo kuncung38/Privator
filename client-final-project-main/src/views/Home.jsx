@@ -12,6 +12,8 @@ import ReactMapGL from "react-map-gl";
 
 import CardBestInstructor from "../components/CardBestInstructor";
 import { fetchCourses, getInstructors } from "../stores/actionCreator";
+import Map from "../components/Map";
+
 // import CardInstructor from "../components/CardInstructor";
 
 const Home = () => {
@@ -108,6 +110,7 @@ const Home = () => {
                                 </form>
                             </div>
                         </div>
+                        <Map />
                         <div className="grid grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-y-7 gap-x-2">
                             {courses?.map((course) => (
                                 <Course key={course.id} course={course} />
