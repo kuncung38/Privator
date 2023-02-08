@@ -3,14 +3,6 @@ const request = require("supertest");
 const { sequelize } = require("../models");
 const { queryInterface } = sequelize;
 
-const user1 = {
-  email: "testing@gmail.com",
-  password: "12345",
-  fullName: "Student 01",
-  birthDate: "2023-02-04",
-  location: "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia",
-};
-
 afterAll(() => {
   queryInterface.bulkDelete("Reviews", null, {
     restartIdentity: true,
@@ -28,113 +20,30 @@ describe("ENDPOINT REVIEW", () => {
       .end((err, res) => {
         expect(res.body).toHaveProperty(
           "message",
-          "Success create a new student"
+          "Thank you for your feedback"
         );
         return done();
       });
   });
 
-  test("FAILED REGIST STUDENT CAUSE EMAIL IS NULL - 400", (done) => {
+  test("FAILED REGIST STUDENT CAUSE SCORE IS NULL - 400", (done) => {
     request(app)
-      .post("/student/register")
-      .send({ password: "12345" })
+      .post("/review/1")
+      .send({ score: null, description: "best course ever" })
       .expect(400)
       .end((err, res) => {
-        expect(res.body).toHaveProperty("message", "Email is required");
+        expect(res.body).toHaveProperty("message", "Score is missing");
         return done();
       });
   });
 
-  test("FAILED REGIST STUDENT CAUSE PASSWORD IS NULL - 400", (done) => {
+  test("FAILED REGIST STUDENT CAUSE SCORE IS UNDEFINED - 400", (done) => {
     request(app)
-      .post("/student/register")
-      .send({
-        email: "12345",
-        fullName: "Student 01",
-        birthDate: "2023-02-04",
-        location: "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia",
-      })
+      .post("/review/1")
+      .send({ score: undefined, description: "best course ever" })
       .expect(400)
       .end((err, res) => {
-        expect(res.body).toHaveProperty("message", "Password is required");
-        return done();
-      });
-  });
-
-  test("FAILED REGIST STUDENT CAUSE FULLNAME IS NULL - 400", (done) => {
-    request(app)
-      .post("/student/register")
-      .send({
-        email: "testing@gmail.com",
-        password: "12345",
-        birthDate: "2023-02-04",
-        location: "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia",
-      })
-      .expect(400)
-      .end((err, res) => {
-        expect(res.body).toHaveProperty("message", "Full Name is required");
-        return done();
-      });
-  });
-
-  test("FAILED REGIST STUDENT CAUSE BIRTHDATE IS NULL - 400", (done) => {
-    request(app)
-      .post("/student/register")
-      .send({
-        email: "testing@gmail.com",
-        password: "12345",
-        fullName: "Student 01",
-        location: "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia",
-      })
-      .expect(400)
-      .end((err, res) => {
-        expect(res.body).toHaveProperty("message", "Birth Date is required");
-        return done();
-      });
-  });
-
-  test("FAILED REGIST STUDENT CAUSE LOCATION IS NULL - 400", (done) => {
-    request(app)
-      .post("/student/register")
-      .send({
-        email: "testing@gmail.com",
-        password: "12345",
-        fullName: "Student 01",
-        birthDate: "2023-02-04",
-      })
-      .expect(400)
-      .end((err, res) => {
-        expect(res.body).toHaveProperty("message", "Location is required");
-        return done();
-      });
-  });
-
-  test("FAILED REGIST STUDENT CAUSE EMAIL ALREADY  EXISTS - 400", (done) => {
-    request(app)
-      .post("/student/register")
-      .send(user1)
-      .expect(400)
-      .end((err, res) => {
-        expect(res.status).toBe(400);
-        expect(res.body).toHaveProperty("message", "Email must be unique");
-        return done();
-      });
-  });
-
-  test("FAILED REGIST STUDENT CAUSE EMAIL INVALID FORMAT - 400", (done) => {
-    request(app)
-      .post("/student/register")
-      .send({
-        email: "testing",
-        password: "12345",
-        fullName: "Student 01",
-        birthDate: "2023-02-04",
-        location: "Jl. Sultan Iskandar Muda, Jakarta, 12240, Indonesia",
-      })
-      .expect(400)
-      .end((err, res) => {
-        expect(res.status).toBe(400);
-        expect(res.body).toHaveProperty("message", "Invalid email format");
+        expect(res.body).toHaveProperty("message", "Score is missing");
         return done();
       });
   });
