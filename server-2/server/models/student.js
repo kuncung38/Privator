@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
       Student.hasMany(models.Booking);
       Student.hasMany(models.Schedule);
     }
-<<<<<<< HEAD
   }
   Student.init(
     {
@@ -22,68 +21,6 @@ module.exports = (sequelize, DataTypes) => {
         unique: {
           args: true,
           msg: "Email must be unique",
-=======
-    Student.init(
-        {
-            email: {
-                type: DataTypes.STRING,
-                allowNull: false,
-                unique: {
-                    args: true,
-                    msg: "Email must be unique",
-                },
-                validate: {
-                    isEmail: {
-                        msg: "Invalid email format",
-                    },
-                    notNull: {
-                        msg: "Email is required",
-                    },
-                    notEmpty: {
-                        msg: "Email is required",
-                    },
-                },
-            },
-            password: {
-                type: DataTypes.STRING,
-                allowNull: false,
-                validate: {
-                    notNull: {
-                        msg: "Password is required",
-                    },
-                    notEmpty: {
-                        msg: "Password is required",
-                    },
-                },
-            },
-            fullName: {
-                type: DataTypes.STRING,
-                allowNull: false,
-                validate: {
-                    notNull: {
-                        msg: "Name is required",
-                    },
-                    notEmpty: {
-                        msg: "Name is required",
-                    },
-                },
-            },
-            bio: DataTypes.TEXT,
-            role: DataTypes.STRING,
-            birthDate: DataTypes.DATE,
-            phoneNumber: DataTypes.STRING,
-            address: DataTypes.STRING,
-            profilePicture: DataTypes.STRING,
-            location: {
-                type: DataTypes.STRING,
-                allowNull: false,
-                validate: {
-                    notNull: true,
-                    notEmpty: true,
-                },
-            },
-            // geometry: DataTypes.GEOMETRY,
->>>>>>> main
         },
         validate: {
           isEmail: {

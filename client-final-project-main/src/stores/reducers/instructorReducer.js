@@ -6,7 +6,6 @@ const initialState = {
 
 export const instructorReducer = (state = initialState, action) => {
     const { type, payload } = action;
-    console.log(action, "ini dari action");
     if (type == LOGIN_ALL_USER) {
         return {
             ...state,
