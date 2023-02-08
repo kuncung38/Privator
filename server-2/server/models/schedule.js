@@ -19,6 +19,9 @@ module.exports = (sequelize, DataTypes) => {
       StudentId: DataTypes.INTEGER,
       time: {
         type: DataTypes.STRING,
+      },
+      day: {
+        type: DataTypes.STRING,
         allowNull: false,
       },
     },

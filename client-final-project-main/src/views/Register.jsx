@@ -1,12 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { registerStudent } from '../stores/actionCreator';
+import { registerInstructor, registerStudent } from '../stores/actionCreator';
 
 const Register = () => {
   const navigate = useNavigate();
+  const {pathname} = useLocation()
+  console.log(pathname);
   const input = {
     fullName: '',
     email: '',
@@ -18,7 +20,7 @@ const Register = () => {
   const dispatcher = useDispatch();
 
   const handleInputChange = e => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     const { name, value } = e.target;
     setValues({
       ...values,
@@ -30,9 +32,15 @@ const Register = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
+      if(pathname == "/register"){
+        await dispatcher(registerStudent(values));
+        navigate('/');
+      }else{
+        await dispatcher(registerInstructor(values))
+        navigate("/instructor/login")
+      }
       console.log(values);
-      await dispatcher(registerStudent(values));
-      navigate('/');
+      
     } catch (error) {
       console.log(error);
     }

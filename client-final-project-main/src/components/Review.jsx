@@ -11,7 +11,7 @@ const Review = () => {
                     </svg>
                 </div>
                 <div>
-                    <h1 className="text-3xl helvetica-bold">4.8 Instructor Rating</h1>
+                    <h1 className="text-2xl helvetica-bold">4.8 Instructor Rating</h1>
                 </div>
             </div>
             <hr className="my-5" />

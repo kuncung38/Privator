@@ -3,7 +3,6 @@ import { Navigation } from "swiper";
 import "../index.css"
 import "swiper/css";
 import "swiper/css/navigation"
-import "../index.css"
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -196,7 +195,7 @@ const InstructorWelcome = () => {
                     <p className="text-xl text-gray-800">marketplaces.</p>
                 </div>
                 <div>
-                    <Link to="/register" className="bg-black border border-black inline-block text-white text-md px-24 py-3 hover:bg-white hover:text-black">Get Started</Link>
+                    <Link to="/instructor/register" className="bg-black border border-black inline-block text-white text-md px-24 py-3 hover:bg-white hover:text-black">Get Started</Link>
                 </div>
             </div>
         </div>

@@ -2,31 +2,37 @@
   {
     "InstructorId": 1,
     "StudentId": 1,
-    "time": "Monday"
+    "day": "Monday",
+    "time": "15:00"
   },
   {
     "InstructorId": 1,
     "StudentId": 3,
-    "time": "Monday"
+    "day": "Monday",
+    "time": "15:00"
   },
   {
     "InstructorId": 1,
     "StudentId": 4,
-    "time": "Tuesday"
+    "day": "Tuesday",
+    "time": "15:00"
   },
   {
     "InstructorId": 2,
     "StudentId": 5,
-    "time": "Wednesday"
+    "day": "Wednesday",
+    "time": "15:00"
   },
   {
     "InstructorId": 2,
     "StudentId": 6,
-    "time": "Thursday"
+    "day": "Thursday",
+    "time": "15:00"
   },
   {
     "InstructorId": 2,
     "StudentId": 7,
-    "time": "Friday"
+    "day": "Friday",
+    "time": "15:00"
   }
 ]

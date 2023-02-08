@@ -1,12 +1,22 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const paymentController = require('../controllers/paymentController');
+const paymentController = require("../controllers/paymentController");
 
 const {
-  authenticationInstructor,
-  authenticationStudent,
-} = require('../middlewares/authentication');
+    authenticationInstructor,
+    authenticationStudent,
+} = require("../middlewares/authentication");
 
-router.post('/', authenticationStudent, paymentController.createPayment);
+router.get(
+    "/getToken/:courseId",
+    authenticationStudent,
+    paymentController.getToken
+);
+
+router.post(
+    "/:courseId",
+    authenticationStudent,
+    paymentController.createPayment
+);
 
 module.exports = router;

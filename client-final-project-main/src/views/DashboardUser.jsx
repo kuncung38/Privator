@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { fetchBookings } from '../stores/actionCreator';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const DashboardUser = () => {
   const [loading, setLoading] = useState(true);
@@ -16,66 +17,66 @@ const DashboardUser = () => {
 
   const { courses } = useSelector(state => state.bookings);
 
-  const [snapToken, setSnapToken] = useState('');
+  // const [snapToken, setSnapToken] = useState('');
 
-  useEffect(() => {
-    const fetchSnapToken = async () => {
-      try {
-        const response = await fetch('http://localhost:3000/payment', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            access_token: localStorage.getItem('access_token'),
-          },
-          body: JSON.stringify({
-            amount: 60000, // Replace with actual amount
-            order_id: 'your-order-id', // Replace with actual order ID
-          }),
-        });
-        const { token } = await response.json();
-        setSnapToken(token);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchSnapToken();
-  }, []);
+  // useEffect(() => {
+  //   const fetchSnapToken = async price => {
+  //     try {
+  //       const response = await fetch('http://localhost:3000/payment/', {
+  //         method: 'POST',
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //           access_token: localStorage.getItem('access_token'),
+  //         },
+  //         body: JSON.stringify({
+  //           amount: 'amount', // Replace with actual amount
+  //           order_id: 'your-order-id', // Replace with actual order ID
+  //         }),
+  //       });
+  //       const { token } = await response.json();
+  //       setSnapToken(token);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
+  //   fetchSnapToken();
+  // }, []);
 
-  const handlePayment = () => {
-    if (!snapToken) {
-      return;
-    }
-    window.snap.pay(snapToken, {
-      onSuccess: result => {
-        setShowModal(false);
-        updateStatus();
-        navigate('/about');
-        console.log('Transaction success:', result);
-      },
-      onPending: result => {
-        console.log('Transaction pending:', result);
-      },
-      onError: result => {
-        console.error('Transaction error:', result);
-      },
-    });
-  };
-
-  // const [isActive, setisActive] = useState('listCourse');
-
-  // const renderSection = () => {
-  //   if (isActive == 'listCourse') {
-  //     return (
-  //       <div className="px-44 py-16">
-  //         <div>
-  //           <Course />
-  //         </div>
-  //       </div>
-  //     );
-  //   } else if (isActive == 'Students') {
-  //     return <div className="px-44 py-16">hagsdjhgs</div>;
+  // const handlePayment = () => {
+  //   if (!snapToken) {
+  //     return;
   //   }
+  //   window.snap.pay(snapToken, {
+  //     onSuccess: result => {
+  //       setShowModal(false);
+  //       updateStatus();
+  //       navigate('/student/dashboard');
+  //       console.log('Transaction success:', result);
+  //     },
+  //     onPending: result => {
+  //       console.log('Transaction pending:', result);
+  //     },
+  //     onError: result => {
+  //       console.error('Transaction error:', result);
+  //     },
+  //   });
   // };
+
+  // // const [isActive, setisActive] = useState('listCourse');
+
+  // // const renderSection = () => {
+  // //   if (isActive == 'listCourse') {
+  // //     return (
+  // //       <div className="px-44 py-16">
+  // //         <div>
+  // //           <Course />
+  // //         </div>
+  // //       </div>
+  // //     );
+  // //   } else if (isActive == 'Students') {
+  // //     return <div className="px-44 py-16">hagsdjhgs</div>;
+  // //   }
+  // // };
 
   return (
     <div className="min-h-screen">
@@ -90,27 +91,26 @@ const DashboardUser = () => {
             className="w-full object-cover"
           />
         </div>
-
         {courses?.map(course => (
           <div className="w-56 relative">
             <Link to={`/course/detail/${course.id}`}>
               <div className="rounded-t-md bg-cover relative -z-20 ">
                 <img
-                  src={course.imgUrl}
+                  src={course.Course.imgUrl}
                   alt=""
                   className="w-full object-cover"
                 />
               </div>
             </Link>
             <div className="px-2 py-4 text-sm flex flex-col gap-y-2">
-              <p>{course.name}</p>
+              <p>{course.Course.name}</p>
               <p className="text-gray-400">{course.Instructor.fullName}</p>
-              <p>Rp. {course.price}</p>
+              <p>Rp. {course.Course.price}</p>
 
               <div className="flex flex-col gap-y-4">
                 <div className="p-1 px-3 bg-[#f3ca8c]">
                   <span className="text-[#6e2c1e] font-bold">
-                    {course.level}
+                    {course.Course.level}
                   </span>
                 </div>
                 <div className="flex border">
@@ -127,9 +127,12 @@ const DashboardUser = () => {
                     </svg>
                   </div>
                   <div className="w-5/6 py-2 text-center border-l hover:bg-[#f7f9fa]">
-                    <button onClick={handlePayment} className="font-bold">
-                      Pay
-                    </button>
+                    <Link
+                      to={`/course/detail/${course.Course.id}`}
+                      className="font-bold"
+                    >
+                      Book
+                    </Link>
                   </div>
                 </div>
               </div>
