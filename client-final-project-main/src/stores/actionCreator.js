@@ -6,7 +6,7 @@ import {
   GET_ONE_COURSE,
   GET_ONE_INSTRUCTOR,
   GET_BOOKINGS,
-  LOGIN_INSTRUCTOR,
+  LOGIN_ALL_USER,
 } from "./actionType";
 
 // const origin = "https://3ef1-139-228-111-125.ap.ngrok.io";
@@ -188,6 +188,10 @@ export const loginStudent = (value) => {
 
       const data = await response.json();
       localStorage.setItem("access_token", data.access_token);
+      localStorage.setItem(
+        "mkdyznbmvkyxzcaryrqkgaxnnjtqltlcnwzuhvlqrlojif",
+        data.role
+      );
 
       console.log(data);
     } catch (error) {
@@ -274,6 +278,36 @@ export const fetchBookings = () => {
 //   };
 // };
 
+// export const loginInstructor = (value) => {
+//     return async (dispatch) => {
+//         try {
+//             const response = await fetch(`${origin}/instructor/login`, {
+//                 method: "POST",
+//                 headers: {
+//                     "Content-Type": "application/json",
+//                 },
+//                 body: JSON.stringify(value),
+//             });
+
+//             const data = await response.json();
+//             console.log(data, "ini dari login instructor");
+//             // if (data)
+//             localStorage.setItem("access_token", data.access_token);
+//             localStorage.setItem(
+//                 "mkdyznbmvkyxzcaryrqkgaxnnjtqltlcnwzuhvlqrlojif",
+//                 data.role
+//             );
+//             // dispatch({
+//             //     type: LOGIN_ALL_USER,
+//             //     payload: data,
+//             // });
+//             // }
+//         } catch (error) {
+//             console.log(error);
+//         }
+//     };
+// };
+
 export const loginInstructor = (value) => {
   return async (dispatch) => {
     try {
@@ -288,14 +322,13 @@ export const loginInstructor = (value) => {
       });
 
       const data = await response.json();
+      localStorage.setItem("access_token", data.access_token);
+      localStorage.setItem(
+        "mkdyznbmvkyxzcaryrqkgaxnnjtqltlcnwzuhvlqrlojif",
+        data.role
+      );
+
       console.log(data);
-      if (data) {
-        dispatch({
-          type: LOGIN_INSTRUCTOR,
-          payload: data,
-        });
-        localStorage.setItem("access_token", data.access_token);
-      }
     } catch (error) {
       console.log(error);
     }
@@ -318,6 +351,56 @@ export const registerInstructor = (value) => {
       const data = await response.json();
 
       console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+//? USER
+export const getDashboardInstructor = () => {
+  const access_token = localStorage.getItem("access_token");
+  return async (dispatch) => {
+    try {
+      const response = await fetch(`${origin}/instructor/profile`, {
+        headers: {
+          access_token: access_token,
+        },
+      });
+
+      const data = await response.json();
+      console.log(data, "ini dari action creator getdashboard");
+      if (data) {
+        dispatch({
+          type: LOGIN_ALL_USER,
+          payload: data,
+        });
+        console.log(data, "data from instructor dashboard");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const getDashboardUser = () => {
+  const access_token = localStorage.access_token;
+  return async (dispatch) => {
+    try {
+      const response = await fetch(`${origin}/student/profile`, {
+        headers: {
+          access_token: access_token,
+        },
+      });
+
+      const data = await response.json();
+      console.log(data);
+      if (data) {
+        dispatch({
+          type: LOGIN_ALL_USER,
+          payload: data,
+        });
+      }
     } catch (error) {
       console.log(error);
     }

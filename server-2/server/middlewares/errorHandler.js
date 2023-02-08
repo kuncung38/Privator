@@ -51,6 +51,12 @@ module.exports = function errorHandler(err, req, res, next) {
   } else if (err.name === "Schedule not found") {
     statusCode = 404;
     message = err.name;
+  } else if (err.name === "Score is missing") {
+    statusCode = 400;
+    message = err.name;
+  } else if (err.name === "Forbidden") {
+    statusCode = 403;
+    message = err.name;
   }
 
   res.status(statusCode).json({ message });
