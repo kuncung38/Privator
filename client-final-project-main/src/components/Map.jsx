@@ -28,7 +28,7 @@ export default function Map() {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center p-5 ">
+    <div className="flex flex-col justify-center items-center p-3 ">
       <ReactMap
         mapboxAccessToken="pk.eyJ1IjoiZmFsZGkwMTI2IiwiYSI6ImNsY3B0N3UxdzJvbjgzcHA4dW9xdm1pa3gifQ.f_fE0qZ7IPzVnlRm1UEibg"
         style={{

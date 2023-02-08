@@ -1,29 +1,41 @@
-"use strict";
-const bcrypt = require("bcrypt");
+'use strict';
+const bcrypt = require('bcrypt');
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-    async up(queryInterface, Sequelize) {
-        /**
-         * Add seed commands here.
-         *
-         * Example:
-         * await queryInterface.bulkInsert('People', [{
-         *   name: 'John Doe',
-         *   isBetaMember: false
-         * }], {});
-         */
-        let data = require("../data/student.json");
-        data.forEach((el) => {
-            el.password = bcrypt.hashSync(el.password, 10);
-            el.createdAt = new Date();
-            el.updatedAt = new Date();
-            el.geometry = JSON.stringify(el.geometry);
-        });
+  async up(queryInterface, Sequelize) {
+    /**
+     * Add seed commands here.
+     *
+     * Example:
+     * await queryInterface.bulkInsert('People', [{
+     *   name: 'John Doe',
+     *   isBetaMember: false
+     * }], {});
+     */
+    let data = require('../data/student.json');
+    data.forEach(el => {
+      el.password = bcrypt.hashSync(el.password, 10);
+      el.createdAt = new Date();
+      el.updatedAt = new Date();
+      // el.geometry = JSON.stringify(el.geometry);
+      delete el.geometry;
+    });
 
+    await queryInterface.bulkInsert('Students', data);
+  },
         await queryInterface.bulkInsert("Students", data);
     },
 
+  async down(queryInterface, Sequelize) {
+    /**
+     * Add commands to revert seed here.
+     *
+     * Example:
+     * await queryInterface.bulkDelete('People', null, {});
+     */
+    await queryInterface.bulkDelete('Students', {}, {});
+  },
     async down(queryInterface, Sequelize) {
         /**
          * Add commands to revert seed here.
