@@ -177,18 +177,18 @@ const DetailCourse = () => {
     return (
         <div className="">
             <div className="bg-[#292b2f] helvetica-bold px-20 py-10 text-white pr-[30.5rem] flex flex-col gap-y-4">
-                <p id="category" className="text-[#566bad]">
+                <p id="category" className="w-2/3 text-[#566bad]">
                     {course.Category?.name}
                 </p>
-                <h1 id="title" className="text-3xl">
+                <h1 id="title" className="w-2/3 text-3xl">
                     {course?.name}
                 </h1>
-                <p id="detail" className="text-extralight helvetica">
+                <p id="detail" className="w-2/3 text-extralight helvetica">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                     Velit qui, beatae amet rem architecto odio nisi nostrum eius
                     natus libero.
                 </p>
-                <p className="font-normal">
+                <p className="font-normal w-2/3">
                     Created by{" "}
                     <Link
                         to={`/instructor/profile/${course.Instructor?.id}`}
@@ -198,7 +198,7 @@ const DetailCourse = () => {
                         {course.Instructor?.fullName}
                     </Link>
                 </p>
-                <div className="flex gap-x-10">
+                <div className="flex gap-x-10 w-2/3">
                     <div className="flex gap-x-3 items-center text-extralight">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -254,7 +254,9 @@ const DetailCourse = () => {
                         <p className="font-bold">
                             What is this course about ?{" "}
                         </p>
-                        <p className="text-sm">{course?.detail}</p>
+                        <p className="text-sm text-justify pr-8">
+                            {course?.detail}
+                        </p>
                     </div>
                     <div>
                         <h1 className="text-2xl font-bold mb-2">Review</h1>
@@ -265,7 +267,7 @@ const DetailCourse = () => {
                         <img
                             src={course?.imgUrl}
                             alt=""
-                            className="object-cover w-full h-1/2"
+                            className="object-cover w-full h-[23rem]"
                         />
                     </div>
                     <div className="px-6 py-7">

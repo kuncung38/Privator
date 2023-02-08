@@ -88,7 +88,6 @@ export default function Map() {
                                 src={selectedCourse.Instructor.profilePicture}
                                 alt="marker"
                                 className="w-10 h-10 rounded-full"
-                                S
                             />
                             <div className="flex flex-col justify-center items-center">
                                 <h1 className="text-lg font-medium">
