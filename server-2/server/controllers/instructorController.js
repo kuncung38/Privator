@@ -178,7 +178,6 @@ class InstructorController {
                     },
                     {
                         model: Schedule,
-                        attributes: ["time"],
                         include: [
                             {
                                 model: Student,
