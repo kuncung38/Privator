@@ -85,15 +85,15 @@ class ReviewController {
         }
         avgCourse = totalScore / reviewCount;
         if (!isNaN(avgCourse)) {
-          result.push(avgCourse)
+          result.push(avgCourse);
         }
       }
-      let total = 0
-      result.forEach(el => {
-        total += el
+      let total = 0;
+      result.forEach((el) => {
+        total += el;
       });
-      let avg = total/result.length
-      res.status(200).json(avg);
+      let avg = total / result.length;
+      res.status(200).json({ average_review: avg, reviews: data.Courses });
     } catch (err) {
       next(err);
     }

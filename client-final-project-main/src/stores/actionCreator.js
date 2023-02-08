@@ -6,6 +6,7 @@ import {
   GET_ONE_COURSE,
   GET_ONE_INSTRUCTOR,
   GET_BOOKINGS,
+  GET_REVIEW,
   LOGIN_ALL_USER,
 } from "./actionType";
 
@@ -231,39 +232,7 @@ export const fetchBookings = () => {
   };
 };
 
-//? login instructor
-// export const loginAction = payload => {
-//   return async dispatcher => {
-//     try {
-//       const res = await fetch(origin + `/admins/login`, {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(payload),
-//       });
-//       const data = await res.json();
-
-//       if (res.ok) {
-//         Swal.fire('Success Login 🎉');
-//         localStorage.setItem('access_token', data.access_token);
-//         dispatcher(fetchFoodsAction());
-//       } else if (!res.ok) {
-//         Swal.fire({
-//           icon: 'error',
-//           title: 'Oops...',
-//           text: 'Wrong email or password!',
-//         });
-//       }
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-// };
-
 export const getReviews = (id) => {
-  console.log("ini dari creator review");
-  console.log(id, "asdasd");
   return async (dispatch) => {
     try {
       const response = await fetch(`${origin}/review/${id}`, {
@@ -273,7 +242,6 @@ export const getReviews = (id) => {
         },
       });
       const data = await response.json();
-      console.log(data, "ini dari action creator");
       dispatch({
         type: GET_REVIEW,
         payload: data,

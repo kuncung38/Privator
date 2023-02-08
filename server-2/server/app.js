@@ -32,4 +32,4 @@ app.listen(port, () => {
   console.log(`My app listening on http://localhost:${port}`);
 });
 
-// module.exports = router;
+// module.exports = app;
