@@ -49,6 +49,7 @@ export default function Map() {
                         key={course.id}
                         longitude={course.Instructor.geometry.coordinates[0]}
                         latitude={course.Instructor.geometry.coordinates[1]}
+                        style={{ position: "relative", zIndex: 100 }}
                     >
                         <div className="flex flex-col justify-center items-center">
                             <button
