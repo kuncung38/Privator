@@ -11,3 +11,4 @@ export const GET_SCHEDULE = "schedule/GET_SCHEDULE";
 
 export const GET_ONE_INSTRUCTOR = "GET_ONE_INSTRUCTOR";
 export const GET_INSTRUCTOR = "GET_INSTRUCTOR";
+export const LOGIN_INSTRUCTOR = "LOGIN_INSTRUCTOR";

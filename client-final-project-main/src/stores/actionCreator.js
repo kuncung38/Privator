@@ -6,6 +6,7 @@ import {
   GET_ONE_COURSE,
   GET_ONE_INSTRUCTOR,
   GET_BOOKINGS,
+  LOGIN_INSTRUCTOR,
 } from "./actionType";
 
 // const origin = "https://3ef1-139-228-111-125.ap.ngrok.io";
@@ -251,9 +252,14 @@ export const loginInstructor = (value) => {
       });
 
       const data = await response.json();
-      localStorage.setItem("access_token", data.access_token);
-
       console.log(data);
+      if (data) {
+        dispatch({
+          type: LOGIN_INSTRUCTOR,
+          payload: data,
+        });
+        localStorage.setItem("access_token", data.access_token);
+      }
     } catch (error) {
       console.log(error);
     }
