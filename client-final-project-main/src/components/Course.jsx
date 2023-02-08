@@ -51,7 +51,7 @@ const Course = (props) => {
     return (
         <div className="w-60 border shadow-md rounded-sm overflow-hidden hover:scale-105 duration-200 ease-in-out">
             <div
-                className="rounded-t-md bg-cover relative -z-20 cursor-pointer"
+                className="rounded-t-md bg-cover relative z-20 cursor-pointer"
                 onClick={() => navigator(`/course/detail/${course?.id}`)}
             >
                 <img
