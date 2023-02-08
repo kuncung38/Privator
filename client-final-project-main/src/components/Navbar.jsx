@@ -1,10 +1,12 @@
-import { NavLink } from 'react-router-dom';
-import Privator from '../assets/logo.png';
-import male from '../assets/male.png';
-import female from '../assets/female.png';
-import { Link } from 'react-router-dom';
+import { NavLink, useNavigate } from "react-router-dom";
+import Privator from "../assets/logo.png";
+import male from "../assets/male.png";
+import female from "../assets/female.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
+    const navigator = useNavigate();
+
     const role = () => {
         let role = localStorage.mkdyznbmvkyxzcaryrqkgaxnnjtqltlcnwzuhvlqrlojif;
         if (role == "student") {
@@ -13,6 +15,7 @@ const Navbar = () => {
             return <NavLink to="/instructor/dashboard">Dashboard</NavLink>;
         }
     };
+
     return (
         <div className="px-16 py-3 flex justify-between items-center shadow-md sticky top-0 z-20 bg-white">
             <div className="flex gap-x-4 items-center">
@@ -32,12 +35,24 @@ const Navbar = () => {
                         <img src={female} alt="" className="w-9" />
                     </NavLink>
                 </div>
-                <Link to={"/login"}>
-                    <h1>login</h1>
-                </Link>
+                {!localStorage.getItem("access_token") && (
+                    <Link to={"/login"}>
+                        <h1>login</h1>
+                    </Link>
+                )}
+                {localStorage.getItem("access_token") && (
+                    <button
+                        onClick={() => {
+                            localStorage.clear();
+                            navigator("/");
+                        }}
+                    >
+                        Logout
+                    </button>
+                )}
             </div>
         </div>
-  );
+    );
 };
 
 export default Navbar;
