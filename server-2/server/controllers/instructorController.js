@@ -121,7 +121,7 @@ class InstructorController {
     //? Get one instructor
     static async getOneInstructor(req, res, next) {
         try {
-            const instructor = await Instructor.findByPk(req.params.id, {
+            const instructor = await Instructor.findByPk(req.instructor.id, {
                 include: [
                     {
                         model: Course,

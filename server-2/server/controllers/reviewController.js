@@ -3,6 +3,7 @@ const { Course, Review, Student, sequelize } = require("../models");
 class ReviewController {
   static async getReviews(req, res, next) {
     try {
+      const { id } = req.params;
       const data = await Review.findAll({
         include: [
           {
@@ -13,6 +14,7 @@ class ReviewController {
           },
         ],
         order: [["id"]],
+        where: { CourseId: id },
       });
       res.status(200).json(data);
     } catch (err) {
