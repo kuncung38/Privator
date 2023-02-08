@@ -61,25 +61,20 @@ function Courses() {
                 ))}
             </div>
 
-            <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700" />
+            <hr className="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700" />
 
             <div className="flex flex-wrap justify-center gap-8 m-10">
-                {/* <div className="flex justify-center">
-          <div className="flex flex-col rounded-lg bg-white max-w-sm justify-center items-center p-10 m-3 gap-10 shadow-xl">
-            <img
-              className="rounded-t-lg"
-              src={require('../assets/violin.png')}
-            />
-            <div className="">
-              <h5 className="text-gray-900 font-Display font-medium text-2xl items-end">
-                Music
-              </h5>
-            </div>
-          </div>
-        </div> */}
-                {shownCourse?.map((course) => (
-                    <Course course={course} />
-                ))}
+                {shownCourse?.length == 0 ? (
+                    <div>
+                        <h1 className="text-2xl font-bold text-gray-400 py-32">
+                            Course not found.
+                        </h1>
+                    </div>
+                ) : (
+                    shownCourse?.map((course) => (
+                        <Course course={course} key={course.id} />
+                    ))
+                )}
             </div>
         </>
     );

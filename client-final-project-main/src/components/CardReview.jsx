@@ -3,13 +3,14 @@ import dayjs from "dayjs";
 
 const CardReview = ({ review }) => {
     return (
-        <div>
-            <div className="flex gap-x-5">
-                <div className="">
+        <div className="shadow-md mb-4">
+            <div className="flex gap-x-5 pl-6">
+                <div className="w-12 h-12 rounded-full overflow-hidden ">
                     <img
-                        src={review?.Student.profilePicture}
+                        // src={review?.Student.profilePicture}
+                        src="https://cdn1-production-images-kly.akamaized.net/xAqkm6mS7kh7496ovRrZ8p6fX40=/1280x720/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/1530450/original/094582300_1488962266-jessica_mila.jpg"
                         alt=""
-                        className="w-12 rounded-full"
+                        className="w-auto h-full object-cover"
                     />
                 </div>
                 <div className="flex flex-col gap-y-2">
@@ -52,7 +53,7 @@ const CardReview = ({ review }) => {
                     </div>
                 </div>
             </div>
-            <div className="py-5 pr-5">
+            <div className="py-5 px-5">
                 <p>{review?.description}</p>
             </div>
         </div>

@@ -183,6 +183,9 @@ class InstructorController {
                                 model: Student,
                                 attributes: ["fullName", "location"],
                             },
+                            {
+                                model: Course,
+                            },
                         ],
                     },
                 ],

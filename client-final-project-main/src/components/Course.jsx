@@ -4,11 +4,30 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { fetchCourses } from "../stores/actionCreator";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Course = (props) => {
     const { course } = props;
     const { instructorName } = props;
+
+    const { pathname } = useLocation();
+
+    const renderLinkClass = () => {
+        if (pathname == "/instructor/dashboard") {
+            return (
+                <a
+                    href={`http://localhost:5173/room/${course?.name.replaceAll(
+                        " ",
+                        "-"
+                    )}`}
+                    target="_blank"
+                    className="bg-blue-100 text-center py-1 relative z-10"
+                >
+                    START CLASS
+                </a>
+            );
+        }
+    };
 
     const navigator = useNavigate();
 
@@ -69,27 +88,10 @@ const Course = (props) => {
                 <div className="flex flex-col justify-between gap-y-4">
                     {leveling()}
                 </div>
-                <a
-                    href={`http://localhost:5173/room/${course?.name.replaceAll(
-                        " ",
-                        "-"
-                    )}`}
-                    target="_blank"
-                    className="bg-blue-100 text-center py-1 relative z-10"
-                >
-                    START CLASS
-                </a>
+                {renderLinkClass()}
             </div>
         </div>
     );
 };
 
 export default Course;
-
-{
-    /* <div className="border rounded-md">
-                            <div className="py-1 text-center hover:bg-[#f7f9fa]">
-                                <p className="font-bold">Book now</p>
-                            </div>        
-                        </div>  */
-}

@@ -2,15 +2,40 @@ import "../index.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { fetchBookings, setUser } from "../stores/actionCreator";
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import { ChatPage } from "../components/chatComponents/ChatPage";
+
+import Modal from "react-modal";
+import { AddReviewForm } from "../components/AddReviewForm";
 
 const DashboardUser = () => {
     const [loading, setLoading] = useState(true);
     const [isActive, setisActive] = useState("listBook");
 
     const dispatch = useDispatch();
+
+    //! Modal
+    const [chosenId, setChosenId] = useState();
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    Modal.setAppElement("#root");
+
+    const toggleModal = () => {
+        setModalIsOpen(!modalIsOpen);
+    };
+
+    const customStyles = {
+        content: {
+            top: "50%",
+            left: "50%",
+            right: "auto",
+            bottom: "auto",
+            marginRight: "-50%",
+            transform: "translate(-50%, -50%)",
+            width: "40%",
+        },
+    };
+
+    //! Modal End
 
     useEffect(() => {
         dispatch(fetchBookings());
@@ -64,9 +89,15 @@ const DashboardUser = () => {
                                                 <p>JOIN CLASS</p>
                                             </a>
                                         </div>
-                                        <div className="flex border justify-center py-1 hover:bg-[#f7f9fa]">
+                                        <button
+                                            onClick={() => {
+                                                setChosenId(course.CourseId);
+                                                toggleModal();
+                                            }}
+                                            className="flex border justify-center py-1 hover:bg-[#f7f9fa]"
+                                        >
                                             <p>Review Course</p>
-                                        </div>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -82,67 +113,6 @@ const DashboardUser = () => {
             );
         }
     };
-
-    // const [snapToken, setSnapToken] = useState('');
-
-    // useEffect(() => {
-    //   const fetchSnapToken = async price => {
-    //     try {
-    //       const response = await fetch('http://localhost:3000/payment/', {
-    //         method: 'POST',
-    //         headers: {
-    //           'Content-Type': 'application/json',
-    //           access_token: localStorage.getItem('access_token'),
-    //         },
-    //         body: JSON.stringify({
-    //           amount: 'amount', // Replace with actual amount
-    //           order_id: 'your-order-id', // Replace with actual order ID
-    //         }),
-    //       });
-    //       const { token } = await response.json();
-    //       setSnapToken(token);
-    //     } catch (error) {
-    //       console.error(error);
-    //     }
-    //   };
-    //   fetchSnapToken();
-    // }, []);
-
-    // const handlePayment = () => {
-    //   if (!snapToken) {
-    //     return;
-    //   }
-    //   window.snap.pay(snapToken, {
-    //     onSuccess: result => {
-    //       setShowModal(false);
-    //       updateStatus();
-    //       navigate('/student/dashboard');
-    //       console.log('Transaction success:', result);
-    //     },
-    //     onPending: result => {
-    //       console.log('Transaction pending:', result);
-    //     },
-    //     onError: result => {
-    //       console.error('Transaction error:', result);
-    //     },
-    //   });
-    // };
-
-    // // const [isActive, setisActive] = useState('listCourse');
-
-    // // const renderSection = () => {
-    // //   if (isActive == 'listCourse') {
-    // //     return (
-    // //       <div className="px-44 py-16">
-    // //         <div>
-    // //           <Course />
-    // //         </div>
-    // //       </div>
-    // //     );
-    // //   } else if (isActive == 'Students') {
-    // //     return <div className="px-44 py-16">hagsdjhgs</div>;
-    // //   }
-    // // };
 
     return (
         <div className="min-h-screen">
@@ -170,20 +140,39 @@ const DashboardUser = () => {
                         >
                             Instructor
                         </button>
-                        {/* <button
-                      className={
-                          isActive !== "Schedule"
-                              ? "text-gray-400 border-b-8 pb-3 border-b-[#292b2f]"
-                              : "border-b-8 pb-3 border-b-white"
-                      }
-                      onClick={() => setisActive("Schedule")}
-                  >
-                      Schedule
-                  </button> */}
                     </div>
                 </div>
             </div>
             <div className="px-32 mt-10">{paging()}</div>
+
+            <Modal
+                isOpen={modalIsOpen}
+                style={customStyles}
+                contentLabel="Schedule Modal"
+            >
+                <header className="flex flex-row relative justify-center mb-8">
+                    <button
+                        onClick={toggleModal}
+                        className="absolute right-0 top-1 duration-200 hover:scale-125 hover:text-red-600"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            fill="currentColor"
+                            className="bi bi-x"
+                            viewBox="0 0 16 16"
+                        >
+                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </button>
+                    <h1 className="text-xl font-semibold">Add Your Review</h1>
+                </header>
+
+                <main className="flex flex-col gap-4 items-center mx-16 ">
+                    <AddReviewForm id={chosenId} />
+                </main>
+            </Modal>
         </div>
     );
 };

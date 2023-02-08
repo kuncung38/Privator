@@ -72,7 +72,7 @@ class PaymentController {
                 from: process.env.EMAIL,
                 to: user.email,
                 subject: "Booking confirmation",
-                text: `Hi ${user.fullName}, your booking has been confirmed. Here's your room link: ${req.body.link}. Please check your schedule in your dashboard. Thank you for choosing us!`,
+                html: `Hi ${user.fullName}, your booking has been confirmed. Here's your room link: <a href=${req.body.link}>CLICK HERE</a>. Please check your schedule in your dashboard. Thank you for choosing us!`,
             };
 
             if (course.type === "Online") {

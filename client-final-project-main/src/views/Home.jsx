@@ -58,28 +58,6 @@ const Home = () => {
                                         {category.name}
                                     </div>
                                 ))}
-
-                                {/* <div className="rounded-md shadow-sm text-center py-4 font-bold bg-gray-100">
-                  Personal Trainer
-                </div>
-                <div className="rounded-md shadow-sm text-center py-4 font-bold bg-gray-100">
-                  Music
-                </div>
-                <div className="rounded-md shadow-sm text-center py-4 font-bold bg-gray-100">
-                  Software Developer
-                </div>
-                <div className="rounded-md shadow-sm text-center py-4 font-bold bg-gray-100">
-                  Street Dance
-                </div>
-                <div className="rounded-md shadow-sm text-center py-4 font-bold bg-gray-100">
-                  Finance & Accounting
-                </div>
-                <div className="rounded-md shadow-sm text-center py-4 font-bold bg-gray-100">
-                  Sports
-                </div>
-                <div className="rounded-md shadow-sm text-center py-4 font-bold bg-gray-100">
-                  Unity
-                </div> */}
                             </div>
                         </div>
                         {/* <div id="search">

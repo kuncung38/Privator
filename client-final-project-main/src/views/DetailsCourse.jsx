@@ -78,11 +78,12 @@ const DetailCourse = () => {
     }, [id]);
 
     useEffect(() => {
+        console.log(course.Instructor?.Schedules, "cek schedule aja");
         course.Instructor?.Schedules.forEach((el) => {
-            console.log(el.time);
+            console.log(el.day);
         });
         console.log(
-            course.Instructor?.Schedules.some((el) => el.time === "Monday")
+            course.Instructor?.Schedules.some((el) => el.day === "Monday")
                 ? "it got monday"
                 : "nope"
         );
@@ -126,10 +127,7 @@ const DetailCourse = () => {
                     order_id: "your-order-id", // Replace with actual order ID
                     day: day,
                     time: "09.00-17.00",
-                    link: `${ORIGIN}/room/${course.name.replaceAll(
-                        " ",
-                        "-"
-                    )}-${day}`,
+                    link: `${ORIGIN}/room/${course.name.replaceAll(" ", "-")}`,
                 },
             });
         } catch (error) {}
@@ -200,11 +198,6 @@ const DetailCourse = () => {
                 <h1 id="title" className="w-2/3 text-3xl">
                     {course?.name}
                 </h1>
-                <p id="detail" className="w-2/3 text-extralight helvetica">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Velit qui, beatae amet rem architecto odio nisi nostrum eius
-                    natus libero.
-                </p>
                 <p className="font-normal w-2/3">
                     Created by{" "}
                     <Link
@@ -287,7 +280,7 @@ const DetailCourse = () => {
                         })}
                     </div>
                 </div>
-                <div className="w-2/6 -translate-y-72 bg-white shadow-lg h-[37rem]">
+                <div className="w-2/6 -translate-y-52 bg-white shadow-lg h-[37rem]">
                     <div className="w-full">
                         <img
                             src={course?.imgUrl}
@@ -328,29 +321,6 @@ const DetailCourse = () => {
                 </div>
             </div>
 
-            {/* <Modal
-        isOpen={modalIsOpen}
-        style={customStyles}
-        contentLabel="Schedule Modal"
-      >
-        <header className="flex flex-row relative justify-center mb-8">
-          <button
-            onClick={toggleModal}
-            className="absolute right-0 top-1 duration-200 hover:scale-125 hover:text-red-600"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="currentColor"
-              className="bi bi-x"
-              viewBox="0 0 16 16"
-            >
-              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-            </svg>
-          </button>
-          <h1 className="text-xl font-semibold">Pick Your Schedules</h1>
-        </header> */}
             <Modal
                 isOpen={modalIsOpen}
                 style={customStyles}
@@ -383,7 +353,7 @@ const DetailCourse = () => {
                         className="flex justify-center items-center py-2 px-4 bg-[#566bad] text-white w-full duration-200 hover:scale-y-125 hover:bg-white border-2 border-[#566bad] hover:text-[#566bad]"
                         style={
                             course.Instructor?.Schedules.some(
-                                (el) => el.time === "Monday"
+                                (el) => el.day === "Monday"
                             )
                                 ? disabledStyles
                                 : {}
@@ -396,7 +366,7 @@ const DetailCourse = () => {
                         className="flex justify-center items-center py-2 px-4 bg-[#566bad] text-white w-full duration-200 hover:scale-y-125 hover:bg-white border-2 border-[#566bad] hover:text-[#566bad]"
                         style={
                             course.Instructor?.Schedules.some(
-                                (el) => el.time === "Tuesday"
+                                (el) => el.day === "Tuesday"
                             )
                                 ? disabledStyles
                                 : {}
@@ -409,7 +379,7 @@ const DetailCourse = () => {
                         className="flex justify-center items-center py-2 px-4 bg-[#566bad] text-white w-full duration-200 hover:scale-y-125 hover:bg-white border-2 border-[#566bad] hover:text-[#566bad]"
                         style={
                             course.Instructor?.Schedules.some(
-                                (el) => el.time === "Wednesday"
+                                (el) => el.day === "Wednesday"
                             )
                                 ? disabledStyles
                                 : {}
@@ -422,7 +392,7 @@ const DetailCourse = () => {
                         className="flex justify-center items-center py-2 px-4 bg-[#566bad] text-white w-full duration-200 hover:scale-y-125 hover:bg-white border-2 border-[#566bad] hover:text-[#566bad]"
                         style={
                             course.Instructor?.Schedules.some(
-                                (el) => el.time === "Thursday"
+                                (el) => el.day === "Thursday"
                             )
                                 ? disabledStyles
                                 : {}
@@ -435,7 +405,7 @@ const DetailCourse = () => {
                         className="flex justify-center items-center py-2 px-4 bg-[#566bad] text-white w-full duration-200 hover:scale-y-125 hover:bg-white border-2 border-[#566bad] hover:text-[#566bad]"
                         style={
                             course.Instructor?.Schedules.some(
-                                (el) => el.time === "Friday"
+                                (el) => el.day === "Friday"
                             )
                                 ? disabledStyles
                                 : {}

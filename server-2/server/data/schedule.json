@@ -1,38 +1,44 @@
 [
-  {
-    "InstructorId": 1,
-    "StudentId": 1,
-    "day": "Monday",
-    "time": "15:00"
-  },
-  {
-    "InstructorId": 1,
-    "StudentId": 3,
-    "day": "Monday",
-    "time": "15:00"
-  },
-  {
-    "InstructorId": 1,
-    "StudentId": 4,
-    "day": "Tuesday",
-    "time": "15:00"
-  },
-  {
-    "InstructorId": 2,
-    "StudentId": 5,
-    "day": "Wednesday",
-    "time": "15:00"
-  },
-  {
-    "InstructorId": 2,
-    "StudentId": 6,
-    "day": "Thursday",
-    "time": "15:00"
-  },
-  {
-    "InstructorId": 2,
-    "StudentId": 7,
-    "day": "Friday",
-    "time": "15:00"
-  }
+    {
+        "CourseId": 1,
+        "InstructorId": 1,
+        "StudentId": 1,
+        "day": "Monday",
+        "time": "15:00"
+    },
+    {
+        "CourseId": 15,
+        "InstructorId": 1,
+        "StudentId": 3,
+        "day": "Monday",
+        "time": "15:00"
+    },
+    {
+        "CourseId": 1,
+        "InstructorId": 1,
+        "StudentId": 4,
+        "day": "Tuesday",
+        "time": "15:00"
+    },
+    {
+        "CourseId": 17,
+        "InstructorId": 2,
+        "StudentId": 5,
+        "day": "Wednesday",
+        "time": "15:00"
+    },
+    {
+        "CourseId": 15,
+        "InstructorId": 2,
+        "StudentId": 6,
+        "day": "Thursday",
+        "time": "15:00"
+    },
+    {
+        "CourseId": 2,
+        "InstructorId": 2,
+        "StudentId": 7,
+        "day": "Friday",
+        "time": "15:00"
+    }
 ]

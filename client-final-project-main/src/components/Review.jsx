@@ -1,25 +1,57 @@
-import "../index.css"
-import CardReview from "./CardReview"
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import "../index.css";
+import CardReview from "./CardReview";
+
+const ORIGIN = "http://localhost:3000";
 
 const Review = () => {
+    const [reviewData, setReviewData] = useState({});
+    const user = useSelector((state) => state.user);
+
+    useEffect(() => {
+        console.log("🚀 ~ file: Review.jsx:12 ~ Review ~ user", user);
+
+        (async () => {
+            const { data } = await axios({
+                method: "GET",
+                url: `${ORIGIN}/review/instructor/${user.id}`,
+            });
+            console.log(data, "test");
+            setReviewData(data);
+        })();
+    }, []);
+
     return (
         <div>
             <div className="flex gap-x-8 items-center">
                 <div className="text-yellow-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="30"
+                        height="30"
+                        fill="currentColor"
+                        className="bi bi-star-fill"
+                        viewBox="0 0 16 16"
+                    >
+                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                     </svg>
                 </div>
                 <div>
-                    <h1 className="text-2xl helvetica-bold">4.8 Instructor Rating</h1>
+                    <h1 className="text-2xl helvetica-bold">
+                        {!reviewData.average_review
+                            ? "No Reviews Yet"
+                            : `${reviewData.average_review} Instructor Rating`}
+                    </h1>
                 </div>
             </div>
             <hr className="my-5" />
             <div className="grid grid-cols-2 gap-x-7 gap-y-10">
-                <CardReview/>
+                {!reviewData.average_review ? "" : <CardReview />}
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Review
+export default Review;
