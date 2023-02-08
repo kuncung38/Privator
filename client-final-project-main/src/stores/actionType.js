@@ -13,3 +13,4 @@ export const GET_ONE_INSTRUCTOR = "GET_ONE_INSTRUCTOR";
 export const GET_INSTRUCTOR = "GET_INSTRUCTOR";
 
 export const LOGIN_ALL_USER = "LOGIN_USER";
+

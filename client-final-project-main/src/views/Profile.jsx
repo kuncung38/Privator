@@ -19,6 +19,7 @@ import ReactMap, {
   NavigationControl,
   GeolocateControl,
 } from 'react-map-gl';
+import Course from '../components/Course';
 
 const Profile = () => {
   const [lng, setLng] = useState(106.78135621716297);
@@ -141,23 +142,11 @@ const Profile = () => {
                   style={{ zIndex: 1 }}
                 >
                   <div className="flex flex-col items-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="30"
-                      height="30"
-                      fill="currentColor"
-                      className="bi bi-geo-alt-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 15a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"
-                      />
-                      <path
-                        fillRule="evenodd"
-                        d="M8 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm0 6.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
-                      />
-                    </svg>
+                    <img
+                      src={instructor?.profilePicture}
+                      alt="avatar"
+                      className="w-10 h-10 rounded-full"
+                    />
 
                     <p className="text-lg">{instructor?.fullName}</p>
                   </div>
@@ -178,13 +167,13 @@ const Profile = () => {
 
             {/* !-------------------------------------------------------- */}
 
-            <div className="text-start">
+            <div className="text-start my-10">
               <h1 className="text-2xl font-bold">
-                More Courses by{' '}
+                Courses by{' '}
                 <span className="text-[#566bad]">{instructor?.fullName}</span>
               </h1>
-              <div className="py-7 grid grid-cols-5">
-                {/* <Swiper
+              {/* <div className="py-7 grid grid-cols-5"> */}
+              {/* <Swiper
                                 slidesPerView={5}
                                 navigation={true}
                                 autoplay={{delay: 3000}}
@@ -197,14 +186,18 @@ const Profile = () => {
                                     "--swiper-navigation-background-color": "black"
                                 }}
                                 > */}
-                {/* {instructor.Courses?.map(course => (
+
+              <div className="flex flex-wrap justify-center gap-8 m-10">
+                {instructor?.Courses?.map(course => (
                   <Course
                     key={course.id}
                     instructorName={instructor?.fullName}
                     course={course}
                   />
-                ))} */}
-                {/* <SwiperSlide style={{textAlign : "left"}}>
+                ))}
+              </div>
+
+              {/* <SwiperSlide style={{textAlign : "left"}}>
                                     </SwiperSlide>
                                     <SwiperSlide style={{textAlign : "left"}}>
                                         <Course/>
@@ -219,8 +212,8 @@ const Profile = () => {
                                         <Course/>
                                     </SwiperSlide>
                                 </Swiper> */}
-              </div>
-              <h1 className="text-2xl font-bold my-6">Review</h1>
+              {/* </div> */}
+              {/* <h1 className="text-2xl font-bold my-6">Review</h1> */}
               <div className="px-7 flex flex-col gap-y-3 py-4">
                 <CardReview />
                 <CardReview />

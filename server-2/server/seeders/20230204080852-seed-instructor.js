@@ -1,5 +1,5 @@
-"use strict";
-const bcrypt = require("bcrypt");
+'use strict';
+const bcrypt = require('bcrypt');
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -13,16 +13,15 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
      */
-    let data = require("../data/instructor.json");
-    data.forEach((el) => {
+    let data = require('../data/instructor.json');
+    data.forEach(el => {
       el.password = bcrypt.hashSync(el.password, 10);
       el.createdAt = new Date();
       el.updatedAt = new Date();
-      // el.geometry = JSON.stringify(el.geometry);
-      delete el.geometry;
+      el.geometry = JSON.stringify(el.geometry);
     });
 
-    await queryInterface.bulkInsert("Instructors", data);
+    await queryInterface.bulkInsert('Instructors', data);
   },
 
   async down(queryInterface, Sequelize) {
@@ -32,6 +31,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete("Instructors", {}, {});
+    await queryInterface.bulkDelete('Instructors', {}, {});
   },
 };

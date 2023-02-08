@@ -7,9 +7,8 @@ import { loginInstructor, loginStudent } from '../stores/actionCreator';
 
 const Login = () => {
   const navigate = useNavigate();
-  let {pathname} = useLocation()
-  
-  
+  let { pathname } = useLocation();
+
   const input = {
     email: '',
     password: '',
@@ -19,20 +18,20 @@ const Login = () => {
   const dispatcher = useDispatch();
 
   const routeRegister = () => {
-    if(pathname == "/login"){
+    if (pathname == '/login') {
       return (
         <Link to="/register" className="text-[#3e01ff]">
           Register
         </Link>
-      )
-    }else{
+      );
+    } else {
       return (
         <Link to="/instructor/register" className="text-[#3e01ff]">
           Register
         </Link>
-      )
+      );
     }
-  }
+  };
 
   const handleInputChange = e => {
     const { name, value } = e.target;
@@ -45,15 +44,13 @@ const Login = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-
-      if(pathname == "/login"){
+      if (pathname == '/login') {
         const data = await dispatcher(loginStudent(values));
         navigate('/');
-      }else{
-        const data = await dispatcher(loginInstructor(values))
-        navigate("/")
+      } else {
+        const data = await dispatcher(loginInstructor(values));
+        navigate('/');
       }
-
     } catch (error) {
       console.log(error);
     }
@@ -103,7 +100,7 @@ const Login = () => {
               </svg>
             </div>
             <input
-              type="text"
+              type="password"
               placeholder="e.g. verysecret"
               className=" min-w-72 p-3 outline-none"
               name="password"
@@ -118,12 +115,7 @@ const Login = () => {
             Login
           </button>
           <div className="flex justify-end">
-            <p>
-              Dont have a account ?{' '}
-              {
-                routeRegister()
-              }
-            </p>
+            <p>Dont have a account ? {routeRegister()}</p>
           </div>
         </form>
       </div>
