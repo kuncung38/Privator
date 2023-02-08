@@ -49,7 +49,7 @@ export default function Map() {
                         key={course.id}
                         longitude={course.Instructor.geometry.coordinates[0]}
                         latitude={course.Instructor.geometry.coordinates[1]}
-                        style={{ position: "relative", zIndex: 100 }}
+                        style={{ position: "relative", zIndex: 1 }}
                     >
                         <div className="flex flex-col justify-center items-center">
                             <button
@@ -81,6 +81,7 @@ export default function Map() {
                         closeOnClick={false}
                         onClose={() => setSelectedCourse(null)}
                         anchor="top"
+                        style={{ zIndex: 2 }}
                     >
                         <div className="flex flex-col justify-center items-center">
                             <img
