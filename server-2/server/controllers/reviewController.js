@@ -26,7 +26,9 @@ class ReviewController {
     const t = await sequelize.transaction();
     try {
       const { score, description, CourseId } = req.body;
-
+      if (!score) {
+        throw { name: "Score is missing" };
+      }
       const data = await Review.create(
         {
           score,
