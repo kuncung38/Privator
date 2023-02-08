@@ -266,9 +266,14 @@ export const loginInstructor = (value) => {
       });
 
       const data = await response.json();
-      localStorage.setItem("access_token", data.access_token);
-
       console.log(data);
+      if (data) {
+        dispatch({
+          type: LOGIN_INSTRUCTOR,
+          payload: data,
+        });
+        localStorage.setItem("access_token", data.access_token);
+      }
     } catch (error) {
       console.log(error);
     }

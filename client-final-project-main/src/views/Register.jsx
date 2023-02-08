@@ -29,6 +29,22 @@ const Register = () => {
     values;
   };
 
+  const routeLogin = () => {
+    if(pathname == "/register"){
+      return (
+        <Link to="/login" className="text-[#3e01ff]">
+          Login
+        </Link>
+      )
+    }else{
+      return (
+        <Link to="/instructor/login" className="text-[#3e01ff]">
+          Login
+        </Link>
+      )
+    }
+  }
+
   const handleSubmit = async e => {
     e.preventDefault();
     try {
@@ -152,9 +168,9 @@ const Register = () => {
           <div className="flex justify-end">
             <p>
               Already have a account ?{' '}
-              <Link to="/login" className="text-[#3e01ff]">
-                Login
-              </Link>
+              {
+                routeLogin()
+              }
             </p>
           </div>
         </form>

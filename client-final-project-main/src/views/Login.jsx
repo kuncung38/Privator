@@ -8,7 +8,8 @@ import { loginInstructor, loginStudent } from '../stores/actionCreator';
 const Login = () => {
   const navigate = useNavigate();
   let {pathname} = useLocation()
-  console.log(pathname);
+  
+  
   const input = {
     email: '',
     password: '',
@@ -16,6 +17,22 @@ const Login = () => {
 
   const [values, setValues] = useState(input);
   const dispatcher = useDispatch();
+
+  const routeRegister = () => {
+    if(pathname == "/login"){
+      return (
+        <Link to="/register" className="text-[#3e01ff]">
+          Register
+        </Link>
+      )
+    }else{
+      return (
+        <Link to="/instructor/register" className="text-[#3e01ff]">
+          Register
+        </Link>
+      )
+    }
+  }
 
   const handleInputChange = e => {
     const { name, value } = e.target;
@@ -103,9 +120,9 @@ const Login = () => {
           <div className="flex justify-end">
             <p>
               Dont have a account ?{' '}
-              <Link to="/register" className="text-[#3e01ff]">
-                Register
-              </Link>
+              {
+                routeRegister()
+              }
             </p>
           </div>
         </form>

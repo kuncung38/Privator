@@ -19,6 +19,7 @@ class CourseController {
                             "fullName",
                             "profilePicture",
                             "location",
+                            "geometry",
                             "id",
                         ],
                     },

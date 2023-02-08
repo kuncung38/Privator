@@ -13,19 +13,27 @@ const Dashboard = () => {
   const [activeForm, setActiveForm] = useState(false);
   const dispatcher = useDispatch()
   const {instructor} = useSelector(state => state.course)
+  const {instructor_login} = useSelector(state => state.instructor)
 
 
     useEffect(() => {
-        dispatcher(getOneInstructor())
+        console.log(instructor_login);
+        dispatcher(getOneInstructor(instructor_login?.id))
+        console.log(instructor_login, "dari dashboard");
+        console.log(instructor, "instructor");
     }, [activeForm])
 
     const renderSection = () => {
         if(isActive == "listCourse"){
-            return   (<div className="px-44 py-16">
-            <div>
-                <Course/>
-            </div>
-        </div>  )
+            return   (
+            <div className="px-44 py-16 grid grid-cols-4">
+                <div>
+                    {
+                        instructor.Courses?.map(course => <Course key={course.id} course={course}/>)
+                    }
+                </div>
+            </div>  
+            )
         }else if(isActive == "Students"){
             return (
                 <div className="px-44 py-16" >
