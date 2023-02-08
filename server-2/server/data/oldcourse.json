@@ -1,0 +1,292 @@
+[
+  {
+    "name": "High School Math (Pure Mathematics 1)",
+    "detail": "This course is carefully designed to explain High School Math (Pure Mathematics 1) to the Cambridge(IB) board AS/A level students. It has 181 lectures spanning 24+ hours of on-demand videos that are divided into 15 sections. Each topic is explained extensively - by solving multiple questions along with the student during the lectures. The students are also provided and encouraged to solve practice questions & quizzes provided at the end of each topic.",
+    "level": "Beginner",
+    "price": 300000,
+    "imgUrl": "https://img-c.udemycdn.com/course/240x135/1284558_40cd_6.jpg",
+    "type": "Online",
+    "CategoryId": 1,
+    "InstructorId": 1
+  },
+  {
+    "name": "Physics - Kinematics for High School and AP Physics 1",
+    "detail": "This course is one of several courses designed for Algebra Based AP Physics 1 and Regents Physics. In this course we will cover the topics of one and two dimensional motion. The videos and resources will include lectures, demonstrations, and plenty of worked out example problems with High School physics curriculum and the AP Physics 1 curriculum in mind. This is perfect for any student planning to take the AP exam or any Introductory College physics student. While this course does not cover calculus based physics, any student enrolled in such course will still benefit from the ground work laid out here. While this course does have sections for both High School and AP Level Physics, the videos intended for the AP crowed will be clearly labeled. Upon completion of this course students should look to complete my other courses regarding the other content areas in AP Physics 1 and AP Physics 2.",
+    "level": "Beginner",
+    "price": 100000,
+    "imgUrl": "https://img-c.udemycdn.com/course/240x135/601820_3444_10.jpg",
+    "type": "Offline",
+    "CategoryId": 1,
+    "InstructorId": 2
+  },
+  {
+    "name": "Chinese language for beginners: Mandarin Chinese",
+    "detail": "In this course you can start learning Chinese language from scratch or refresh it if you have learned it long ago and you have forgotten a lot. You don't need any knowledge of Chinese language to attend the course, but you can be on HSK1 or HSK2 level as well (just skip the parts you already know). We have made this course for people who are looking to learn Mandarin Chinese in a simple and easy way.",
+    "level": "Beginner",
+    "price": 200000,
+    "imgUrl": "https://img-c.udemycdn.com/course/240x135/2468694_1603_3.jpg",
+    "type": "Offline",
+    "CategoryId": 1,
+    "InstructorId": 3
+  },
+  {
+    "name": "The Professional Guitar Masterclass",
+    "detail": "No tricks or gimmicks! If you follow the course and work hard, you will feel confident playing in any genre, over any changes, with anyone, anywhere, and be able to put your own personality into the music! It's really not that difficult if you try! For the price of one month of private guitar lessons, you can have unlimited lifetime access to a world class guitar curriculum with real individual feedback from a professional instructor! Lectures feature all HD videos with multiple camera angles (so you can easily see the neck), downloadable fretboard diagrams, custom jam tracks to play along with, and detailed lesson text. If you post a question or a video link in the discussion forum, I will personally respond with real individual feedback! I try to check it daily. No matter where you are in your playing, this course will fill in the gaps and break down the neck and music theory in a simple, and most importantly, applicable way. While this course is geared to players with at least 6 months of experience, you will go from the very beginning to playing over complex non-diatonic changes leaving no stone unturned. There isn't a more comprehensive course available anywhere.",
+    "level": "Advanced",
+    "price": 400000,
+    "imgUrl": "https://img-c.udemycdn.com/course/240x135/456284_80ce_9.jpg",
+    "type": "Offline",
+    "CategoryId": 3,
+    "InstructorId": 4
+  },
+  {
+    "name": "CrossFit",
+    "detail": "A form of high intensity interval training, CrossFit is a strength and conditioning workout that is made up of functional movement performed at a high intensity level. These movements are actions that you perform in your day-to-day life, like squatting, pulling, pushing etc.",
+    "level": "Intermediate",
+    "price": 400000,
+    "imgUrl": "https://img-b.udemycdn.com/course/240x135/1033526_0c65_2.jpg",
+    "type": "Offline",
+    "CategoryId": 2,
+    "InstructorId": 5
+  },
+  {
+    "name": "Muay Thai",
+    "detail": "Muay Thai, sometimes referred to as Thai boxing, is a combat sport that uses stand-up striking along with various clinching techniques. This discipline is known as the art of eight limbs, as it is characterised by the combined use of fists, elbows, knees and shins.",
+    "level": "Advanced",
+    "price": 400000,
+    "imgUrl": "https://img-c.udemycdn.com/course/240x135/4379208_9159.jpg",
+    "type": "Offline",
+    "CategoryId": 2,
+    "InstructorId": 5
+  },
+  {
+    "name": "Fitness",
+    "detail": "Exercise is a body activity that enhances or maintains physical fitness and overall health and wellness. It is performed for various reasons, to aid growth and improve strength, develop muscles and the cardiovascular system, hone athletic skills, weight loss or maintenance, improve health, or simply for enjoyment.",
+    "level": "Beginner",
+    "price": 400000,
+    "imgUrl": "https://img-c.udemycdn.com/course/240x135/2451728_87a8_3.jpg",
+    "type": "Online",
+    "CategoryId": 2,
+    "InstructorId": 5
+  },
+  {
+    "name": "Dasar-Dasar Pengembangan Website: HTML, CSS dan Javascript",
+    "detail": "Kursus HTML, CSS, dan JavaScript adalah program pembelajaran yang dirancang untuk membantu seseorang mempelajari dasar-dasar pembuatan situs web. Materi yang akan diajarkan meliputi:\r\n\r\n1. HTML (Hypertext Markup Language) - Belajar tentang struktur dan elemen HTML untuk membuat halaman web.\r\n2. CSS (Cascading Style Sheets) - Belajar tentang gaya dan presentasi dari halaman web\r\n3.JavaScript - Belajar tentang bahasa pemrograman yang digunakan untuk membuat interaksi dan efek dinamis pada halaman web\r\n\r\n Kursus ini akan mencakup topik-topik seperti tag HTML, CSS selectors dan properti, box model, layering dan positioning, serta scripting dan manipulasi DOM menggunakan JavaScript. Siswa juga akan mempelajari tentang bagaimana menggabungkan HTML, CSS, dan JavaScript untuk membuat situs web yang dinamis dan interaktif.\r\n\r\nMetode pengajaran yang digunakan adalah diskusi teori dan praktik langsung bersama instruktur, serta latihan dan proyek individu atau kelompok. Tujuan dari kursus ini adalah untuk membantu siswa memahami dasar-dasar pembuatan situs web dan memiliki dasar yang kuat untuk memulai membuat situs web sendiri.",
+    "level": "Beginner",
+    "price": 125000,
+    "imgUrl": "https://img-b.udemycdn.com/course/240x135/764164_de03_5.jpg",
+    "type": "Offline",
+    "CategoryId": 5,
+    "InstructorId": 5
+  },
+  {
+    "name": "Membangun Website Dari Basic dengan Mudah",
+    "detail": "Pada Kursus ini berisi tentang membangun webiste dengan mudah bersama Udacoding.\r\n Materi yang akan di pelajari pada kursus ini: \r\n1.HTML dari basic \r\n2.CSS dari basic hingga advance \r\n3. Bootstrap dari basic",
+    "level": "Beginner",
+    "price": 105000,
+    "imgUrl": "https://img-b.udemycdn.com/course/240x135/3066364_e36b_2.jpg",
+    "type": "Online",
+    "CategoryId": 5,
+    "InstructorId": 5
+  },
+  {
+    "name": "Complete Responsive Web Development: 4 courses in 1",
+    "detail": "Web Responsive adalah sebuah desain situs web yang dapat menyesuaikan tampilannya untuk berbagai ukuran layar, seperti desktop, tablet, dan ponsel. Ini berarti bahwa halaman web akan menyesuaikan ukurannya dan posisinya untuk memastikan bahwa konten terlihat jelas dan mudah dibaca, tanpa membutuhkan scrolling horizontal atau zoom. Hal ini sangat penting saat ini karena lebih banyak orang mengakses situs web melalui perangkat seluler. Dengan desain yang responsif, situs web dapat memberikan pengalaman yang baik bagi pengunjung, tanpa memperhatikan perangkat yang mereka gunakan. Web Responsive membutuhkan penggunaan CSS media queries dan pembaruan layout melalui JavaScript. Desain Responsive juga membutuhkan penggunaan grid dan layout fleksibel yang memungkinkan elemen halaman untuk beradaptasi dengan ukuran layar yang berbeda.",
+    "level": "Advanced",
+    "price": 250000,
+    "imgUrl": "https://img-b.udemycdn.com/course/240x135/1426718_abb7_2.jpg",
+    "type": "Online",
+    "CategoryId": 5,
+    "InstructorId": 5
+  },
+  {
+    "name": "Pianoforall - Incredible New Way To Learn Piano & Keyboard",
+    "detail": "Pianoforall is specially designed to take complete beginners to an  intermediate level faster than any other method. You start with popular  rhythm style piano (think of artists like Lennon & McCartney, Elton  John, Billy Joel,  Barry Mannilow, Lionel Ritchie, Coldplay and so on) which means you get to sound like a pro right from the  start.",
+    "level": "Beginner",
+    "price": 800000,
+    "imgUrl": "https://img-b.udemycdn.com/course/240x135/238934_4d81_7.jpg",
+    "type": "Offline",
+    "CategoryId": 3,
+    "InstructorId": 3
+  },
+  {
+    "name": "Beginner Violin Lessons - VIOLIN MASTERY FROM THE BEGINNING",
+    "detail": "All these violin lessons are all broken down to the smallest detail. It's assumed that a person who has never attempted to play the violin is watching this course. If you have some experience already, and it's too broken down for you, simply increase the speed of the video to skim over the topics and discussion points, and/or skip to a video that more suits your needs.",
+    "level": "Beginner",
+    "price": 300000,
+    "imgUrl": "https://img-c.udemycdn.com/course/240x135/1582278_57ca_5.jpg",
+    "type": "Offline",
+    "CategoryId": 3,
+    "InstructorId": 3
+  },
+  {
+    "name": "Complete Vibrato Mastery",
+    "detail": "Through 38 hands-on video lectures and 17 play along tracks learn a systematic vibrato method that will take any violin, viola, or fiddle student with no vibrato experience to an expressive, consistent vibrato in 3-6 months. More experienced players will gain skills for improving their vibrato technique while learning to create consistency and variety, in preparation for various applications across the Classical music time periods, as well as other music genres. You'll learn how to troubleshoot and fix issues common with students trying to learn vibrato, such as a vibrato that makes you sound out of tune, issues with the 1st or 4th fingers, a vibrato that is too fast or too slow, as well as issues with form, cohesiveness, initiation, and continuous vibrato.",
+    "level": "Intermediate",
+    "price": 269000,
+    "imgUrl": "https://img-c.udemycdn.com/course/240x135/2468694_1603_3.jpg",
+    "type": "Offline",
+    "CategoryId": 3,
+    "InstructorId": 3
+  },
+  {
+    "name": "Play the Trumpet: Beginner",
+    "detail": "Learning to play the trumpet is incredibly rewarding, but getting started is a challenge. That's where MusicProfessor can help you make the most of your practice. Start from opening your case for the first time and progress all the way to playing your first melodies. Master all of the techniques necessary to become a great trumpeter. On the way, you'll also learn music theory and musicianship skills. And save money while you study with us! Private lessons are expensive. Each MusicProfessor Trumpet course provides an entire year’s worth of lessons, for a fraction of the cost, and at your own convenience.",
+    "level": "Beginner",
+    "price": 269000,
+    "imgUrl": "https://img-c.udemycdn.com/course/240x135/2468694_1603_3.jpg",
+    "type": "Offline",
+    "CategoryId": 3,
+    "InstructorId": 3
+  },
+  {
+    "name": "Fundamentals Of Calculus: A Complete Introduction",
+    "detail": "The aim of this course is to provide you with an introduction to and a solid basis for further study in mathematics in the fields of science, mathematics, business, economics and engineering. After you have a solid foundation in number, algebra and trigonometry it’s time to move onto Calculus.",
+    "level": "Advanced",
+    "price": 400000,
+    "imgUrl": "https://img-c.udemycdn.com/course/240x135/1714498_8a8c_4.jpg",
+    "type": "Offline",
+    "CategoryId": 1,
+    "InstructorId": 1
+  },
+  {
+    "name": "Fundamentals Of Calculus: A Complete Introduction",
+    "detail": "The aim of this course is to provide you with an introduction to and a solid basis for further study in mathematics in the fields of science, mathematics, business, economics and engineering. After you have a solid foundation in number, algebra and trigonometry it’s time to move onto Calculus.",
+    "level": "Advanced",
+    "price": 400000,
+    "imgUrl": "https://img-c.udemycdn.com/course/240x135/1284558_40cd_6.jpg",
+    "type": "Offline",
+    "CategoryId": 1,
+    "InstructorId": 1
+  },
+  {
+    "name": "Physics - Kinematics for High School and AP Physics 1",
+    "detail": "This course is one of several courses designed for Algebra Based AP Physics 1 and Regents Physics. In this course we will cover the topics of one and two dimensional motion. The videos and resources will include lectures, demonstrations, and plenty of worked out example problems with High School physics curriculum and the AP Physics 1 curriculum in mind. This is perfect for any student planning to take the AP exam or any Introductory College physics student. While this course does not cover calculus based physics, any student enrolled in such course will still benefit from the ground work laid out here. While this course does have sections for both High School and AP Level Physics, the videos intended for the AP crowed will be clearly labeled. Upon completion of this course students should look to complete my other courses regarding the other content areas in AP Physics 1 and AP Physics 2.",
+    "level": "Beginner",
+    "price": 100000,
+    "imgUrl": "https://img-c.udemycdn.com/course/240x135/601820_3444_10.jpg",
+    "type": "Offline",
+    "CategoryId": 1,
+    "InstructorId": 2
+  },
+  {
+    "name": "Chinese language for beginners: Mandarin Chinese",
+    "detail": "In this course you can start learning Chinese language from scratch or refresh it if you have learned it long ago and you have forgotten a lot. You don't need any knowledge of Chinese language to attend the course, but you can be on HSK1 or HSK2 level as well (just skip the parts you already know). We have made this course for people who are looking to learn Mandarin Chinese in a simple and easy way.",
+    "level": "Beginner",
+    "price": 200000,
+    "imgUrl": "https://img-c.udemycdn.com/course/240x135/2468694_1603_3.jpg",
+    "type": "Offline",
+    "CategoryId": 1,
+    "InstructorId": 3
+  },
+  {
+    "name": "The Professional Guitar Masterclass",
+    "detail": "No tricks or gimmicks! If you follow the course and work hard, you will feel confident playing in any genre, over any changes, with anyone, anywhere, and be able to put your own personality into the music! It's really not that difficult if you try! For the price of one month of private guitar lessons, you can have unlimited lifetime access to a world class guitar curriculum with real individual feedback from a professional instructor! Lectures feature all HD videos with multiple camera angles (so you can easily see the neck), downloadable fretboard diagrams, custom jam tracks to play along with, and detailed lesson text. If you post a question or a video link in the discussion forum, I will personally respond with real individual feedback! I try to check it daily. No matter where you are in your playing, this course will fill in the gaps and break down the neck and music theory in a simple, and most importantly, applicable way. While this course is geared to players with at least 6 months of experience, you will go from the very beginning to playing over complex non-diatonic changes leaving no stone unturned. There isn't a more comprehensive course available anywhere.",
+    "level": "Advanced",
+    "price": 400000,
+    "imgUrl": "https://img-c.udemycdn.com/course/240x135/456284_80ce_9.jpg",
+    "type": "Offline",
+    "CategoryId": 3,
+    "InstructorId": 4
+  },
+  {
+    "name": "CrossFit",
+    "detail": "A form of high intensity interval training, CrossFit is a strength and conditioning workout that is made up of functional movement performed at a high intensity level. These movements are actions that you perform in your day-to-day life, like squatting, pulling, pushing etc.",
+    "level": "Intermediate",
+    "price": 400000,
+    "imgUrl": "https://img-b.udemycdn.com/course/240x135/1033526_0c65_2.jpg",
+    "type": "Offline",
+    "CategoryId": 2,
+    "InstructorId": 5
+  },
+  {
+    "name": "Muay Thai",
+    "detail": "Muay Thai, sometimes referred to as Thai boxing, is a combat sport that uses stand-up striking along with various clinching techniques. This discipline is known as the art of eight limbs, as it is characterised by the combined use of fists, elbows, knees and shins.",
+    "level": "Advanced",
+    "price": 400000,
+    "imgUrl": "https://img-c.udemycdn.com/course/240x135/4379208_9159.jpg",
+    "type": "Offline",
+    "CategoryId": 2,
+    "InstructorId": 5
+  },
+  {
+    "name": "Fitness",
+    "detail": "Exercise is a body activity that enhances or maintains physical fitness and overall health and wellness. It is performed for various reasons, to aid growth and improve strength, develop muscles and the cardiovascular system, hone athletic skills, weight loss or maintenance, improve health, or simply for enjoyment.",
+    "level": "Beginner",
+    "price": 400000,
+    "imgUrl": "https://img-c.udemycdn.com/course/240x135/2451728_87a8_3.jpg",
+    "type": "Online",
+    "CategoryId": 2,
+    "InstructorId": 5
+  },
+  {
+    "name": "Dasar-Dasar Pengembangan Website: HTML, CSS dan Javascript",
+    "detail": "Kursus HTML, CSS, dan JavaScript adalah program pembelajaran yang dirancang untuk membantu seseorang mempelajari dasar-dasar pembuatan situs web. Materi yang akan diajarkan meliputi:\r\n\r\n1. HTML (Hypertext Markup Language) - Belajar tentang struktur dan elemen HTML untuk membuat halaman web.\r\n2. CSS (Cascading Style Sheets) - Belajar tentang gaya dan presentasi dari halaman web\r\n3.JavaScript - Belajar tentang bahasa pemrograman yang digunakan untuk membuat interaksi dan efek dinamis pada halaman web\r\n\r\n Kursus ini akan mencakup topik-topik seperti tag HTML, CSS selectors dan properti, box model, layering dan positioning, serta scripting dan manipulasi DOM menggunakan JavaScript. Siswa juga akan mempelajari tentang bagaimana menggabungkan HTML, CSS, dan JavaScript untuk membuat situs web yang dinamis dan interaktif.\r\n\r\nMetode pengajaran yang digunakan adalah diskusi teori dan praktik langsung bersama instruktur, serta latihan dan proyek individu atau kelompok. Tujuan dari kursus ini adalah untuk membantu siswa memahami dasar-dasar pembuatan situs web dan memiliki dasar yang kuat untuk memulai membuat situs web sendiri.",
+    "level": "Beginner",
+    "price": 125000,
+    "imgUrl": "https://img-b.udemycdn.com/course/240x135/764164_de03_5.jpg",
+    "type": "Offline",
+    "CategoryId": 5,
+    "InstructorId": 5
+  },
+  {
+    "name": "Membangun Website Dari Basic dengan Mudah",
+    "detail": "Pada Kursus ini berisi tentang membangun webiste dengan mudah bersama Udacoding.\r\n Materi yang akan di pelajari pada kursus ini: \r\n1.HTML dari basic \r\n2.CSS dari basic hingga advance \r\n3. Bootstrap dari basic",
+    "level": "Beginner",
+    "price": 105000,
+    "imgUrl": "https://img-b.udemycdn.com/course/240x135/3066364_e36b_2.jpg",
+    "type": "Online",
+    "CategoryId": 5,
+    "InstructorId": 5
+  },
+  {
+    "name": "Complete Responsive Web Development: 4 courses in 1",
+    "detail": "Web Responsive adalah sebuah desain situs web yang dapat menyesuaikan tampilannya untuk berbagai ukuran layar, seperti desktop, tablet, dan ponsel. Ini berarti bahwa halaman web akan menyesuaikan ukurannya dan posisinya untuk memastikan bahwa konten terlihat jelas dan mudah dibaca, tanpa membutuhkan scrolling horizontal atau zoom. Hal ini sangat penting saat ini karena lebih banyak orang mengakses situs web melalui perangkat seluler. Dengan desain yang responsif, situs web dapat memberikan pengalaman yang baik bagi pengunjung, tanpa memperhatikan perangkat yang mereka gunakan. Web Responsive membutuhkan penggunaan CSS media queries dan pembaruan layout melalui JavaScript. Desain Responsive juga membutuhkan penggunaan grid dan layout fleksibel yang memungkinkan elemen halaman untuk beradaptasi dengan ukuran layar yang berbeda.",
+    "level": "Advanced",
+    "price": 250000,
+    "imgUrl": "https://img-b.udemycdn.com/course/240x135/1426718_abb7_2.jpg",
+    "type": "Online",
+    "CategoryId": 5,
+    "InstructorId": 5
+  },
+  {
+    "name": "Pianoforall - Incredible New Way To Learn Piano & Keyboard",
+    "detail": "Pianoforall is specially designed to take complete beginners to an  intermediate level faster than any other method. You start with popular  rhythm style piano (think of artists like Lennon & McCartney, Elton  John, Billy Joel,  Barry Mannilow, Lionel Ritchie, Coldplay and so on) which means you get to sound like a pro right from the  start.",
+    "level": "Beginner",
+    "price": 800000,
+    "imgUrl": "https://img-b.udemycdn.com/course/240x135/238934_4d81_7.jpg",
+    "type": "Offline",
+    "CategoryId": 3,
+    "InstructorId": 3
+  },
+  {
+    "name": "Beginner Violin Lessons - VIOLIN MASTERY FROM THE BEGINNING",
+    "detail": "All these violin lessons are all broken down to the smallest detail. It's assumed that a person who has never attempted to play the violin is watching this course. If you have some experience already, and it's too broken down for you, simply increase the speed of the video to skim over the topics and discussion points, and/or skip to a video that more suits your needs.",
+    "level": "Beginner",
+    "price": 300000,
+    "imgUrl": "https://img-c.udemycdn.com/course/240x135/1582278_57ca_5.jpg",
+    "type": "Offline",
+    "CategoryId": 3,
+    "InstructorId": 3
+  },
+  {
+    "name": "Complete Vibrato Mastery",
+    "detail": "Through 38 hands-on video lectures and 17 play along tracks learn a systematic vibrato method that will take any violin, viola, or fiddle student with no vibrato experience to an expressive, consistent vibrato in 3-6 months. More experienced players will gain skills for improving their vibrato technique while learning to create consistency and variety, in preparation for various applications across the Classical music time periods, as well as other music genres. You'll learn how to troubleshoot and fix issues common with students trying to learn vibrato, such as a vibrato that makes you sound out of tune, issues with the 1st or 4th fingers, a vibrato that is too fast or too slow, as well as issues with form, cohesiveness, initiation, and continuous vibrato.",
+    "level": "Intermediate",
+    "price": 269000,
+    "imgUrl": "https://img-c.udemycdn.com/course/240x135/2468694_1603_3.jpg",
+    "type": "Offline",
+    "CategoryId": 3,
+    "InstructorId": 3
+  },
+  {
+    "name": "Play the Trumpet: Beginner",
+    "detail": "Learning to play the trumpet is incredibly rewarding, but getting started is a challenge. That's where MusicProfessor can help you make the most of your practice. Start from opening your case for the first time and progress all the way to playing your first melodies. Master all of the techniques necessary to become a great trumpeter. On the way, you'll also learn music theory and musicianship skills. And save money while you study with us! Private lessons are expensive. Each MusicProfessor Trumpet course provides an entire year’s worth of lessons, for a fraction of the cost, and at your own convenience.",
+    "level": "Beginner",
+    "price": 269000,
+    "imgUrl": "https://img-c.udemycdn.com/course/240x135/2468694_1603_3.jpg",
+    "type": "Offline",
+    "CategoryId": 3,
+    "InstructorId": 3
+  }
+]

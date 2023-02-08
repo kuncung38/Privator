@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
       Course.belongsTo(models.Instructor);
       Course.belongsTo(models.Category);
       Course.hasMany(models.Booking);
-      Course.hasMany(models.Review)
     }
   }
   Course.init(

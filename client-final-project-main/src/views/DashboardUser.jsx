@@ -25,7 +25,6 @@ const DashboardUser = () => {
         <div className="grid grid-cols-4 gap-x-10">
         {courses?.map(course => (
           <div className="w-60 relative shadow-md grayscale">
-            
               <div className="rounded-t-md bg-cover relative -z-20 ">
                 <img
                   src={course.Course.imgUrl}
@@ -171,7 +170,7 @@ const DashboardUser = () => {
               </div>
           </div>
       </div>
-      <div className='px-32 mt-10 '>
+      <div className='px-32 mt-10'>
         {
           paging()
         }

@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   GET_CATEGORIES_WITH_COURSE,
   GET_COURSES,
@@ -7,6 +8,8 @@ import {
   GET_ONE_INSTRUCTOR,
   GET_BOOKINGS,
   LOGIN_ALL_USER,
+  SET_USER,
+  SET_CHATROOM,
 } from "./actionType";
 
 // const origin = "https://3ef1-139-228-111-125.ap.ngrok.io";
@@ -406,5 +409,65 @@ export const getDashboardUser = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+};
+
+const setUserAction = (payload) => {
+  return {
+    type: SET_USER,
+    payload,
+  };
+};
+
+export const setUser = () => {
+  return async (dispatch) => {
+    const role = localStorage.getItem(
+      "mkdyznbmvkyxzcaryrqkgaxnnjtqltlcnwzuhvlqrlojif"
+    );
+    let payload;
+    switch (role) {
+      case "instructor":
+        const responseInstructor = await axios({
+          method: "GET",
+          url: `${origin}/instructor/profile`,
+          headers: {
+            access_token: localStorage.getItem("access_token"),
+          },
+        });
+        payload = responseInstructor.data;
+        console.log(
+          "🚀 ~ file: actionCreator.js:398 ~ return ~ payload",
+          payload
+        );
+        break;
+      case "student":
+        const responseStudent = await axios({
+          method: "GET",
+          url: `${origin}/student/profile`,
+          headers: {
+            access_token: localStorage.getItem("access_token"),
+          },
+        });
+        payload = responseStudent.data;
+        console.log(
+          "🚀 ~ file: actionCreator.js:409 ~ return ~ payload",
+          payload
+        );
+        break;
+    }
+    dispatch(setUserAction(payload));
+  };
+};
+
+const setSelectedChatroomAction = (payload) => {
+  return {
+    type: SET_CHATROOM,
+    payload,
+  };
+};
+
+export const setSelectedChatroom = (payload) => {
+  return (dispatch) => {
+    dispatch(setSelectedChatroomAction(payload));
   };
 };

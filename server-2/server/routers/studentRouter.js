@@ -2,10 +2,7 @@ const express = require("express");
 const router = express.Router();
 const studentController = require("../controllers/studentController");
 
-const {
-    authenticationInstructor,
-    authenticationStudent,
-} = require("../middlewares/authentication");
+const { authenticationStudent } = require("../middlewares/authentication");
 
 //* Multer
 const multer = require("multer");
