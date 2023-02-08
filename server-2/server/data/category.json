@@ -14,9 +14,16 @@
   {
     "id": 4,
     "name": "Sports"
+<<<<<<< HEAD
   }, 
   {
     "id": 5, 
     "name": "Software Developer"
+=======
+  },
+  {
+    "id": 5,
+    "name": "Software Development"
+>>>>>>> main
   }
 ]

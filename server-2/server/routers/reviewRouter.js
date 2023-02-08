@@ -9,6 +9,7 @@ const {
 } = require("../middlewares/authentication");
 
 router.get("/:id", ReviewController.getReviews);
-router.post("/", authenticationStudent, ReviewController.postReview);
+router.post("/", ReviewController.postReview);
+router.get("/instructor/:id", ReviewController.getInstructorReviews);
 
 module.exports = router;

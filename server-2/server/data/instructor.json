@@ -7,9 +7,9 @@
     "role": "instructor",
     "birthDate": "1997-07-13",
     "phoneNumber": "082178599117",
-    "address": "Jalan kesejahteraan",
+    "address": "Jalan Kesejahteraan",
     "profilePicture": "https://res.cloudinary.com/dzxb3lxqv/image/upload/v1675581041/I1_v8sjzo.jpg",
-    "location": "",
+    "location": "Jalan Sultan Iskandar Muda Kav. 5-8, Jakarta, 12240, Indonesia",
     "geometry": {
       "type": "Point",
       "coordinates": [
@@ -26,7 +26,7 @@
     "role": "instructor",
     "birthDate": "1997-07-13",
     "phoneNumber": "082178599117",
-    "address": "Jalan kesejahteraan",
+    "address": "Jalan Kesejahteraan",
     "profilePicture": "https://res.cloudinary.com/dzxb3lxqv/image/upload/v1675581088/I2_ffiv4z.jpg",
     "location": "Jalan Sultan Iskandar Muda Kav. 5-8, Jakarta, 12240, Indonesia",
     "geometry": {

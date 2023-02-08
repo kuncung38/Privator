@@ -20,5 +20,6 @@ router.get(
     authenticationInstructor,
     instructorController.getOneInstructor
 );
+router.get("/:id", instructorController.getOneInstructorById);
 
 module.exports = router;

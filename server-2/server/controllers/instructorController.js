@@ -118,6 +118,50 @@ class InstructorController {
         }
     }
 
+    static async getOneInstructorById(req, res, next) {
+        try {
+            const instructor = await Instructor.findByPk(req.params.id, {
+                include: [
+                    {
+                        model: Course,
+                        include: [
+                            {
+                                model: Category,
+                                attributes: ["name"],
+                            },
+                        ],
+                    },
+                    {
+                        model: Schedule,
+                        attributes: ["time"],
+                        include: [
+                            {
+                                model: Student,
+                                attributes: ["fullName", "location"],
+                            },
+                        ],
+                    },
+                ],
+                attributes: [
+                    "id",
+                    "role",
+                    "fullName",
+                    "bio",
+                    "profilePicture",
+                    "location",
+                    "phoneNumber",
+                    "email",
+                    "geometry",
+                ],
+            });
+
+            if (!instructor) throw { name: "Instructor not found" };
+            res.status(200).json(instructor);
+        } catch (error) {
+            next(error);
+        }
+    }
+
     //? Get one instructor
     static async getOneInstructor(req, res, next) {
         try {
@@ -134,7 +178,6 @@ class InstructorController {
                     },
                     {
                         model: Schedule,
-                        attributes: ["time"],
                         include: [
                             {
                                 model: Student,

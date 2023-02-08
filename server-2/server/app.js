@@ -16,12 +16,21 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use(function (req, res, next) {
+<<<<<<< HEAD
   res.header("Access-Control-Allow-Origin", "*"); // update to match
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
   next();
+=======
+    res.header("Access-Control-Allow-Origin", "*"); // update to match
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+>>>>>>> main
 });
 
 app.use("/", router);
@@ -29,7 +38,7 @@ app.use("/", router);
 app.use(errorHandler);
 
 app.listen(port, () => {
-  console.log(`My app listening on http://localhost:${port}`);
+    console.log(`My app listening on http://localhost:${port}`);
 });
 
 // module.exports = router;
