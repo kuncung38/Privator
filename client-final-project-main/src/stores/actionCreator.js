@@ -27,7 +27,8 @@ export const fetchCourses = () => {
                 // }
             );
             const data = await response.json();
-            console.log(data);
+            console.log("🚀 ~ file: actionCreator.js:30 ~ return ~ data", data);
+            // console.log(data);
             dispatch({
                 type: GET_COURSES,
                 payload: data,
