@@ -8,7 +8,7 @@ const {
   authenticationStudent,
 } = require("../middlewares/authentication");
 
-router.get("/", ReviewController.getReviews);
+router.get("/:id", ReviewController.getReviews);
 router.post("/", authenticationStudent, ReviewController.postReview);
 
 module.exports = router;
