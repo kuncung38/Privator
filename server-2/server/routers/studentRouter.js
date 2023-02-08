@@ -1,13 +1,20 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const studentController = require('../controllers/studentController');
+const studentController = require("../controllers/studentController");
+
+const {
+    authenticationInstructor,
+    authenticationStudent,
+} = require("../middlewares/authentication");
 
 //* Multer
-const multer = require('multer');
-const { storage } = require('../cloudinary/index');
+const multer = require("multer");
+const { storage } = require("../cloudinary/index");
 const upload = multer({ storage });
 
-router.post('/register', upload.single('image'), studentController.register);
-router.post('/login', studentController.login);
+router.post("/register", upload.single("image"), studentController.register);
+router.post("/login", studentController.login);
+
+router.get("/profile", authenticationStudent, studentController.getOneStudent);
 
 module.exports = router;
