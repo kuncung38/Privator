@@ -1,5 +1,6 @@
 const ORIGIN = "http://localhost:5173";
 
+import { doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import CardReview from "../components/CardReview";
 import "../index.css";
@@ -9,13 +10,16 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getOneCourse } from "../stores/actionCreator";
+import { getOneCourse, setUser } from "../stores/actionCreator";
 import { useNavigate } from "react-router-dom";
 
 import Modal from "react-modal";
+import { db } from "../service/firebase";
 
 const DetailCourse = () => {
     const { course } = useSelector((state) => state.course);
+    const user = useSelector((state) => state.user);
+
     const dispatch = useDispatch();
     const { id } = useParams();
     console.log(id);
@@ -29,7 +33,6 @@ const DetailCourse = () => {
     const fetchOneCourse = async (id) => {
         try {
             dispatch(getOneCourse(id));
-            console.log(getOneCourse);
             setLoading(false);
         } catch (error) {
             console.log(error);
@@ -55,6 +58,7 @@ const DetailCourse = () => {
     };
 
     useEffect(() => {
+        dispatch(setUser());
         fetchOneCourse(id);
     }, [id]);
 
@@ -87,7 +91,6 @@ const DetailCourse = () => {
                         },
                     }
                 );
-                console.log(data);
                 setSnapToken(data);
             } catch (error) {
                 console.error(error);
@@ -156,8 +159,8 @@ const DetailCourse = () => {
         window.snap.pay(snapToken.token, {
             onSuccess: async (result) => {
                 await bookCourse(day);
-                setShowModal(false);
-                updateStatus();
+                await createChatRoom();
+                toggleModal();
                 navigate("/");
                 console.log("Transaction success:", result);
             },
@@ -168,6 +171,21 @@ const DetailCourse = () => {
                 console.error("Transaction error:", result);
             },
         });
+    };
+
+    const createChatRoom = async () => {
+        const name =
+            user.fullName < course.Instructor.fullName
+                ? `${user.fullName}${user.id}${course.Instructor.fullName}${course.Instructor.id}`
+                : `${course.Instructor.fullName}${course.Instructor.id}${user.fullName}${user.id}`;
+        const docs = await getDoc(doc(db, "chatrooms", name));
+        if (!docs.exists()) {
+            await setDoc(doc(db, "chatrooms", name), {
+                user: [user, course.Instructor],
+                createdAt: serverTimestamp(),
+                updatedAt: serverTimestamp(),
+            });
+        }
     };
 
     if (loading) {
@@ -276,9 +294,9 @@ const DetailCourse = () => {
                         </h1>
                         <div className="flex flex-col gap-y-3 mt-7">
                             <div className="flex gap-x-3">
-                                <div className="w-5/6 py-2 text-center border-r bg-[#566bad] font-bold text-white hover:bg-[#f7f9fa] hover:text-black">
+                                <button className="w-5/6 py-2 text-center border-r bg-[#566bad] font-bold text-white hover:bg-[#f7f9fa] hover:text-black">
                                     Message
-                                </div>
+                                </button>
                                 <div className="w-1/6 py-2 flex items-center justify-center border border-black">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"

@@ -6,7 +6,8 @@ import Course from "../../components/Course";
 import "../../index.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getDashboardInstructor } from "../../stores/actionCreator";
+import { getDashboardInstructor, setUser } from "../../stores/actionCreator";
+import { ChatPage } from "../../components/chatComponents/ChatPage";
 
 const Dashboard = () => {
     const [isActive, setisActive] = useState("listCourse");
@@ -19,8 +20,7 @@ const Dashboard = () => {
     //   const {instructor_login} = useSelector(state => state.instructor)
 
     useEffect(() => {
-        // console.log(instructor_login);
-        // dispatcher(getOneInstructor(instructor_login?.id))
+        dispatcher(setUser());
         dispatcher(getDashboardInstructor());
     }, [activeForm]);
 
@@ -36,7 +36,11 @@ const Dashboard = () => {
                 </div>
             );
         } else if (isActive == "Students") {
-            return <div className="px-44 py-16">hagsdjhgs</div>;
+            return (
+                <div className="px-44 py-16 h-[80vh] w-[80vw]">
+                    <ChatPage />
+                </div>
+            );
         } else if (isActive == "Reviews") {
             return (
                 <div className="px-44 py-16">
