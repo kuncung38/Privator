@@ -28,8 +28,8 @@ app.use('/', router);
 
 app.use(errorHandler);
 
-app.listen(port, () => {
-  console.log(`My app listening on http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`My app listening on http://localhost:${port}`);
+// });
 
 module.exports = router;

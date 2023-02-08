@@ -45,9 +45,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      // geometry: {
-      //   type: Sequelize.GEOMETRY,
-      // },
+      geometry: {
+        type: Sequelize.GEOMETRY,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

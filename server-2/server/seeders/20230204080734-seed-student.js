@@ -18,8 +18,8 @@ module.exports = {
       el.password = bcrypt.hashSync(el.password, 10);
       el.createdAt = new Date();
       el.updatedAt = new Date();
-      // el.geometry = JSON.stringify(el.geometry);
-      delete el.geometry;
+      el.geometry = JSON.stringify(el.geometry);
+      // delete el.geometry;
     });
 
     await queryInterface.bulkInsert("Students", data);
