@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 
 const DashboardUser = () => {
   const [loading, setLoading] = useState(true);
+  const [isActive, setisActive] = useState("listBook")
 
   const dispatch = useDispatch();
 
@@ -16,6 +17,54 @@ const DashboardUser = () => {
   }, []);
 
   const { courses } = useSelector(state => state.bookings);
+  console.log(courses);
+
+  const paging = () => {
+    if(isActive == "listBook"){
+      return (
+        <div className="grid grid-cols-4 gap-x-10">
+        {courses?.map(course => (
+          <div className="w-60 relative shadow-md grayscale">
+              <div className="rounded-t-md bg-cover relative -z-20 ">
+                <img
+                  src={course.Course.imgUrl}
+                  alt=""
+                  className="w-full object-cover"
+                />
+              </div>
+            <div className="px-2 py-4 text-sm flex flex-col gap-y-2">
+              <p>{course.Course.name}</p>
+              <p className="text-gray-400">{course.Instructor.fullName}</p>
+              {/* <p>Rp. {course.Course.price}</p> */}
+
+              <div className="flex flex-col gap-y-4">
+                <div className="p-1 px-3 bg-[#f3ca8c]">
+                  <span className="text-[#6e2c1e] font-bold">
+                    {course.Course.level}
+                  </span>
+                </div>
+                <div className='flex flex-col gap-2'>
+                  <div className="flex border justify-center py-1  bg-[#acd2cd] hover:bg-[#f7f9fa]">
+                    <a href={`/room/${course.Course.name.replaceAll(" ", "-")}`} target="_blank">
+                      <p>JOIN CLASS</p>   
+                    </a>               
+                  </div>
+                  <div className="flex border justify-center py-1 hover:bg-[#f7f9fa]">
+                      <p>Review Course</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      )
+    }else{
+      return (
+        <p>HASHDJHJSGADJHGSAD</p>
+      )
+    }
+  }
 
   // const [snapToken, setSnapToken] = useState('');
 
@@ -81,65 +130,52 @@ const DashboardUser = () => {
   return (
     <div className="min-h-screen">
       <div className="instructorMain bg-[#292b2f] px-44 py-16 pb-4 -z-10">
-        <h1 className="text-white text-4xl">Booking List</h1>
-      </div>
-      <div className="w-56 relative">
-        <div className="rounded-t-md bg-cover relative -z-20 ">
-          <img
-            src="https://img-c.udemycdn.com/course/240x135/1362070_b9a1_2.jpg"
-            alt=""
-            className="w-full object-cover"
-          />
-        </div>
-        {courses?.map(course => (
-          <div className="w-56 relative">
-            <Link to={`/course/detail/${course.id}`}>
-              <div className="rounded-t-md bg-cover relative -z-20 ">
-                <img
-                  src={course.Course.imgUrl}
-                  alt=""
-                  className="w-full object-cover"
-                />
+          <h1 className="text-white text-4xl">Dashboard</h1>
+          <div className="flex justify-between mt-7">
+              <div className="w-2/3 text-white flex gap-x-9 helvetica-bold translate-y-4 bg-[#292b2f]">
+                  <button
+                      className={
+                          isActive !== "listBook"
+                              ? "text-gray-400 border-b-8 pb-3 border-b-[#292b2f]"
+                              : "border-b-8 pb-3 border-b-white"
+                      }
+                      onClick={() => setisActive("listBook")}
+                  >
+                      List Course
+                  </button>
+                  <button
+                      className={
+                          isActive !== "Students"
+                              ? "text-gray-400 border-b-8 pb-3 border-b-[#292b2f]"
+                              : "border-b-8 pb-3 border-b-white"
+                      }
+                      onClick={() => setisActive("Students")}
+                  >
+                      Instructor
+                  </button>
+                  {/* <button
+                      className={
+                          isActive !== "Schedule"
+                              ? "text-gray-400 border-b-8 pb-3 border-b-[#292b2f]"
+                              : "border-b-8 pb-3 border-b-white"
+                      }
+                      onClick={() => setisActive("Schedule")}
+                  >
+                      Schedule
+                  </button> */}
               </div>
-            </Link>
-            <div className="px-2 py-4 text-sm flex flex-col gap-y-2">
-              <p>{course.Course.name}</p>
-              <p className="text-gray-400">{course.Instructor.fullName}</p>
-              <p>Rp. {course.Course.price}</p>
-
-              <div className="flex flex-col gap-y-4">
-                <div className="p-1 px-3 bg-[#f3ca8c]">
-                  <span className="text-[#6e2c1e] font-bold">
-                    {course.Course.level}
-                  </span>
-                </div>
-                <div className="flex border">
-                  <div className="w-1/6 py-2 flex items-center justify-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      fill="currentColor"
-                      className="bi bi-heart"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
-                    </svg>
-                  </div>
-                  <div className="w-5/6 py-2 text-center border-l hover:bg-[#f7f9fa]">
-                    <Link
-                      to={`/course/detail/${course.Course.id}`}
-                      className="font-bold"
-                    >
-                      Book
-                    </Link>
-                  </div>
-                </div>
+              <div className="flex items-center text-white helvetica-bold gap-x-4 translate-y-2">
+                  <Link to="/instructor/add-course">Add Course</Link>
+                  
               </div>
-            </div>
           </div>
-        ))}
       </div>
+      <div className='px-32 mt-10'>
+        {
+          paging()
+        }
+      </div>
+      
     </div>
   );
 };

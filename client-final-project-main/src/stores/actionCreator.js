@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   GET_CATEGORIES_WITH_COURSE,
   GET_COURSES,
@@ -8,16 +9,25 @@ import {
   GET_BOOKINGS,
   GET_REVIEW,
   LOGIN_ALL_USER,
+  SET_USER,
+  SET_CHATROOM,
 } from "./actionType";
 
-const origin = "http://localhost:3000";
+// const origin = "https://3ef1-139-228-111-125.ap.ngrok.io";
+// const origin = "http://localhost:3000";
+const origin = "https://5a67-139-228-111-125.ap.ngrok.io";
 
 //? course
 export const fetchCourses = () => {
   return async (dispatch) => {
     try {
       const response = await fetch(
-        `${origin}/course`
+        `${origin}/course`,
+        {
+          headers: {
+            "ngrok-skip-browser-warning": true,
+          },
+        }
         // {
         //   mode: "cors",
         //   headers: {
@@ -40,7 +50,11 @@ export const fetchCourses = () => {
 export const getCategoriesCourse = () => {
   return async (dispatch) => {
     try {
-      const response = await fetch(`${origin}/course/categories`);
+      const response = await fetch(`${origin}/course/categories`, {
+        headers: {
+          "ngrok-skip-browser-warning": true,
+        },
+      });
       const data = await response.json();
       dispatch({
         type: GET_CATEGORIES_WITH_COURSE,
@@ -74,7 +88,11 @@ export const addCourse = (value) => {
 export const getCategoriesWithCourseById = (id) => {
   return async (dispatch) => {
     try {
-      const response = await fetch(`${origin}/course/categories/${id}`);
+      const response = await fetch(`${origin}/course/categories/${id}`, {
+        headers: {
+          "ngrok-skip-browser-warning": true,
+        },
+      });
       const data = await response.json();
       dispatch({
         type: GET_ONE_CATEGORIES_WITH_COURSE,
@@ -90,7 +108,11 @@ export const getOneCourse = (id) => {
   console.log(id);
   return async (dispatch) => {
     try {
-      const response = await fetch(`${origin}/course/${id}`);
+      const response = await fetch(`${origin}/course/${id}`, {
+        headers: {
+          "ngrok-skip-browser-warning": true,
+        },
+      });
       const data = await response.json();
       dispatch({
         type: GET_ONE_COURSE,
@@ -107,7 +129,11 @@ export const getOneCourse = (id) => {
 export const getOneInstructor = (id) => {
   return async (dispatch) => {
     try {
-      const response = await fetch(`${origin}/instructor/${id}`);
+      const response = await fetch(`${origin}/instructor/${id}`, {
+        headers: {
+          "ngrok-skip-browser-warning": true,
+        },
+      });
 
       const data = await response.json();
       console.log(data);
@@ -126,7 +152,11 @@ export const getOneInstructor = (id) => {
 export const getInstructors = () => {
   return async (dispatch) => {
     try {
-      const response = await fetch(`${origin}/instructor`);
+      const response = await fetch(`${origin}/instructor`, {
+        headers: {
+          "ngrok-skip-browser-warning": true,
+        },
+      });
 
       const data = await response.json();
       if (data) {
@@ -151,6 +181,8 @@ export const registerStudent = (value) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+
+          "ngrok-skip-browser-warning": true,
         },
         body: JSON.stringify(value),
       });
@@ -171,6 +203,8 @@ export const loginStudent = (value) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+
+          "ngrok-skip-browser-warning": true,
         },
         body: JSON.stringify(value),
       });
@@ -182,7 +216,7 @@ export const loginStudent = (value) => {
         data.role
       );
 
-      console.log(data);
+      console.log(data, "lpogoiiimmm");
     } catch (error) {
       console.log(error);
     }
@@ -197,6 +231,9 @@ export const createBooking = (id) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+
+          "ngrok-skip-browser-warning": true,
+
           access_token: localStorage.getItem("access_token"),
         },
         body: JSON.stringify(value),
@@ -217,6 +254,8 @@ export const fetchBookings = () => {
       const response = await fetch(`${origin}/booking`, {
         headers: {
           access_token: localStorage.getItem("access_token"),
+
+          "ngrok-skip-browser-warning": true,
         },
       });
       const data = await response.json();
@@ -259,6 +298,8 @@ export const loginInstructor = (value) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+
+          "ngrok-skip-browser-warning": true,
         },
         body: JSON.stringify(value),
       });
@@ -284,6 +325,8 @@ export const registerInstructor = (value) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+
+          "ngrok-skip-browser-warning": true,
         },
         body: JSON.stringify(value),
       });
@@ -305,6 +348,7 @@ export const getDashboardInstructor = () => {
       const response = await fetch(`${origin}/instructor/profile`, {
         headers: {
           access_token: access_token,
+          "ngrok-skip-browser-warning": true,
         },
       });
 
@@ -330,6 +374,7 @@ export const getDashboardUser = () => {
       const response = await fetch(`${origin}/student/profile`, {
         headers: {
           access_token: access_token,
+          "ngrok-skip-browser-warning": true,
         },
       });
 
@@ -344,5 +389,65 @@ export const getDashboardUser = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+};
+
+const setUserAction = (payload) => {
+  return {
+    type: SET_USER,
+    payload,
+  };
+};
+
+export const setUser = () => {
+  return async (dispatch) => {
+    const role = localStorage.getItem(
+      "mkdyznbmvkyxzcaryrqkgaxnnjtqltlcnwzuhvlqrlojif"
+    );
+    let payload;
+    switch (role) {
+      case "instructor":
+        const responseInstructor = await axios({
+          method: "GET",
+          url: `${origin}/instructor/profile`,
+          headers: {
+            access_token: localStorage.getItem("access_token"),
+          },
+        });
+        payload = responseInstructor.data;
+        console.log(
+          "🚀 ~ file: actionCreator.js:398 ~ return ~ payload",
+          payload
+        );
+        break;
+      case "student":
+        const responseStudent = await axios({
+          method: "GET",
+          url: `${origin}/student/profile`,
+          headers: {
+            access_token: localStorage.getItem("access_token"),
+          },
+        });
+        payload = responseStudent.data;
+        console.log(
+          "🚀 ~ file: actionCreator.js:409 ~ return ~ payload",
+          payload
+        );
+        break;
+    }
+    dispatch(setUserAction(payload));
+  };
+};
+
+const setSelectedChatroomAction = (payload) => {
+  return {
+    type: SET_CHATROOM,
+    payload,
+  };
+};
+
+export const setSelectedChatroom = (payload) => {
+  return (dispatch) => {
+    dispatch(setSelectedChatroomAction(payload));
   };
 };

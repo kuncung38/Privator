@@ -1,14 +1,14 @@
-import { NavLink } from "react-router-dom";
-import Privator from "../assets/logo.png";
-import male from "../assets/male.png";
-import female from "../assets/female.png";
-import { Link } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
+import Privator from '../assets/logo.png';
+import male from '../assets/male.png';
+import female from '../assets/female.png';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const role = () => {
         let role = localStorage.mkdyznbmvkyxzcaryrqkgaxnnjtqltlcnwzuhvlqrlojif;
         if (role == "student") {
-            return <NavLink to="/dashboard/user">Dashboard</NavLink>;
+            return <NavLink to="/user/dashboard">Dashboard</NavLink>;
         } else if (role == "instructor") {
             return <NavLink to="/instructor/dashboard">Dashboard</NavLink>;
         }
@@ -37,7 +37,7 @@ const Navbar = () => {
                 </Link>
             </div>
         </div>
-    );
+  );
 };
 
 export default Navbar;

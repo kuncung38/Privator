@@ -1,8 +1,10 @@
-const ORIGIN = "http://localhost:5173";
+const ORIGIN = 'http://localhost:5173';
 
-import { Link } from "react-router-dom";
-import CardReview from "../components/CardReview";
-import "../index.css";
+import { Link } from 'react-router-dom';
+import CardReview from '../components/CardReview';
+import '../index.css';
+
+import axios from 'axios';
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,7 +12,7 @@ import { useParams } from "react-router-dom";
 import { getOneCourse, getReviews } from "../stores/actionCreator";
 import { useNavigate } from "react-router-dom";
 
-import Modal from "react-modal";
+import Modal from 'react-modal';
 
 const DetailCourse = () => {
   const { course } = useSelector((state) => state.course);
@@ -21,6 +23,13 @@ const DetailCourse = () => {
   const [chosenTime, setChosenTime] = useState("");
 
   const navigate = useNavigate();
+
+    const rupiah = (number)=>{
+      return new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR"
+      }).format(number);
+    }
 
   const [loading, setLoading] = useState(true);
 
@@ -43,19 +52,19 @@ const DetailCourse = () => {
   };
 
   const leveling = () => {
-    if (course.level == "Beginner") {
+    if (course.level == 'Beginner') {
       return <p className="text-[#2b524d]">{course?.level}</p>;
-    } else if (course.level == "Intermediate") {
+    } else if (course.level == 'Intermediate') {
       return <p className="text-[#3d3c0a]">{course?.level}</p>;
-    } else if (course.level == "Advanced") {
+    } else if (course.level == 'Advanced') {
       return <p className="text-[#6e2c1e]">{course?.level}</p>;
     }
   };
 
   const typeing = () => {
-    if (course?.type == "Offline") {
+    if (course?.type == 'Offline') {
       return <p className="text-blue-400">{course?.type}</p>;
-    } else if (course?.type == "Online") {
+    } else if (course?.type == 'Online') {
       return <p className="text-green-400">{course?.type}</p>;
     }
   };
@@ -79,7 +88,7 @@ const DetailCourse = () => {
     );
   }, [course]);
 
-  const [snapToken, setSnapToken] = useState("");
+  const [snapToken, setSnapToken] = useState('');
 
   useEffect(() => {
     const fetchSnapToken = async () => {
@@ -88,11 +97,11 @@ const DetailCourse = () => {
           `http://localhost:3000/payment/getToken/${id}`,
           {
             headers: {
-              access_token: localStorage.getItem("access_token"),
+              access_token: localStorage.getItem('access_token'),
             },
             body: {
-              amount: "amount", // Replace with actual amount
-              order_id: "your-order-id", // Replace with actual order ID
+              amount: 'amount', // Replace with actual amount
+              order_id: 'your-order-id', // Replace with actual order ID
             },
           }
         );
@@ -105,19 +114,19 @@ const DetailCourse = () => {
     fetchSnapToken();
   }, []);
 
-  const bookCourse = async (day) => {
+  const bookCourse = async day => {
     try {
       let response = await axios(`http://localhost:3000/payment/${id}`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          access_token: localStorage.getItem("access_token"),
+          access_token: localStorage.getItem('access_token'),
         },
         data: {
-          amount: "amount", // Replace with actual amount
-          order_id: "your-order-id", // Replace with actual order ID
+          amount: 'amount', // Replace with actual amount
+          order_id: 'your-order-id', // Replace with actual order ID
           day: day,
-          time: "09.00-17.00",
-          link: `${ORIGIN}/room/${course.name.replaceAll(" ", "-")}-${day}`,
+          time: '09.00-17.00',
+          link: `${ORIGIN}/room/${course.name.replaceAll(' ', '-')}-${day}`,
         },
       });
     } catch (error) {}
@@ -125,53 +134,53 @@ const DetailCourse = () => {
 
   const customStyles = {
     content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-      width: "40%",
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      width: '40%',
     },
   };
 
   const disabledStyles = {
-    pointerEvents: "none",
-    background: "#CFCFCF",
-    border: "none",
+    pointerEvents: 'none',
+    background: '#CFCFCF',
+    border: 'none',
   };
 
   // * Modal for schedule
   const [modalIsOpen, setIsOpen] = useState(false);
-  Modal.setAppElement("#root");
+  Modal.setAppElement('#root');
 
   function toggleModal() {
     setIsOpen(!modalIsOpen);
   }
 
-  const bookSchedule = (time) => {
+  const bookSchedule = time => {
     setChosenTime();
     handlePayment(time);
   };
 
-  const handlePayment = (day) => {
+  const handlePayment = day => {
     console.log(snapToken);
     if (!snapToken) {
       return;
     }
     window.snap.pay(snapToken.token, {
-      onSuccess: async (result) => {
+      onSuccess: async result => {
         await bookCourse(day);
         setShowModal(false);
         updateStatus();
-        navigate("/");
-        console.log("Transaction success:", result);
+        navigate('/');
+        console.log('Transaction success:', result);
       },
-      onPending: (result) => {
-        console.log("Transaction pending:", result);
+      onPending: result => {
+        console.log('Transaction pending:', result);
       },
-      onError: (result) => {
-        console.error("Transaction error:", result);
+      onError: result => {
+        console.error('Transaction error:', result);
       },
     });
   };
@@ -275,7 +284,7 @@ const DetailCourse = () => {
             />
           </div>
           <div className="px-6 py-7">
-            <h1 className="font-bold text-3xl">Rp. {course?.price}</h1>
+            <h1 className="font-bold text-3xl">{rupiah(course?.price)}</h1>
             <div className="flex flex-col gap-y-3 mt-7">
               <div className="flex gap-x-3">
                 <div className="w-5/6 py-2 text-center border-r bg-[#566bad] font-bold text-white hover:bg-[#f7f9fa] hover:text-black">
@@ -305,6 +314,29 @@ const DetailCourse = () => {
         </div>
       </div>
 
+      {/* <Modal
+        isOpen={modalIsOpen}
+        style={customStyles}
+        contentLabel="Schedule Modal"
+      >
+        <header className="flex flex-row relative justify-center mb-8">
+          <button
+            onClick={toggleModal}
+            className="absolute right-0 top-1 duration-200 hover:scale-125 hover:text-red-600"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              className="bi bi-x"
+              viewBox="0 0 16 16"
+            >
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+          </button>
+          <h1 className="text-xl font-semibold">Pick Your Schedules</h1>
+        </header> */}
       <Modal
         isOpen={modalIsOpen}
         style={customStyles}
@@ -331,10 +363,10 @@ const DetailCourse = () => {
 
         <main className="flex flex-col gap-4 items-center mx-16 ">
           <button
-            onClick={(e) => bookSchedule("Monday")}
+            onClick={e => bookSchedule('Monday')}
             className="flex justify-center items-center py-2 px-4 bg-[#566bad] text-white w-full duration-200 hover:scale-y-125 hover:bg-white border-2 border-[#566bad] hover:text-[#566bad]"
             style={
-              course.Instructor?.Schedules.some((el) => el.time === "Monday")
+              course.Instructor?.Schedules.some(el => el.time === 'Monday')
                 ? disabledStyles
                 : {}
             }
@@ -342,10 +374,10 @@ const DetailCourse = () => {
             Monday
           </button>
           <button
-            onClick={(e) => bookSchedule("Tuesday")}
+            onClick={e => bookSchedule('Tuesday')}
             className="flex justify-center items-center py-2 px-4 bg-[#566bad] text-white w-full duration-200 hover:scale-y-125 hover:bg-white border-2 border-[#566bad] hover:text-[#566bad]"
             style={
-              course.Instructor?.Schedules.some((el) => el.time === "Tuesday")
+              course.Instructor?.Schedules.some(el => el.time === 'Tuesday')
                 ? disabledStyles
                 : {}
             }
@@ -353,10 +385,10 @@ const DetailCourse = () => {
             Tuesday
           </button>
           <button
-            onClick={(e) => bookSchedule("Wednesday")}
+            onClick={e => bookSchedule('Wednesday')}
             className="flex justify-center items-center py-2 px-4 bg-[#566bad] text-white w-full duration-200 hover:scale-y-125 hover:bg-white border-2 border-[#566bad] hover:text-[#566bad]"
             style={
-              course.Instructor?.Schedules.some((el) => el.time === "Wednesday")
+              course.Instructor?.Schedules.some(el => el.time === 'Wednesday')
                 ? disabledStyles
                 : {}
             }
@@ -364,10 +396,10 @@ const DetailCourse = () => {
             Wednesday
           </button>
           <button
-            onClick={(e) => bookSchedule("Thursday")}
+            onClick={e => bookSchedule('Thursday')}
             className="flex justify-center items-center py-2 px-4 bg-[#566bad] text-white w-full duration-200 hover:scale-y-125 hover:bg-white border-2 border-[#566bad] hover:text-[#566bad]"
             style={
-              course.Instructor?.Schedules.some((el) => el.time === "Thursday")
+              course.Instructor?.Schedules.some(el => el.time === 'Thursday')
                 ? disabledStyles
                 : {}
             }
@@ -375,10 +407,10 @@ const DetailCourse = () => {
             Thursday
           </button>
           <button
-            onClick={(e) => bookSchedule("Friday")}
+            onClick={e => bookSchedule('Friday')}
             className="flex justify-center items-center py-2 px-4 bg-[#566bad] text-white w-full duration-200 hover:scale-y-125 hover:bg-white border-2 border-[#566bad] hover:text-[#566bad]"
             style={
-              course.Instructor?.Schedules.some((el) => el.time === "Friday")
+              course.Instructor?.Schedules.some(el => el.time === 'Friday')
                 ? disabledStyles
                 : {}
             }

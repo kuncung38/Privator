@@ -25,17 +25,18 @@ class ReviewController {
   static async postReview(req, res, next) {
     const t = await sequelize.transaction();
     try {
-      const { score, description, CourseId } = req.body;
+      const { id } = req.params;
+      const { score, description } = req.body;
       if (!score) {
         throw { name: "Score is missing" };
       }
+
       const data = await Review.create(
         {
           score,
           description,
-          CourseId,
-          // StudentId: req.student.id,
-          StudentId: 1,
+          CourseId: id,
+          StudentId: req.student.id,
         },
         { transaction: t }
       );
@@ -85,6 +86,7 @@ class ReviewController {
         }
         avgCourse = totalScore / reviewCount;
         if (!isNaN(avgCourse)) {
+          result.push(avgCourse);
           result.push(avgCourse);
         }
       }

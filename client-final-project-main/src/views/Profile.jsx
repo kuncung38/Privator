@@ -1,48 +1,41 @@
-import bannerProfile from "../assets/Winter.jpg";
-import male from "../assets/male.png";
-import "../index.css";
-import map from "../assets/map.png";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
-import Review from "../components/Review";
-import CardReview from "../components/CardReview";
-import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
-import { useEffect } from "react";
-import {
-  fetchCourses,
-  getOneInstructor,
-  getReviews,
-} from "../stores/actionCreator";
-import { useParams } from "react-router-dom";
-import Course from "../components/Course";
+import bannerProfile from '../assets/Winter.jpg';
+import male from '../assets/male.png';
+import '../index.css';
+import map from '../assets/map.png';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper';
+import Review from '../components/Review';
+import CardReview from '../components/CardReview';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { fetchCourses, getOneInstructor } from '../stores/actionCreator';
+import { useParams } from 'react-router-dom';
+import course from '../components/Course';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import ReactMap, {
+  Popup,
+  Marker,
+  NavigationControl,
+  GeolocateControl,
+} from 'react-map-gl';
+import Course from '../components/Course';
 
 const Profile = () => {
+  const [lng, setLng] = useState(106.78135621716297);
+  const [lat, setLat] = useState(-6.268367798991761);
+  const [zoom, setZoom] = useState(11);
   const [loading, setLoading] = useState(true);
-  const { courses, instructor } = useSelector((state) => state.courses);
-  const { reviews } = useSelector((state) => state.reviews);
+  const { courses, instructor } = useSelector(state => state.courses);
   const { id } = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // console.log("kontol");
+    // dispatch(fetchCourses());
     dispatch(getOneInstructor(id));
     setLoading(false);
   }, []);
-
-  //   const fetchReviews = async (id) => {
-  //     try {
-  //       dispatch(getReviews(id));
-  //       setLoading(false);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-
-  //   useEffect(() => {
-  //     fetchReviews(id);
-  //   }, [id]);
-
-  
 
   return (
     <div className="helvetica">
@@ -125,16 +118,62 @@ const Profile = () => {
             <h1 className="text-3xl mb-2 font-bold">Description</h1>
             <p>{instructor?.bio}</p>
             {/* <h1 className="text-center text-5xl font-bold">Profile</h1> */}
-            <div className="flex justify-center py-10 px-20">
-              <img src={map} alt="" className="h-72" />
+
+            {/* !----------------------------------------------------------------------- */}
+            <div className="flex flex-col justify-center items-center p-5 ">
+              <ReactMap
+                mapboxAccessToken="pk.eyJ1IjoiZmFsZGkwMTI2IiwiYSI6ImNsY3B0N3UxdzJvbjgzcHA4dW9xdm1pa3gifQ.f_fE0qZ7IPzVnlRm1UEibg"
+                style={{
+                  width: '600px',
+                  height: '400px',
+                  borderRadius: '10px',
+                }}
+                initialViewState={{
+                  longitude: lng,
+                  latitude: lat,
+                  zoom: zoom,
+                }}
+                mapStyle="mapbox://styles/mapbox/streets-v11"
+              >
+                <Marker
+                  key={course.id}
+                  longitude={instructor?.geometry?.coordinates[0]}
+                  latitude={instructor?.geometry?.coordinates[1]}
+                  style={{ zIndex: 1 }}
+                >
+                  <div className="flex flex-col items-center">
+                    <img
+                      src={instructor?.profilePicture}
+                      alt="avatar"
+                      className="w-10 h-10 rounded-full"
+                    />
+
+                    <p className="text-lg">{instructor?.fullName}</p>
+                  </div>
+                </Marker>
+
+                <GeolocateControl>
+                  positionOptions={{ enableHighAccuracy: true }}
+                  trackUserLocation={true}
+                  onViewportChange=
+                  {viewport => {
+                    setLng(viewport.longitude);
+                    setLat(viewport.latitude);
+                    setZoom(viewport.zoom);
+                  }}
+                </GeolocateControl>
+              </ReactMap>
             </div>
-            <div className="text-start">
+
+            {/* !-------------------------------------------------------- */}
+
+            <div className="text-start my-10">
               <h1 className="text-2xl font-bold">
-                More Courses by{" "}
+                Courses by{' '}
                 <span className="text-[#566bad]">{instructor?.fullName}</span>
               </h1>
-              <div className="py-7 grid grid-cols-5">
-                {/* <Swiper
+              {/* <div className="py-7 grid grid-cols-5"> */}
+              {/* <Swiper
                                 slidesPerView={5}
                                 navigation={true}
                                 autoplay={{delay: 3000}}
@@ -147,14 +186,18 @@ const Profile = () => {
                                     "--swiper-navigation-background-color": "black"
                                 }}
                                 > */}
-                {instructor.Courses?.map((course) => (
+
+              <div className="flex flex-wrap justify-center gap-8 m-10">
+                {instructor?.Courses?.map(course => (
                   <Course
                     key={course.id}
                     instructorName={instructor?.fullName}
                     course={course}
                   />
                 ))}
-                {/* <SwiperSlide style={{textAlign : "left"}}>
+              </div>
+
+              {/* <SwiperSlide style={{textAlign : "left"}}>
                                     </SwiperSlide>
                                     <SwiperSlide style={{textAlign : "left"}}>
                                         <Course/>
@@ -169,8 +212,8 @@ const Profile = () => {
                                         <Course/>
                                     </SwiperSlide>
                                 </Swiper> */}
-              </div>
-              <h1 className="text-2xl font-bold my-6">Review</h1>
+              {/* </div> */}
+              {/* <h1 className="text-2xl font-bold my-6">Review</h1> */}
               <div className="px-7 flex flex-col gap-y-3 py-4">
                 <CardReview />
                 <CardReview />

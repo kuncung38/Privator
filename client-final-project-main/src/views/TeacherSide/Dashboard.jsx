@@ -1,12 +1,13 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import Review from "../../components/Review";
-import Calendar from "../../components/TeacherSide/Calendar";
-import Course from "../../components/Course";
-import "../../index.css";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { getDashboardInstructor } from "../../stores/actionCreator";
+import { useEffect } from 'react';
+import { useState } from 'react';
+import Review from '../../components/Review';
+import Calendar from '../../components/TeacherSide/Calendar';
+import Course from '../../components/Course';
+import '../../index.css';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getDashboardInstructor, setUser } from '../../stores/actionCreator';
+import { ChatPage } from '../../components/chatComponents/ChatPage';
 
 const Dashboard = () => {
   const [isActive, setisActive] = useState("listCourse");
@@ -19,25 +20,26 @@ const Dashboard = () => {
   //   const {instructor_login} = useSelector(state => state.instructor)
 
   useEffect(() => {
-    // console.log(instructor_login);
-    // dispatcher(getOneInstructor(instructor_login?.id))
+    dispatcher(setUser());
     dispatcher(getDashboardInstructor());
   }, [activeForm]);
 
   const renderSection = () => {
-    if (isActive == "listCourse") {
+    if (isActive == 'listCourse') {
       return (
-        <div className="px-44 py-16 grid grid-cols-4">
-          <div>
-            {user_login.Courses?.map((course) => (
+        <div className="px-44 py-16 grid grid-cols-4 gap-x-12">
+            {user_login.Courses?.map(course => (
               <Course key={course.id} course={course} />
             ))}
-          </div>
         </div>
       );
-    } else if (isActive == "Students") {
-      return <div className="px-44 py-16">hagsdjhgs</div>;
-    } else if (isActive == "Reviews") {
+    } else if (isActive == 'Students') {
+      return (
+        <div className="px-44 py-16 h-[80vh] w-[80vw]">
+          <ChatPage />
+        </div>
+      );
+    } else if (isActive == 'Reviews') {
       return (
         <div className="px-44 py-16">
           <div>
@@ -45,7 +47,7 @@ const Dashboard = () => {
           </div>
         </div>
       );
-    } else if (isActive == "Schedule") {
+    } else if (isActive == 'Schedule') {
       return (
         <div className="px-44 py-16">
           <div>
@@ -64,41 +66,41 @@ const Dashboard = () => {
             <div className="w-2/3 text-white flex gap-x-9 helvetica-bold translate-y-4 bg-[#292b2f]">
               <button
                 className={
-                  isActive !== "listCourse"
-                    ? "text-gray-400 border-b-8 pb-3 border-b-[#292b2f]"
-                    : "border-b-8 pb-3 border-b-white"
+                  isActive !== 'listCourse'
+                    ? 'text-gray-400 border-b-8 pb-3 border-b-[#292b2f]'
+                    : 'border-b-8 pb-3 border-b-white'
                 }
-                onClick={() => setisActive("listCourse")}
+                onClick={() => setisActive('listCourse')}
               >
                 List Course
               </button>
               <button
                 className={
-                  isActive !== "Students"
-                    ? "text-gray-400 border-b-8 pb-3 border-b-[#292b2f]"
-                    : "border-b-8 pb-3 border-b-white"
+                  isActive !== 'Students'
+                    ? 'text-gray-400 border-b-8 pb-3 border-b-[#292b2f]'
+                    : 'border-b-8 pb-3 border-b-white'
                 }
-                onClick={() => setisActive("Students")}
+                onClick={() => setisActive('Students')}
               >
                 Students
               </button>
               <button
                 className={
-                  isActive !== "Reviews"
-                    ? "text-gray-400 border-b-8 pb-3 border-b-[#292b2f]"
-                    : "border-b-8 pb-3 border-b-white"
+                  isActive !== 'Reviews'
+                    ? 'text-gray-400 border-b-8 pb-3 border-b-[#292b2f]'
+                    : 'border-b-8 pb-3 border-b-white'
                 }
-                onClick={() => setisActive("Reviews")}
+                onClick={() => setisActive('Reviews')}
               >
                 Reviews
               </button>
               <button
                 className={
-                  isActive !== "Schedule"
-                    ? "text-gray-400 border-b-8 pb-3 border-b-[#292b2f]"
-                    : "border-b-8 pb-3 border-b-white"
+                  isActive !== 'Schedule'
+                    ? 'text-gray-400 border-b-8 pb-3 border-b-[#292b2f]'
+                    : 'border-b-8 pb-3 border-b-white'
                 }
-                onClick={() => setisActive("Schedule")}
+                onClick={() => setisActive('Schedule')}
               >
                 Schedule
               </button>
@@ -112,7 +114,7 @@ const Dashboard = () => {
       </div>
       <div
         className="absolute w-screen bg-black z-30"
-        style={!activeForm ? { display: "none" } : { display: "block" }}
+        style={!activeForm ? { display: 'none' } : { display: 'block' }}
       >
         <div>bsadjgasdjas</div>
       </div>

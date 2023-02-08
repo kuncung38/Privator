@@ -6,9 +6,17 @@ import { useState, useEffect } from "react";
 import { fetchCourses } from "../stores/actionCreator";
 import { Link } from "react-router-dom";
 
-const Course = (props) => {
-  const {course} = props
-  const {instructorName} = props
+const Course = props => {
+  const { course } = props;
+  const { instructorName } = props;
+
+  const rupiah = (number)=>{
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR"
+    }).format(number);
+  }
+
 
   if (!course) {
     return (
@@ -17,22 +25,27 @@ const Course = (props) => {
       </div>
     );
   }
-    const leveling = () => {
-      if(course.level == "Beginner"){
-        return (
-          <span className="py-1 px-2 bg-[#acd2cd] text-[#2b524d] font-bold text-xs w-fit mb-1">{course?.level}</span>
-        )
-      }else if(course.level == "Intermediate"){
-        return (
-          <span className="py-1 px-2 bg-[#eceb98] text-[#3d3c0a] font-bold text-xs w-fit mb-1">{course?.level}</span>
-        )
-      }else if(course.level == "Advanced"){
-        return (
-          <span className="py-1 px-2 bg-[#f3ca8c] text-[#6e2c1e] font-bold text-xs w-fit mb-1">{course?.level}</span>
-        )
-      }
+  const leveling = () => {
+    if (course.level == 'Beginner') {
+      return (
+        <span className="py-1 px-2 bg-[#acd2cd] text-[#2b524d] font-bold text-xs w-fit mb-1">
+          {course?.level}
+        </span>
+      );
+    } else if (course.level == 'Intermediate') {
+      return (
+        <span className="py-1 px-2 bg-[#eceb98] text-[#3d3c0a] font-bold text-xs w-fit mb-1">
+          {course?.level}
+        </span>
+      );
+    } else if (course.level == 'Advanced') {
+      return (
+        <span className="py-1 px-2 bg-[#f3ca8c] text-[#6e2c1e] font-bold text-xs w-fit mb-1">
+          {course?.level}
+        </span>
+      );
     }
-  
+  };
 
   return (
     <Link className="w-60 border shadow-md rounded-sm overflow-hidden hover:scale-105 duration-200 ease-in-out" to={`/course/detail/${course?.id}`}>
@@ -42,7 +55,7 @@ const Course = (props) => {
         <div className="px-2 py-4 pb-2 text-sm flex flex-col gap-y-2">
             <p>{course?.name}</p>
             <p className="text-gray-400">{course.Instructor?.fullName || instructorName}</p>
-            <p className="font-bold">Rp. {course?.price}</p>
+            <p className="font-bold">{rupiah(course?.price)}</p>
             <div className="flex flex-col justify-between gap-y-4">
                 {
                   leveling()
@@ -55,9 +68,10 @@ const Course = (props) => {
 
 export default Course;
 
-
-{/* <div className="border rounded-md">
+{
+  /* <div className="border rounded-md">
                             <div className="py-1 text-center hover:bg-[#f7f9fa]">
                                 <p className="font-bold">Book now</p>
                             </div>        
-                        </div>  */}
+                        </div>  */
+}
