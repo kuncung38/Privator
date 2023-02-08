@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import { GET_COURSES, GET_ONE_COURSE } from "../actionType";
-=======
 import {
   GET_CATEGORIES_WITH_COURSE,
   GET_COURSES,
@@ -9,7 +6,6 @@ import {
   GET_ONE_COURSE,
   GET_ONE_INSTRUCTOR,
 } from "../actionType";
->>>>>>> main
 
 const initalState = {
   courses: [],

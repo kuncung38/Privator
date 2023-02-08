@@ -1,22 +1,13 @@
-<<<<<<< HEAD
-import { GET_COURSES, GET_ONE_COURSE, GET_BOOKINGS } from "./actionType";
-
-const origin = "http://localhost:3000";
-=======
 import {
-  GET_CATEGORIES_WITH_COURSE,
   GET_COURSES,
-  GET_INSTRUCTOR,
-  GET_ONE_CATEGORIES_WITH_COURSE,
   GET_ONE_COURSE,
-  GET_ONE_INSTRUCTOR,
   GET_BOOKINGS,
+  GET_ONE_INSTRUCTOR,
+  GET_INSTRUCTOR,
+  GET_REVIEW,
 } from "./actionType";
 
-// const origin = "https://3ef1-139-228-111-125.ap.ngrok.io";
 const origin = "http://localhost:3000";
-// const origin = "https://7725-139-228-111-125.ap.ngrok.io";
->>>>>>> main
 
 //? course
 export const fetchCourses = () => {
@@ -32,7 +23,6 @@ export const fetchCourses = () => {
         // }
       );
       const data = await response.json();
-      console.log(data);
       dispatch({
         type: GET_COURSES,
         payload: data,
@@ -43,11 +33,7 @@ export const fetchCourses = () => {
   };
 };
 
-<<<<<<< HEAD
-export const getOneCourse = (id) => {
-=======
 export const getCategoriesCourse = () => {
->>>>>>> main
   return async (dispatch) => {
     try {
       const response = await fetch(`${origin}/course/categories`);
@@ -56,31 +42,16 @@ export const getCategoriesCourse = () => {
         type: GET_CATEGORIES_WITH_COURSE,
         payload: data,
       });
-      
     } catch (error) {
       console.log(error);
     }
   };
 };
 
-<<<<<<< HEAD
-export const registerStudent = (value) => {
-  return async (dispatch) => {
-    try {
-      const response = await fetch(`${origin}/student/register`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(value),
-      });
-
-=======
 export const getCategoriesWithCourseById = (id) => {
   return async (dispatch) => {
     try {
       const response = await fetch(`${origin}/course/categories/${id}`);
->>>>>>> main
       const data = await response.json();
       dispatch({
         type: GET_ONE_CATEGORIES_WITH_COURSE,
@@ -92,14 +63,7 @@ export const getCategoriesWithCourseById = (id) => {
   };
 };
 
-<<<<<<< HEAD
-export const loginStudent = (value) => {
-  return async (dispatch) => {
-    try {
-      const response = await fetch(`${origin}/student/login`, {
-=======
 export const getOneCourse = (id) => {
-  console.log(id);
   return async (dispatch) => {
     try {
       const response = await fetch(`${origin}/course/${id}`);
@@ -108,7 +72,6 @@ export const getOneCourse = (id) => {
         type: GET_ONE_COURSE,
         payload: data,
       });
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -122,7 +85,6 @@ export const getOneInstructor = (id) => {
       const response = await fetch(`${origin}/instructor/${id}`);
 
       const data = await response.json();
-      console.log(data);
       if (data) {
         dispatch({
           type: GET_ONE_INSTRUCTOR,
@@ -142,7 +104,6 @@ export const getInstructors = () => {
 
       const data = await response.json();
       if (data) {
-        console.log(data);
         dispatch({
           type: GET_INSTRUCTOR,
           payload: data,
@@ -160,7 +121,6 @@ export const registerStudent = (value) => {
   return async (dispatch) => {
     try {
       const response = await fetch(`${origin}/student/register`, {
->>>>>>> main
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -169,10 +129,6 @@ export const registerStudent = (value) => {
       });
 
       const data = await response.json();
-<<<<<<< HEAD
-      localStorage.setItem("access_token", data.access_token);
-=======
->>>>>>> main
 
       console.log(data);
     } catch (error) {
@@ -181,8 +137,6 @@ export const registerStudent = (value) => {
   };
 };
 
-<<<<<<< HEAD
-=======
 export const loginStudent = (value) => {
   return async (dispatch) => {
     try {
@@ -205,7 +159,6 @@ export const loginStudent = (value) => {
 };
 
 //? booking
->>>>>>> main
 export const createBooking = (id) => {
   return async (dispatch) => {
     try {
@@ -275,8 +228,31 @@ export const fetchBookings = () => {
 //     } catch (error) {
 //       console.log(error);
 //     }
-//   };
+//   };G
 // };
+
+export const getReviews = (id) => {
+  console.log("ini dari creator review");
+  console.log(id, "asdasd");
+  return async (dispatch) => {
+    try {
+      const response = await fetch(`${origin}/review/${id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      console.log(data, "ini dari action creator");
+      dispatch({
+        type: GET_REVIEW,
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
 export const loginInstructor = (value) => {
   return async (dispatch) => {

@@ -7,7 +7,7 @@
     "imgUrl": "https://img-b.udemycdn.com/course/240x135/764164_de03_5.jpg",
     "type": "Offline",
     "CategoryId": 5,
-    "InstructorId": 5
+    "InstructorId": 1
   },
   {
     "name": "Membangun Website Dari Basic dengan Mudah",
@@ -17,7 +17,7 @@
     "imgUrl": "https://img-b.udemycdn.com/course/240x135/3066364_e36b_2.jpg",
     "type": "Online",
     "CategoryId": 5,
-    "InstructorId": 5
+    "InstructorId": 1
   }, 
   {
     "name": "Complete Responsive Web Development: 4 courses in 1",
@@ -27,6 +27,6 @@
     "imgUrl": "https://img-b.udemycdn.com/course/240x135/1426718_abb7_2.jpg 1x, https://img-b.udemycdn.com/course/480x270/1426718_abb7_2.jpg 2x",
     "type": "Online",
     "CategoryId": 5,
-    "InstructorId": 5
+    "InstructorId": 1
   }
 ]

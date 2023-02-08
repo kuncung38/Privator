@@ -43,8 +43,8 @@
   },
   {
     "StudentId": 8,
-    "CourseId": 4,
-    "InstructorId": 4,
+    "CourseId": 2,
+    "InstructorId": 2,
     "status": "Booked"
   }
 ]
