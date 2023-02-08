@@ -5,6 +5,7 @@ import {
   GET_ONE_INSTRUCTOR,
   GET_INSTRUCTOR,
   GET_REVIEW,
+  LOGIN_INSTRUCTOR,
 } from "./actionType";
 
 const origin = "http://localhost:3000";
@@ -265,17 +266,11 @@ export const loginInstructor = (value) => {
         body: JSON.stringify(value),
       });
 
+
       const data = await response.json();
-      console.log(data);
-      if (data) {
-        dispatch({
-          type: LOGIN_INSTRUCTOR,
-          payload: data,
-        });
-        localStorage.setItem("access_token", data.access_token);
-      }
+      localStorage.setItem("access_token", data.access_token);
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   };
 };
