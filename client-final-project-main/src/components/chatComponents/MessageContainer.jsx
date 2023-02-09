@@ -34,11 +34,11 @@ const MessageContainer = () => {
                 <div
                     key={el.id}
                     className="flex gap-2"
-                    style={el.userId === user.id ? goRight : goLeft}
+                    style={el.displayName === user.fullName ? goRight : goLeft}
                 >
                     <div
                         style={
-                            el.userId === user.id
+                            el.displayName === user.fullName
                                 ? {
                                       float: "right",
                                       goRight,
