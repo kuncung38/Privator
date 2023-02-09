@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Notify } from "notiflix";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -23,6 +24,8 @@ export const AddReviewForm = ({ id }) => {
                     description,
                 },
             });
+            Notify.success("Thank you for your feedback");
+            navigate("/course/detail/" + id);
             console.log(data.message);
         } catch (error) {
             console.log(error.response.data.message);
@@ -61,7 +64,6 @@ export const AddReviewForm = ({ id }) => {
                     type="submit"
                     value={"Submit"}
                     className="bg-[#566bad] shadow-md text-white font-semibold py-2 cursor-pointer duration-150 hover:bg-[#6479bd]"
-                    onClick={() => navigate("/course/detail/" + id)}
                 />
             </form>
         </div>

@@ -1,14 +1,18 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import Review from "../../components/Review";
-import Calendar from "../../components/TeacherSide/Calendar";
 import Course from "../../components/Course";
 import "../../index.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getDashboardInstructor, setUser } from "../../stores/actionCreator";
+import {
+    errorHandler,
+    getDashboardInstructor,
+    setUser,
+} from "../../stores/actionCreator";
 import { ChatPage } from "../../components/chatComponents/ChatPage";
 import axios from "axios";
+import { Loading, Notify } from "notiflix";
 
 const ORIGIN = "http://localhost:3000";
 
@@ -17,10 +21,8 @@ const Dashboard = () => {
     const [activeForm, setActiveForm] = useState(false);
 
     const dispatcher = useDispatch();
-    // const { instructor } = useSelector(state => state.course)
-    const { user_login } = useSelector((state) => state.instructor);
 
-    //   const {instructor_login} = useSelector(state => state.instructor)
+    const { user_login } = useSelector((state) => state.instructor);
 
     useEffect(() => {
         dispatcher(setUser());
@@ -28,6 +30,7 @@ const Dashboard = () => {
     }, [activeForm]);
 
     const completeSchedule = async (id) => {
+        Loading.circle();
         try {
             await axios({
                 method: "DELETE",
@@ -37,8 +40,10 @@ const Dashboard = () => {
                 },
             });
             dispatcher(getDashboardInstructor());
+            Loading.remove();
+            Notify.success("Schedule has been successfully cleared");
         } catch (error) {
-            console.log(error);
+            errorHandler(error);
         }
     };
 
@@ -67,11 +72,6 @@ const Dashboard = () => {
             );
         } else if (isActive == "Schedule") {
             return (
-                // <div className="px-44 py-16">
-                //     <div>
-                //         <Calendar />
-                //     </div>
-                // </div>
                 <>
                     <div className="xl:w-3/4 2xl:w-4/5 w-full flex flex-col justify-center items-center mx-auto">
                         <div className="px-4 md:px-10 py-4 md:py-7">

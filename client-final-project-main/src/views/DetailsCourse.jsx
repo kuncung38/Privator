@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import { doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";
 import { db } from "../service/firebase";
+import { Loading, Notify } from "notiflix";
 
 const DetailCourse = () => {
     const { course } = useSelector((state) => state.course);
@@ -163,6 +164,7 @@ const DetailCourse = () => {
     }
 
     const bookSchedule = (time) => {
+        Loading.circle();
         setChosenTime();
         handlePayment(time);
     };
@@ -194,12 +196,16 @@ const DetailCourse = () => {
                 toggleModal();
                 navigate("/");
                 console.log("Transaction success:", result);
+                Loading.remove();
+                Notify.success("Payment success, please check your email");
             },
             onPending: (result) => {
-                console.log("Transaction pending:", result);
+                Loading.remove();
+                Notify.info(`Transaction pending: ${result}`);
             },
             onError: (result) => {
-                console.error("Transaction error:", result);
+                Loading.remove();
+                Notify.failure(`Transaction error: ${result}`);
             },
         });
     };
@@ -313,13 +319,13 @@ const DetailCourse = () => {
                         </h1>
                         <div className="flex flex-col gap-y-3 mt-7">
                             <div className="">
-                                <div className="py-2 text-center border-r bg-[#566bad] font-bold text-white hover:bg-[#f7f9fa] hover:text-black">
+                                <div className="py-2 text-center duration-200 border border-[#566bad] bg-[#566bad] font-bold text-white hover:bg-[#f7f9fa] hover:text-[#566bad]">
                                     Message
                                 </div>
                             </div>
                             <div
                                 onClick={toggleModal}
-                                className="text-center border text-white border-black py-3 hover:bg-[#f7f9fa] hover:text-black bg-[#292b2f]"
+                                className="text-center cursor-pointer border text-white border-black py-3 duration-200 hover:bg-[#f7f9fa] hover:text-black bg-[#292b2f]"
                             >
                                 <button>Book now</button>
                             </div>

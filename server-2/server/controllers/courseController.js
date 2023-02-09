@@ -29,7 +29,7 @@ class CourseController {
                     ],
                 },
             ];
-
+            options.order = [["id"]];
             if (search) {
                 options.where = {
                     name: {
