@@ -4,7 +4,7 @@ import MessageInput from "./MessageInput";
 
 const ChatRightSection = () => {
     return (
-        <section className="w-full h-full">
+        <section className="w-full h-full bg-cover relativ bg-opacity-25 bg-[url('https://www.canva.com/design/DAFaDx17Ids/view')]">
             <MessageContainer />
 
             <MessageInput />

@@ -14,7 +14,7 @@ const CardReview = ({ review }) => {
                     />
                 </div>
                 <div className="flex flex-col gap-y-2">
-                    <h1>{review?.Student.fullName}</h1>
+                    <h1 className="font-bold">{review?.Student.fullName}</h1>
                     <div className="flex gap-x-5 text-sm">
                         <Rating
                             emptySymbol={

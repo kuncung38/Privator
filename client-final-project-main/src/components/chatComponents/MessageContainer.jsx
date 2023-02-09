@@ -33,10 +33,28 @@ const MessageContainer = () => {
             {messages.map((el) => (
                 <div
                     key={el.id}
-                    className="flex flex-row gap-2"
+                    className="flex gap-2"
                     style={el.userId === user.id ? goRight : goLeft}
                 >
-                    <p style={{ float: "right" }}>{el.text}</p>
+                    <div
+                        style={
+                            el.userId === user.id
+                                ? {
+                                      float: "right",
+                                      goRight,
+                                      backgroundColor: "yellow",
+                                  }
+                                : // #92cbdf"
+                                  {
+                                      float: "right",
+                                      goLeft,
+                                      backgroundColor: "#e9f5f9",
+                                  }
+                        }
+                        className="w-fit  px-3 py-1 rounded-xl"
+                    >
+                        <p>{el.text}</p>
+                    </div>
                 </div>
             ))}
             <div ref={containerRef} />

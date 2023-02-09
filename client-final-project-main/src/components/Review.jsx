@@ -42,14 +42,14 @@ const Review = () => {
                     <h1 className="text-2xl helvetica-bold">
                         {!reviewData.average_review
                             ? "No Reviews Yet"
-                            : `${reviewData.average_review} Instructor Rating`}
+                            : `${reviewData.average_review}/5 Instructor Rating`}
                     </h1>
                 </div>
             </div>
             <hr className="my-5" />
-            <div className="grid grid-cols-2 gap-x-7 gap-y-10">
+            {/* <div className="grid grid-cols-2 gap-x-7 gap-y-10">
                 {!reviewData.average_review ? "" : <CardReview />}
-            </div>
+            </div> */}
         </div>
     );
 };

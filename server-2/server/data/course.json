@@ -17,7 +17,7 @@
         "imgUrl": "https://img-c.udemycdn.com/course/240x135/601820_3444_10.jpg",
         "type": "Offline",
         "CategoryId": 1,
-        "InstructorId": 2
+        "InstructorId": 1
     },
     {
         "name": "Chinese language for beginners: Mandarin Chinese",
@@ -27,7 +27,7 @@
         "imgUrl": "https://img-c.udemycdn.com/course/240x135/2468694_1603_3.jpg",
         "type": "Offline",
         "CategoryId": 1,
-        "InstructorId": 3
+        "InstructorId": 1
     },
     {
         "name": "The Professional Guitar Masterclass",
@@ -47,7 +47,7 @@
         "imgUrl": "https://img-b.udemycdn.com/course/240x135/1033526_0c65_2.jpg",
         "type": "Offline",
         "CategoryId": 2,
-        "InstructorId": 5
+        "InstructorId": 1
     },
     {
         "name": "Muay Thai",
@@ -117,7 +117,7 @@
         "imgUrl": "https://img-c.udemycdn.com/course/240x135/1582278_57ca_5.jpg",
         "type": "Offline",
         "CategoryId": 3,
-        "InstructorId": 3
+        "InstructorId": 1
     },
     {
         "name": "Complete Vibrato Mastery",
@@ -157,7 +157,7 @@
         "imgUrl": "https://img-c.udemycdn.com/course/240x135/1284558_40cd_6.jpg",
         "type": "Offline",
         "CategoryId": 1,
-        "InstructorId": 1
+        "InstructorId": 3
     },
     {
         "name": "Physics - Kinematics for High School and AP Physics 1",
@@ -237,7 +237,7 @@
         "imgUrl": "https://img-c.udemycdn.com/course/240x135/2196488_8fc7_10.jpg",
         "type": "Online",
         "CategoryId": 5,
-        "InstructorId": 5
+        "InstructorId": 1
     },
     {
         "name": "Artificial Intelligence A-Z™: Learn How To Build An AI",
@@ -247,7 +247,7 @@
         "imgUrl": "https://img-c.udemycdn.com/course/240x135/1219332_bdd7.jpg",
         "type": "Online",
         "CategoryId": 5,
-        "InstructorId": 5
+        "InstructorId": 1
     },
     {
         "name": "Thai Cooking Master Class",
@@ -257,7 +257,7 @@
         "imgUrl": "https://img-c.udemycdn.com/course/240x135/1751546_58f9_2.jpg",
         "type": "Offline",
         "CategoryId": 3,
-        "InstructorId": 3
+        "InstructorId": 1
     },
     {
         "name": "Essential Cooking Skills",
@@ -267,7 +267,7 @@
         "imgUrl": "https://img-c.udemycdn.com/course/240x135/1113854_d302_2.jpg",
         "type": "Offline",
         "CategoryId": 3,
-        "InstructorId": 3
+        "InstructorId": 1
     },
     {
         "name": "Total basketball Player Development",
@@ -277,7 +277,7 @@
         "imgUrl": "https://img-b.udemycdn.com/course/240x135/4391788_6435.jpg",
         "type": "Offline",
         "CategoryId": 4,
-        "InstructorId": 3
+        "InstructorId": 1
     },
     {
         "name": "Become A Better Badminton Player",
@@ -287,6 +287,6 @@
         "imgUrl": "https://img-c.udemycdn.com/course/240x135/3097272_8a7d.jpg",
         "type": "Offline",
         "CategoryId": 4,
-        "InstructorId": 3
+        "InstructorId": 1
     }
 ]

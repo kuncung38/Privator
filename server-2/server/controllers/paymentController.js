@@ -4,13 +4,6 @@ const midtransFunction = require("../helpers/midtransFunction");
 const origin = "http://localhost:5174";
 
 const nodemailer = require("nodemailer");
-let transporter = nodemailer.createTransport({
-    service: "outlook",
-    auth: {
-        user: process.env.EMAIL,
-        pass: process.env.EMAIL_PASS,
-    },
-});
 
 class PaymentController {
     static async getToken(req, res, next) {
@@ -60,6 +53,24 @@ class PaymentController {
                 day: req.body.day,
                 time: req.body.time,
             };
+
+            let testAccount = await nodemailer.createTestAccount();
+            // let transporter = nodemailer.createTransport({
+            //     service: "outlook",
+            //     auth: {
+            //         user: process.env.EMAIL,
+            //         pass: process.env.EMAIL_PASS,
+            //     },
+            // });
+            let transporter = nodemailer.createTransport({
+                host: "smtp.ethereal.email",
+                port: 587,
+                secure: false, // true for 465, false for other ports
+                auth: {
+                    user: testAccount.user, // generated ethereal user
+                    pass: testAccount.pass, // generated ethereal password
+                },
+            });
 
             const options = {
                 from: process.env.EMAIL,

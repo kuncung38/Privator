@@ -6,12 +6,7 @@ const { authenticationStudent } = require("../middlewares/authentication");
 const authorization = require("../middlewares/authorization");
 
 router.get("/:id", ReviewController.getReviews);
-router.post(
-  "/:id",
-  authenticationStudent,
-  authorization,
-  ReviewController.postReview
-);
+router.post("/:id", authenticationStudent, ReviewController.postReview);
 router.get("/instructor/:id", ReviewController.getInstructorReviews);
 
 module.exports = router;

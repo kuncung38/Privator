@@ -5,18 +5,20 @@ import CardReview from "../components/CardReview";
 import "../index.css";
 
 import axios from "axios";
-
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getOneCourse, getReviews } from "../stores/actionCreator";
+import { getOneCourse, getReviews, setUser } from "../stores/actionCreator";
 import { useNavigate } from "react-router-dom";
 
 import Modal from "react-modal";
+import { doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";
+import { db } from "../service/firebase";
 
 const DetailCourse = () => {
     const { course } = useSelector((state) => state.course);
     const { reviews } = useSelector((state) => state.reviews);
+    const user = useSelector((state) => state.user);
     const dispatch = useDispatch();
     const { id } = useParams();
 
@@ -70,6 +72,7 @@ const DetailCourse = () => {
     };
 
     useEffect(() => {
+        dispatch(setUser());
         fetchOneCourse(id);
     }, [id]);
 
@@ -164,6 +167,21 @@ const DetailCourse = () => {
         handlePayment(time);
     };
 
+    const createChatRoom = async () => {
+        const name =
+            user.fullName < course.Instructor.fullName
+                ? `${user.fullName}${user.id}${course.Instructor.fullName}${course.Instructor.id}`
+                : `${course.Instructor.fullName}${course.Instructor.id}${user.fullName}${user.id}`;
+        const docs = await getDoc(doc(db, "chatrooms", name));
+        if (!docs.exists()) {
+            await setDoc(doc(db, "chatrooms", name), {
+                user: [user, course.Instructor],
+                createdAt: serverTimestamp(),
+                updatedAt: serverTimestamp(),
+            });
+        }
+    };
+
     const handlePayment = (day) => {
         console.log(snapToken);
         if (!snapToken) {
@@ -172,6 +190,7 @@ const DetailCourse = () => {
         window.snap.pay(snapToken.token, {
             onSuccess: async (result) => {
                 await bookCourse(day);
+                await createChatRoom();
                 toggleModal();
                 navigate("/");
                 console.log("Transaction success:", result);

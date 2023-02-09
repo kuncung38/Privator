@@ -9,7 +9,11 @@ import CardReview from "../components/CardReview";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
-import { fetchCourses, getOneInstructor } from "../stores/actionCreator";
+import {
+    fetchCourses,
+    getOneInstructor,
+    getReviews,
+} from "../stores/actionCreator";
 import { useParams } from "react-router-dom";
 import course from "../components/Course";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -27,6 +31,7 @@ const Profile = () => {
     const [zoom, setZoom] = useState(11);
     const [loading, setLoading] = useState(true);
     const { courses, instructor } = useSelector((state) => state.courses);
+    const { reviews } = useSelector((state) => state.reviews);
     const { id } = useParams();
     const dispatch = useDispatch();
 
@@ -36,6 +41,19 @@ const Profile = () => {
         dispatch(getOneInstructor(id));
         setLoading(false);
     }, []);
+
+    useEffect(() => {
+        fetchReviews(id);
+    }, [id]);
+
+    const fetchReviews = async (id) => {
+        try {
+            dispatch(getReviews(id));
+            setLoading(false);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
         <div className="helvetica">
@@ -221,12 +239,14 @@ const Profile = () => {
                                     </SwiperSlide>
                                 </Swiper> */}
                             {/* </div> */}
-                            {/* <h1 className="text-2xl font-bold my-6">Review</h1> */}
+                            <h1 className="text-2xl font-bold my-6">Review</h1>
                             <div className="px-7 flex flex-col gap-y-3 py-4">
-                                <CardReview />
-                                <CardReview />
-                                <CardReview />
-                                <CardReview />
+                                {reviews?.map((review) => (
+                                    <CardReview
+                                        review={review}
+                                        key={review.id}
+                                    />
+                                ))}
                             </div>
                         </div>
                     </div>
