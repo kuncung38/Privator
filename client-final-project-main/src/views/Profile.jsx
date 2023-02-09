@@ -241,12 +241,18 @@ const Profile = () => {
                             {/* </div> */}
                             <h1 className="text-2xl font-bold my-6">Review</h1>
                             <div className="px-7 flex flex-col gap-y-3 py-4">
-                                {reviews?.map((review) => (
-                                    <CardReview
-                                        review={review}
-                                        key={review.id}
-                                    />
-                                ))}
+                                {!reviews?.length ? (
+                                    <p className="self-center my-10 text-2xl font-semibold text-gray-400">
+                                        No review yet.
+                                    </p>
+                                ) : (
+                                    reviews?.map((review) => (
+                                        <CardReview
+                                            review={review}
+                                            key={review.id}
+                                        />
+                                    ))
+                                )}
                             </div>
                         </div>
                     </div>

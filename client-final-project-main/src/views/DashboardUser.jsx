@@ -46,22 +46,21 @@ const DashboardUser = () => {
     const { courses } = useSelector((state) => state.bookings);
     console.log(courses);
 
+    const styleLevel = () => {};
+
     const paging = () => {
         if (isActive == "listBook") {
             return (
-                <div className="grid grid-cols-4 gap-x-10">
+                <div className="grid grid-cols-5 gap-x-10">
                     {courses?.map((course) => (
                         <div
                             key={course.id}
-                            className="w-60 relative shadow-md"
+                            className={
+                                course.status == "Completed"
+                                    ? "w-60 relative shadow-md grayscale"
+                                    : "w-60 relative shadow-md"
+                            }
                         >
-                            <div className="rounded-t-md bg-cover relative -z-20 ">
-                                <img
-                                    src={course.Course.imgUrl}
-                                    alt=""
-                                    className="w-full object-cover"
-                                />
-                            </div>
                             <div className="flex flex-col justify-between px-2 py-4">
                                 <div className="text-sm flex flex-col gap-y-2">
                                     <p>{course.Course.name}</p>
@@ -71,14 +70,20 @@ const DashboardUser = () => {
                                 </div>
                                 {/* <p>Rp. {course.Course.price}</p> */}
 
-                                <div className="flex flex-col gap-y-4">
-                                    <div className="p-1 px-3 bg-[#f3ca8c]">
-                                        <span className="text-[#6e2c1e] font-bold">
+                                <div className="flex flex-col gap-y-4 text-sm mt-2">
+                                    <div className="px-3 bg-[#eceb98] w-fit">
+                                        <span className="text-[#3d3c0a] font-bold">
                                             {course.Course.level}
                                         </span>
                                     </div>
                                     <div className="flex flex-col gap-2">
-                                        <div className="flex border justify-center py-1  bg-[#acd2cd] hover:bg-[#f7f9fa]">
+                                        <div
+                                            className={
+                                                course?.status == "Completed"
+                                                    ? "flex border justify-center py-1  bg-[#acd2cd] hover:bg-[#f7f9fa] invisible"
+                                                    : "flex border justify-center py-1  bg-[#acd2cd] hover:bg-[#f7f9fa]"
+                                            }
+                                        >
                                             <a
                                                 href={`/room/${course.Course.name.replaceAll(
                                                     " ",

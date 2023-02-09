@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginInstructor, loginStudent } from "../stores/actionCreator";
+import { Notify } from "notiflix";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -44,18 +45,13 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!values.email || !values.password) {
-            return console.log("please fill all the field");
+            return Notify.failure("please fill all the field");
         }
-        try {
-            if (pathname == "/login") {
-                dispatcher(loginStudent(values));
-                navigate("/");
-            } else {
-                dispatcher(loginInstructor(values));
-                navigate("/");
-            }
-        } catch (error) {
-            console.log(error);
+
+        if (pathname == "/login") {
+            await loginStudent(values, navigate);
+        } else {
+            await loginInstructor(values, navigate);
         }
     };
 

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ORIGIN = "http://localhost:3000";
 
@@ -7,6 +8,7 @@ export const AddReviewForm = ({ id }) => {
     const [score, setScore] = useState(1);
     const [description, setDescription] = useState("");
 
+    const navigate = useNavigate();
     const submitReview = async (e) => {
         e.preventDefault();
         try {
@@ -59,6 +61,7 @@ export const AddReviewForm = ({ id }) => {
                     type="submit"
                     value={"Submit"}
                     className="bg-[#566bad] shadow-md text-white font-semibold py-2 cursor-pointer duration-150 hover:bg-[#6479bd]"
+                    onClick={() => navigate("/course/detail/" + id)}
                 />
             </form>
         </div>

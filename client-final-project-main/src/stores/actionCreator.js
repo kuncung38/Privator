@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Loading, Notify } from "notiflix";
 import {
     GET_CATEGORIES_WITH_COURSE,
     GET_COURSES,
@@ -196,31 +197,35 @@ export const registerStudent = (value) => {
     };
 };
 
-export const loginStudent = (value) => {
-    return async (dispatch) => {
-        try {
-            const response = await fetch(`${origin}/student/login`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
+export const errorHandler = (error) => {
+    Loading.remove();
+    Notify.failure(error.response.data.message);
+};
 
-                    "ngrok-skip-browser-warning": true,
-                },
-                body: JSON.stringify(value),
-            });
-
-            const data = await response.json();
-            localStorage.setItem("access_token", data.access_token);
-            localStorage.setItem(
-                "mkdyznbmvkyxzcaryrqkgaxnnjtqltlcnwzuhvlqrlojif",
-                data.role
-            );
-
-            console.log(data, "lpogoiiimmm");
-        } catch (error) {
-            console.log(error);
-        }
-    };
+export const loginStudent = async (value, navigate) => {
+    try {
+        Loading.circle();
+        console.log(value);
+        const { data } = await axios({
+            method: "POST",
+            url: `${origin}/student/login`,
+            headers: {
+                "Content-Type": "application/json",
+                "ngrok-skip-browser-warning": true,
+            },
+            data: value,
+        });
+        localStorage.setItem("access_token", data.access_token);
+        localStorage.setItem(
+            "mkdyznbmvkyxzcaryrqkgaxnnjtqltlcnwzuhvlqrlojif",
+            data.role
+        );
+        Loading.remove();
+        Notify.success("You are logged in as a student");
+        navigate("/");
+    } catch (error) {
+        errorHandler(error);
+    }
 };
 
 //? booking
@@ -291,31 +296,31 @@ export const getReviews = (id) => {
     };
 };
 
-export const loginInstructor = (value) => {
-    return async (dispatch) => {
-        try {
-            const response = await fetch(`${origin}/instructor/login`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
+export const loginInstructor = async (value, navigate) => {
+    try {
+        Loading.circle();
+        const { data } = await axios({
+            method: "POST",
+            url: `${origin}/instructor/login`,
+            headers: {
+                "Content-Type": "application/json",
+                "ngrok-skip-browser-warning": true,
+            },
+            data: value,
+        });
 
-                    "ngrok-skip-browser-warning": true,
-                },
-                body: JSON.stringify(value),
-            });
-
-            const data = await response.json();
-            localStorage.setItem("access_token", data.access_token);
-            localStorage.setItem(
-                "mkdyznbmvkyxzcaryrqkgaxnnjtqltlcnwzuhvlqrlojif",
-                data.role
-            );
-
-            console.log(data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
+        localStorage.setItem("access_token", data.access_token);
+        localStorage.setItem(
+            "mkdyznbmvkyxzcaryrqkgaxnnjtqltlcnwzuhvlqrlojif",
+            data.role
+        );
+        console.log(data);
+        Loading.remove();
+        Notify.success("You are logged in as an instructor");
+        navigate("/");
+    } catch (error) {
+        errorHandler(error);
+    }
 };
 
 export const registerInstructor = (value) => {

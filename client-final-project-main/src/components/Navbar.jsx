@@ -1,32 +1,11 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import Privator from "../assets/logo.png";
-import male from "../assets/male.png";
 import female from "../assets/female.png";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+
+import { Notify } from "notiflix";
 
 const Navbar = () => {
     const navigator = useNavigate();
-
-    const [role, setRole] = useState("");
-
-    useEffect(() => {
-        setRole(
-            localStorage.getItem(
-                "mkdyznbmvkyxzcaryrqkgaxnnjtqltlcnwzuhvlqrlojif"
-            )
-        );
-    }, [
-        localStorage.getItem("mkdyznbmvkyxzcaryrqkgaxnnjtqltlcnwzuhvlqrlojif"),
-    ]);
-
-    const showDashboard = () => {
-        if (role == "student") {
-            return <NavLink to="/user/dashboard">Dashboard</NavLink>;
-        } else if (role == "instructor") {
-            return <NavLink to="/instructor/dashboard">Dashboard</NavLink>;
-        }
-    };
 
     return (
         <div className="px-16 py-3 flex z-40 justify-between items-center shadow-md sticky top-0 bg-white">
@@ -38,29 +17,39 @@ const Navbar = () => {
             <div className="flex gap-x-5 text-sm">
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/course">Course</NavLink>
-                {showDashboard()}
+                {localStorage.getItem(
+                    "mkdyznbmvkyxzcaryrqkgaxnnjtqltlcnwzuhvlqrlojif"
+                ) === "student" && (
+                    <NavLink to="/user/dashboard">Dashboard</NavLink>
+                )}
+                {localStorage.getItem(
+                    "mkdyznbmvkyxzcaryrqkgaxnnjtqltlcnwzuhvlqrlojif"
+                ) === "instructor" && (
+                    <NavLink to="/instructor/dashboard">Dashboard</NavLink>
+                )}
                 <NavLink to="/instructor">Teach on Privator</NavLink>
             </div>
             <div className="flex gap-x-5 items-center">
-                <div>
-                    <NavLink to="/edit-profile">
-                        <img src={female} alt="" className="w-9" />
-                    </NavLink>
-                </div>
                 {!localStorage.getItem("access_token") && (
-                    <Link to={"/login"}>
+                    <NavLink to={"/login"}>
                         <h1>login</h1>
-                    </Link>
+                    </NavLink>
                 )}
                 {localStorage.getItem("access_token") && (
-                    <button
-                        onClick={() => {
-                            localStorage.clear();
-                            navigator("/");
-                        }}
-                    >
-                        Logout
-                    </button>
+                    <>
+                        <NavLink to="/edit-profile">
+                            <img src={female} alt="" className="w-9" />
+                        </NavLink>
+                        <button
+                            onClick={() => {
+                                localStorage.clear();
+                                Notify.success("Success logout");
+                                navigator("/");
+                            }}
+                        >
+                            Logout
+                        </button>
+                    </>
                 )}
             </div>
         </div>
